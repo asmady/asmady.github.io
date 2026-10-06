@@ -5,50 +5,483 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog Ardi Aliansyah</title>
 <meta name="description" content="Catatan harian tentang teknologi, automation, dan trading.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://asmady.github.io/">
+<style>
+:root {
+  --bg: #0f1115;
+  --card: #181b22;
+  --text: #e6e8ec;
+  --muted: #9aa3af;
+  --accent: #4f9cf9;
+  --border: #262b35;
+}
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Blog Ardi Aliansyah">
-<meta property="og:description" content="Catatan harian tentang teknologi, automation, dan trading.">
-<meta property="og:url" content="https://asmady.github.io/">
-<meta property="og:site_name" content="Blog Ardi Aliansyah">
+* { box-sizing: border-box; }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog Ardi Aliansyah">
-<meta name="twitter:description" content="Catatan harian tentang teknologi, automation, dan trading.">
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-<!-- Theme -->
-<meta name="theme-color" content="#0f1115">
-<meta name="google-site-verification" content="gG7Jk2ga3LjHB30F5fC0ozVCzOab9N6kBSqo3mrGgA8">
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
 
-<link rel="stylesheet" href="style.css">
+header.site {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+}
+
+header.site h1 {
+  margin: 0 0 6px;
+  font-size: 1.9rem;
+  letter-spacing: -0.5px;
+}
+
+header.site h1 a { color: var(--text); text-decoration: none; }
+header.site h1 a:hover { color: var(--accent); }
+
+.tagline { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+.post-list { list-style: none; padding: 0; margin: 0; }
+
+.post-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.post-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.post-card h2 a { color: var(--text); text-decoration: none; }
+.post-card h2 a:hover { color: var(--accent); }
+
+.post-card p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
+
+.meta { color: var(--muted); font-size: 0.8rem; }
+
+article.post h1 { font-size: 1.8rem; line-height: 1.3; margin: 0 0 8px; }
+article.post .meta { display: block; margin-bottom: 28px; }
+article.post h2 { margin-top: 32px; font-size: 1.3rem; }
+article.post img { max-width: 100%; border-radius: 10px; }
+article.post blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 20px 0;
+  padding: 4px 16px;
+  color: var(--muted);
+}
+article.post pre {
+  background: #11141a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}
+article.post code { background: #11141a; padding: 2px 5px; border-radius: 4px; font-size: 0.88em; }
+article.post pre code { background: none; padding: 0; }
+
+.back { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+
+footer.site {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+article.post { display: none; }
+article.post.aktif { display: block; }
+nav.toc { margin: 0 0 24px; padding: 0; list-style: none; display: flex; gap: 10px; flex-wrap: wrap; }
+nav.toc button {
+  background: var(--card); color: var(--text); border: 1px solid var(--border);
+  border-radius: 999px; padding: 8px 16px; font-size: 0.85rem; cursor: pointer;
+  font-family: inherit;
+}
+nav.toc button:hover { border-color: var(--accent); color: var(--accent); }
+</style>
 </head>
 <body>
 <div class="wrap">
-  <header class="site">
-    <h1><a href="/">Blog Ardi Aliansyah</a></h1>
-    <p class="tagline">Catatan harian tentang teknologi, automation, dan trading.</p>
-  </header>
+<header class="site">
+  <h1>Blog Ardi Aliansyah</h1>
+  <p class="tagline">Catatan harian tentang teknologi, automation, dan blogging.</p>
+</header>
 
-  <ul class="post-list">
-    <li class="post-card">
-      <h2><a href="posts/contoh-artikel.html">Mulai Ngeblog dari HP Android</a></h2>
-      <p>Cara menjalankan website statis langsung di Termux tanpa biaya hosting bulanan.</p>
-      <span class="meta">4 Oktober 2026</span>
-    </li>
-    <li class="post-card">
-      <h2><a href="posts/cron-job-otomatis.html">Cron Job yang Jalannya Otomatis</a></h2>
-      <p>Scheduled task + AI agent di Android, dan apa yang bisa serta tidak bisa dilakukan.</p>
-      <span class="meta">3 Oktober 2026</span>
-    </li>
-  </ul>
+<ul class="post-list">
+  <li class="post-card">
+    <h2>Mulai Ngeblog dari HP Android</h2>
+    <p>Cara menjalankan website statis langsung di Termux tanpa biaya hosting bulanan.</p>
+    <span class="meta">4 Oktober 2026 &middot; 5 menit baca</span>
+    <p><button onclick="buka(0)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card">
+    <h2>Cron Job yang Jalannya Otomatis</h2>
+    <p>Scheduled task + AI agent di Android, dan apa yang bisa serta tidak bisa dilakukan.</p>
+    <span class="meta">3 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(1)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card">
+    <h2>Membuat Blog Gratis di HP Android dengan GitHub Pages</h2>
+    <p>Panduan lengkap membuat website blog gratis langsung dari HP Android tanpa biaya hosting.</p>
+    <span class="meta">6 Oktober 2026 &middot; 8 menit baca</span>
+    <p><button onclick="buka(4)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card">
+    <h2>Cara Install Termux di HP Android (2026)</h2>
+    <p>Panduan lengkap memasang Termux di HP Android, dari download sampai siap pakai.</p>
+    <span class="meta">6 Oktober 2026 &middot; 7 menit baca</span>
+    <p><button onclick="buka(3)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card">
+    <h2>Kendalikan Program dari Telegram</h2>
+    <p>Arsitektur mesin + penjadwal + antarmuka Telegram, dan jebakan yang membuat bot diam.</p>
+    <span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(2)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+</ul>
 
-  <footer class="site">
-    <p>&copy; 2026 Ardi Aliansyah</p>
-  </footer>
+<nav class="toc">
+  <button onclick="buka(-1)">&larr; Daftar artikel</button>
+</nav>
+
+<article class="post" id="a0">
+<h1>Mulai Ngeblog dari HP Android</h1>
+    <span class="meta">4 Oktober 2026 · 5 menit baca</span>
+
+    <p>Banyak orang mengira ngeblog itu harus pakai laptop dan hosting berbayar. Padahal HP Android plus Termux sudah cukup untuk membuat website statis dan memajangnya ke internet secara gratis.</p>
+
+    <h2>Yang dibutuhkan</h2>
+    <p>Tiga hal saja: Termux terinstall, Git untuk meng-upload, dan satu repository kosong di GitHub Pages.</p>
+
+    <h2>Upload ke internet</h2>
+    <pre><code>cd ~/blog-asmady
+git init &amp;&amp; git add .
+git commit -m "artikel baru"
+git remote add origin https://github.com/USER/REPO.git
+git push -u origin main</code></pre>
+
+    <h2>Kenapa static?</h2>
+    <p>Website static tidak butuh database maupun server. Semua isinya file HTML, CSS, dan JavaScript, jadi cepat, gratis, dan hampir mustahil error.</p>
+
+    <blockquote>File yang sudah ter-upload ke GitHub Pages akan bisa diakses kapan saja, tanpa perlu HP menyala.</blockquote>
+</article>
+
+<article class="post" id="a1">
+<h1>Cron Job yang Jalannya Otomatis</h1>
+    <span class="meta">3 Oktober 2026 · 6 menit baca</span>
+
+    <p>Android memang bukan server, tapi Termux mengubahnya jadi lingkungan yang cukup mampu untuk menjalankan tugas terjadwal. Dengan begitu, HP yang tergeletak di saku tetap bisa mengerjakan sesuatu tanpa disentuh.</p>
+
+    <h2>Cron itu apa</h2>
+    <p>Cron adalah penjadwal bawaan Unix yang menjalankan perintah pada waktu tertentu. Contoh: setiap jam pagi, setiap Senin, atau setiap lima belas menit.</p>
+
+    <h2>Menggabungkan cron dengan AI</h2>
+    <p>Yang membuat cron terasa pintar adalah ketika perintah yang dijalankan tidak sekadar script, tapi agent AI yang bisa berpikir. Hasilnya dikembalikan lewat Telegram, jadi laporan sampai ke tangan tanpa perlu membuka aplikasi apa pun.</p>
+
+    <pre><code>*/15 * * * * ./cek_harga.sh</code></pre>
+
+    <h2>Batas yang harus diterima</h2>
+    <p>Termux punya batas nyata. Android bisa Hemat baterai atau membekukan aplikasi di latar belakang, jadi proses cron tidak dijamin hidup 24 jam. Untuk kebutuhan yang harus selalu nyala, lebih baik andalkan hosting.</p>
+
+    <blockquote>Yang bisa dijalankan di HP: laporan, pengingat, pengecekan data. Yang tidak: mengelola aplikasi lain, membaca pesan, atau mengendalikan layar.</blockquote>
+</article>
+
+
+<article class="post" id="a2">
+<h1>Kendalikan Program dari Telegram</h1>
+<span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
+
+<p>Program yang jalan sendiri itu memangADA gunanya. Tapi program yang jalan sendiri <em>dan</em> bisa diperintah dari jauh adalah masalah yang berbeda. HP tidak perlu disentuh untuk menjalankan, dan tidak perlu dibuka untuk mengendalikan.</p>
+
+<h2>Arsitektur paling sederhana</h2>
+<p>Tiga bagian, semuanya berjalan di HP:</p>
+<ol>
+<li><strong>Mesin</strong> &mdash; program yang mengerjakan tugas, misalnya memeriksa harga setiap 5 menit</li>
+<li><strong>Penjadwal</strong> &mdash; <code>runit</code>, penjadwal bawaan Termux yang menyalakan mesin otomatis setiap HP dinyalakan ulang</li>
+<li><strong>Antarmuka</strong> &mdash; program kecil yang membaca pesan Telegram lalu memanggil mesin</li>
+</ol>
+<p>Bagian ketiga yang paling sering dilupakan. Tanpa itu, satu-satunya cara mengatur program adalah membuka Termux dan mengetik perintah.</p>
+
+<h2>Kenapa Telegram, bukan aplikasi sendiri</h2>
+<p>Alasannya praktis, bukan teknis:</p>
+<ul>
+<li>Sudah ada di HP, tidak perlu memasang apa pun</li>
+<li>Bisa diakses dari mana saja, browser smartphone pun cukup</li>
+<li>Bisa menulis <em>perintah</em>, bukan hanya menampilkan angka</li>
+<li>Notifikasi sampai dalam hitungan detik</li>
+</ul>
+
+<h2>Aturan emas: satu bot, satu poller</h2>
+<p>Ini yang paling sering menimbulkan masalah. Setiap token bot Telegram hanya bisa dibaca oleh <strong>satu</strong> program pada satu waktu. Kalau dua program berjalan bersamaan memakai token yang sama, salah satunya merebut pesan, dan program yang Beautynamed ikut kehilangan kemampuan membalas.</p>
+<p>Akibatnya bisa ringan, bisa fatal. Bot yang tadinya lancar bisa berubah diam. Gejalanya membingungkan karena log tetap mencatat pesan masuk, padahal tidak ada balasan yang keluar.</p>
+
+<h2>Log bukan bukti bot membalas</h2>
+<p>Pelajaran ini mahal. Baris log seperti <em>5 pesan diproses</em> hanya membuktikan separuh hal:</p>
+<table>
+<thead><tr><th>Yang dibuktikan log</th><th>Yang belum dibuktikan</th></tr></thead>
+<tbody>
+<tr><td>Telegram mengantar pesan</td><td>Program membacanya</td></tr>
+<tr><td>Offset maju, pesan tidak diulang</td><td>Bot mengirim balasan</td></tr>
+<tr><td>Dispatch berjalan</td><td>Balasan sampai ke chat</td></tr>
+</tbody>
+</table>
+<p>Kalau pengguna melaporkan bot tidak merespons, periksa jalur keluar lebih dulu, bukan jalur masuk. Cara paling murah: panggil API Telegram langsung dengan token tersebut memakai <code>curl</code>, lalu lihat apa yang terjadi di sana.</p>
+
+<h2>Jangan diamkan kesalahan</h2>
+<p>Aturan yang murah dan sangat penting: setiap perintah yang tidak dikenali <strong>harus</strong> mendapat balasan.</p>
+<pre><code>perintah = pesan.split(&quot;@&quot;)[0].lstrip(&quot;/&quot;).lower()
+
+if perintah in alias:
+    tangani(perintah)
+elif perintah == &quot;status&quot;:
+    kirim_status()
+else:
+    kirim(&quot;Perintah tidak dikenal. Daftar: status, tabel, saldo, menu&quot;)
+</code></pre>
+<p>Bot yang menjawab &ldquo;saya tidak tahu&rdquo; jelas masih hidup. Bot yang tidak menjawab sama sekali akan dianggap mati, dan itu asumsi yang paling mahal karena membuat pengguna menyangka programnya rusak.</p>
+
+<h2>Normalisasi sebelum mencocokkan</h2>
+<p>Pengguna tidak mengetik persis seperti dokumentasi. Ia bisa menulis <code>Status</code>, <code>/status</code>, atau <code>status@Chacha25bot</code>. Ketiganya perintah yang sama. Kalau pencocokan dilakukan mentah-mentah:</p>
+<table>
+<thead><tr><th>Masukan pengguna</th><th>Harus dianggap sebagai</th></tr></thead>
+<tbody>
+<tr><td><code>status</code></td><td>perintah status</td></tr>
+<tr><td><code>Status</code></td><td>perintah status</td></tr>
+<tr><td><code>/STATUS</code></td><td>perintah status</td></tr>
+<tr><td><code>status@Chacha25bot</code></td><td>perintah status</td></tr>
+<tr><td><code>halo</code></td><td>tidak dikenal, tetap dibalas</td></tr>
+</tbody>
+</table>
+<p>Normalisasi harus menjadi baris pertama, sebelum logika apa pun. Detail kecil ini yang menentukan apakah bot terasa|round pintar atau terasa kaku.</p>
+
+<h2>Menguji tanpa mengirim apa pun</h2>
+<p>Jangan langsung menguji program ke Against pengguna. Ganti fungsi pengirim dengan stub yang hanya mencatat:</p>
+<pre><code>terkirim = []
+
+def kirim(teks):
+    terkirim.append(teks)
+
+# ... jalankan setiap perintah ...
+
+for masukan in (biasanya, kapital, tak_dikenal, bersuffix):
+    jalankan(masukan)
+    assert terkirim, &quot;masukan tidak dibalas: &quot; + masukan
+</code></pre>
+<p>Untuk bot trading, stub ini jauh lebih penting. Jangan pernah memanggil fungsi yang membuka posisi asli di dalam pengujian. Sekali posisi nyata terbuka, tidak ada tombol batal.</p>
+
+<h2>Daftar periksa sebelum menyebut selesai</h2>
+<ol>
+<li>Proses benar-benar ada &mdash; cek PID, bukan hanya &ldquo;perintah dijalankan&rdquo;</li>
+<li>Log punya isi &mdash; proses bisa berstatus jalan padahal keluarannya tertahan buffer</li>
+<li>Balasan benar-benar sampai &mdash; kirim dari akun lain, bukan dari chat sendiri</li>
+<li>Perintah tak dikenal tetap dibalas</li>
+<li>Offset tersimpan setelah restart sehingga pesan lama tidak diputar ulang</li>
+</ol>
+
+<h2>Penutup</h2>
+<p>Automasi yang jalan sendiri terasa mengagumkan. Tapi yang bisa diperintah dari Telegram itulah yang sebenarnya berguna. Kalau programnya masih hanya dikendalikan lewat keyboard, itu script yang dijadwalkan, bukan sistem.</p>
+<p>Dan bagian yang paling sering terlupakan: program yang diam adalah program yang tidak bisa dipercaya, bukan program yang sedang bekerja dengan baik.</p>
+</article>
+<article class="post" id="a3">
+<h1>Cara Install Termux di HP Android (2026)</h1>
+<span class="meta">6 Oktober 2026 &middot; 7 menit baca</span>
+
+<p>Termux adalah aplikasi terminal emulator untuk Android yang memungkinkan kamu menjalankan perintah Linux langsung dari HP. Dengan Termux, HP Android bisa berubah seperti komputer mini untuk coding, automation, dan berbagai tugas teknis lainnya.</p>
+
+<h2>Kenapa Termux?</h2>
+<p>Banyak orang mengira untuk membuat website atau menjalankan script, harus punya laptop atau server berbayar. Termux membuktikan hal itu tidak sepenuhnya benar. HP Android yang kamu genggam sudah cukup untuk menjalankan banyak hal yang dulu hanya bisa dilakukan di komputer.</p>
+
+<h2>Syarat sebelum install</h2>
+<p>Sebelum mulai, pastikan HP kamu memenuhi syarat berikut:</p>
+<ul>
+<li>Android versi 7.0 (Nougat) atau lebih baru</li>
+<li>Minimal 2 GB RAM (4 GB lebih nyaman)</li>
+<li>Storage kosong minimal 500 MB</li>
+<li>Koneksi internet stabil untuk download paket</li>
+</ul>
+
+<h2>Langkah 1: Download Termux</h2>
+<p>Penting: <strong>jangan download Termux dari Play Store</strong>. Versi di Play Store sudah lama tidak diupdate dan sering tidak berfungsi. Download dari sumber resmi:</p>
+<ol>
+<li>Buka <strong>F-Droid</strong> (toko aplikasi open-source) di browser HP</li>
+<li>Download dan install F-Droid dari <code>f-droid.org</code></li>
+<li>Buka F-Droid, cari "Termux"</li>
+<li>Klik Install</li>
+</ol>
+<p>Alternatif: download APK langsung dari <code>github.com/termux/termux-app/releases</code></p>
+
+<h2>Langkah 2: Setup awal</h2>
+<p>Setelah Termux terinstall, buka aplikasi dan tunggu beberapa detik. Termux akan menyiapkan environment Linux dasar secara otomatis.</p>
+<p>Setelah muncul prompt ketik perintah berikut untuk update paket:</p>
+<pre><code>pkg update && pkg upgrade</code></pre>
+<p>Tunggu proses download selesai. Mungkin butuh beberapa menit tergantung kecepatan internet.</p>
+
+<h2>Langkah 3: Install tools dasar</h2>
+<p>Setelah update selesai, install tools yang sering dipakai:</p>
+<pre><code>pkg install git curl wget nano</code></pre>
+<p>Keempat paket ini adalah fondasi untuk hampir semua proyek di Termux:</p>
+<ul>
+<li><code>git</code> — untuk upload file ke GitHub</li>
+<li><code>curl</code> — untuk download dan testing API</li>
+<li><code>wget</code> — alternatif download file</li>
+<li><code>nano</code> — editor teks di terminal</li>
+</ul>
+
+<h2>Langkah 4: Akses storage HP</h2>
+<p>Secara default, Termux hanya bisa mengakses folder internalnya. Untuk mengakses folder Download atau Documents di HP, jalankan:</p>
+<pre><code>termux-setup-storage</code></pre>
+<p>Izin akan muncul, klik Allow. Sekarang folder storage HP bisa diakses dari Termux di <code>~/storage/</code>.</p>
+
+<h2>Langkah 5: Coba perintah pertama</h2>
+<p>Untuk memastikan semuanya berjalan, coba perintah sederhana:</p>
+<pre><code>echo "Termux berhasil diinstall!"</code></pre>
+<p>Jika muncul tulisan yang sama, berarti setup berhasil.</p>
+
+<h2>Hal yang sering bikin bingung</h2>
+<p><strong>Termux tertutup saat layar mati?</strong> Ini normal. Android membatasi aplikasi background. Untuk menjaga Termux tetap aktif, matikan battery optimization untuk Termux di Settings Android.</p>
+<p><strong>Perintah tidak dikenal?</strong> Pastikan paket sudah diinstall dengan <code>pkg install nama_paket</code>.</p>
+<p><strong>Storage penuh?</strong> Termux menyimpan semua datanya di folder internal. Bersihkan dengan <code>pkg clean</code> secara berkala.</p>
+
+<h2>Langkah selanjutnya</h2>
+<p>Setelah Termux terinstall dan berfungsi, kamu bisa mulai membuat blog, menjalankan cron job, atau bahkan mengendalikan program dari Telegram. Semua itu bisa dilakukan langsung dari HP tanpa biaya tambahan.</p>
+
+<blockquote>Termux bukan sekadar aplikasi terminal. Ia adalah pintu masuk HP Android ke dunia Linux, dan semua kemungkinan yang datang dengannya.</blockquote>
+</article>
+<article class="post" id="a4">
+<h1>Membuat Blog Gratis di HP Android dengan GitHub Pages</h1>
+<span class="meta">6 Oktober 2026 &middot; 8 menit baca</span>
+
+<p>Membuat blog sendiri terdengar seperti hal yang butuh skill teknis tinggi dan biaya besar. Padahal dengan HP Android dan Termux, kamu bisa membuat website blog yang benar-benar online dalam waktu kurang dari satu jam, dengan biaya nol rupiah.</p>
+
+<h2>Kenapa blog gratis?</h2>
+<p>Sebelum mulai membangun, penting memahami alasan memilih blog gratis dulu:</p>
+<ul>
+<li><strong>Nol risiko</strong> — tidak ada biaya hosting yang terbuang jika blog belum berkembang</li>
+<li><strong>Fokus konten</strong> — tidak perlu pusing soal server, cukup tulis artikel</li>
+<li><strong>Cepat launch</strong> — bisa online dalam hitungan menit, bukan hari</li>
+<li><strong>Upgrade kapan saja</strong> — kalau sudah ada pemasakan, bisa pindah ke hosting berbayar</li>
+</ul>
+
+<h2>Yang dibutuhkan</h2>
+<p>Tiga hal saja:</p>
+<ol>
+<li>HP Android dengan Termux terinstall</li>
+<li>Akun GitHub (gratis, daftar di github.com)</li>
+<li>Koneksi internet</li>
+</ol>
+
+<h2>Langkah 1: Buat akun GitHub</h2>
+<p>Belum punya akun GitHub? Ikuti langkah ini:</p>
+<ol>
+<li>Buka <code>github.com</code> di browser HP</li>
+<li>Klik <strong>Sign up</strong></li>
+<li>Masukkan email, buat password, pilih username</li>
+<li>Verifikasi email</li>
+</ol>
+<p>Username ini penting karena akan menjadi alamat blog kamu: <code>username.github.io</code></p>
+
+<h2>Langkah 2: Buat repository baru</h2>
+<p>Repository adalah folder tempat file blog kamu disimpan di GitHub.</p>
+<ol>
+<li>Setelah login GitHub, klik tombol <strong>+</strong> di pojok kanan atas</li>
+<li>Pilih <strong>New repository</strong></li>
+<li>Isi nama repository: <code>username.github.io</code> (ganti username dengan username kamu)</li>
+<li>Pilih <strong>Public</strong></li>
+<li>Klik <strong>Create repository</strong></li>
+</ol>
+
+<h2>Langkah 3: Buat file blog di Termux</h2>
+<p>Buka Termux dan jalankan perintah berikut:</p>
+<pre><code>mkdir ~/blog-baru
+cd ~/blog-baru
+nano index.html</code></pre>
+<p>Di editor nano, ketik kode HTML sederhana:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Blog Pertama Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Selamat Datang di Blog Saya&lt;/h1&gt;
+  &lt;p&gt;Ini adalah blog pertama saya.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Simpan dengan menekan <code>Ctrl+O</code> lalu <code>Enter</code>, keluar dengan <code>Ctrl+X</code>.</p>
+
+<h2>Langkah 4: Upload ke GitHub</h2>
+<p>Setelah file selesai dibuat, upload ke GitHub:</p>
+<pre><code>cd ~/blog-baru
+git init
+git add .
+git commit -m "Blog pertama"
+git branch -M main
+git remote add origin https://github.com/USERNAME/USERNAME.github.io.git
+git push -u origin main</code></pre>
+<p>Ganti <code>USERNAME</code> dengan username GitHub kamu. Jika diminta password, gunakan <strong>Personal Access Token</strong>, bukan password biasa.</p>
+
+<h2>Langkah 5: Aktifkan GitHub Pages</h2>
+<p>File sudah di GitHub, tapi blog belum online. Aktifkan GitHub Pages:</p>
+<ol>
+<li>Buka repository di browser</li>
+<li>Klik <strong>Settings</strong></li>
+<li>Menu <strong>Pages</strong> di sidebar kiri</li>
+<li>Source: pilih <strong>Deploy from a branch</strong></li>
+<li>Branch: pilih <strong>main</strong>, folder <strong>/ (root)</strong></li>
+<li>Klik <strong>Save</strong></li>
+</ol>
+<p>Tunggu 1-2 menit. Blog kamu sekarang online di <code>https://USERNAME.github.io</code></p>
+
+<h2>Langkah 6: Tambah artikel baru</h2>
+<p>Untuk menambah artikel, edit file <code>index.html</code> di Termux, lalu push lagi:</p>
+<pre><code>cd ~/blog-baru
+nano index.html
+# edit file, simpan
+git add .
+git commit -m "Tambah artikel baru"
+git push origin main</code></pre>
+<p>Perubahan akan otomatis live dalam 1-2 menit.</p>
+
+<h2>Tips agar blog cepat berkembang</h2>
+<ul>
+<li><strong>Konsisten</strong> — posting minimal 2-3x per minggu</li>
+<li><strong>SEO dasar</strong> — gunakan keyword di judul dan paragraf pertama</li>
+<li><strong>Mobile friendly</strong> — pastikan blog tampil bagus di HP</li>
+<li><strong>Bagikan</strong> — share artikel di media sosial atau forum</li>
+</ul>
+
+<h2>Kesalahan yang sering terjadi</h2>
+<p><strong>Repository name salah</strong> — harus persis <code>username.github.io</code>, tidak bisa pakai nama lain.</p>
+<p><strong>Lupa ganti username di perintah git</strong> — selalu cek sebelum push.</p>
+<p><strong>Langsung menutup Termux</strong> — tunggu proses push selesai dulu.</p>
+<p><strong>Menghapus file tanpa backup</strong> — selalu simpan salinan di folder lain.</p>
+
+<h2>Langkah selanjutnya</h2>
+<p>Blog sudah online. Sekarang fokus ke konten berkualitas dan SEO. Tambah artikel secara konsisten, riset keyword yang relevan, dan bagikan ke komunitas yang tepat.</p>
+
+<blockquote>Blog gratis bukan blog yang kurang serius. Ia adalah pintu masuk yang sempurna untuk memulai tanpa risiko, dan fondasi yang kuat untuk berkembang.</blockquote>
+</article>
+<footer class="site">
+  <p>&copy; 2026 Blog Ardi Aliansyah</p>
+</footer>
 </div>
+
+<script>
+function buka(i) {
+  document.querySelectorAll('article.post').forEach(function(el) {
+    el.classList.toggle('aktif', el.id === 'a' + i);
+  });
+  document.querySelector('.post-list').style.display = i < 0 ? '' : 'none';
+  window.scrollTo(0, 0);
+}
+</script>
 </body>
 </html>
