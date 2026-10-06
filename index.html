@@ -361,7 +361,7 @@ for masukan in (biasanya, kapital, tak_dikenal, bersuffix):
     jalankan(masukan)
     assert terkirim, &quot;masukan tidak dibalas: &quot; + masukan
 </code></pre>
-<p>Untuk bot trading, stub ini jauh lebih penting. Jangan pernah memanggil fungsi yang membuka posisi asli di dalam pengujian. Sekali posisi nyata terbuka, tidak ada tombol batal.</p>
+<p>Untuk bot yang mengelola data sensitif, stub ini jauh lebih penting. Jangan pernah memanggil fungsi yang berdampak nyata di dalam pengujian. Sekali eksekusi nyata terjadi, tidak ada tombol batal.</p>
 
 <h2>Daftar periksa sebelum menyebut selesai</h2>
 <ol>
