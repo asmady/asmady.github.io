@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cron Job yang Jalannya Otomatis — Blog Ardi Aliansyah</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">← Kembali</a>
+
+  <article class="post">
+    <h1>Cron Job yang Jalannya Otomatis</h1>
+    <span class="meta">3 Oktober 2026 · 6 menit baca</span>
+
+    <p>Android memang bukan server, tapi Termux mengubahnya jadi lingkungan yang cukup mampu untuk menjalankan tugas terjadwal. Dengan begitu, HP yang tergeletak di saku tetap bisa mengerjakan sesuatu tanpa disentuh.</p>
+
+    <h2>Cron itu apa</h2>
+    <p>Cron adalah penjadwal bawaan Unix yang menjalankan perintah pada waktu tertentu. Contoh: setiap jam pagi, setiap Senin, atau setiap lima belas menit.</p>
+
+    <h2>Menggabungkan cron dengan AI</h2>
+    <p>Yang membuat cron terasa pintar adalah ketika perintah yang dijalankan tidak sekadar script, tapi agent AI yang bisa berpikir. Hasilnya dikembalikan lewat Telegram, jadi laporan sampai ke tangan tanpa perlu membuka aplikasi apa pun.</p>
+
+    <pre><code>*/15 * * * * ./cek_harga.sh</code></pre>
+
+    <h2>Batas yang harus diterima</h2>
+    <p>Termux punya batas nyata. Android bisa Hemat baterai atau membekukan aplikasi di latar belakang, jadi proses cron tidak dijamin hidup 24 jam. Untuk kebutuhan yang harus selalu nyala, lebih baik andalkan hosting.</p>
+
+    <blockquote>Yang bisa dijalankan di HP: laporan, pengingat, pengecekan data. Yang tidak: mengelola aplikasi lain, membaca pesan, atau mengendalikan layar.</blockquote>
+  </article>
+
+  <footer class="site">
+    <p>&copy; 2026 Ardi Aliansyah</p>
+  </footer>
+</div>
+</body>
+</html>

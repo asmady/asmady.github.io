@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mulai Ngeblog dari HP Android — Blog Ardi Aliansyah</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../">← Kembali</a>
+
+  <article class="post">
+    <h1>Mulai Ngeblog dari HP Android</h1>
+    <span class="meta">4 Oktober 2026 · 5 menit baca</span>
+
+    <p>Banyak orang mengira ngeblog itu harus pakai laptop dan hosting berbayar. Padahal HP Android plus Termux sudah cukup untuk membuat website statis dan memajangnya ke internet secara gratis.</p>
+
+    <h2>Yang dibutuhkan</h2>
+    <p>Tiga hal saja: Termux terinstall, Git untuk meng-upload, dan satu repository kosong di GitHub Pages.</p>
+
+    <h2>Upload ke internet</h2>
+    <pre><code>cd ~/blog-asmady
+git init &amp;&amp; git add .
+git commit -m "artikel baru"
+git remote add origin https://github.com/USER/REPO.git
+git push -u origin main</code></pre>
+
+    <h2>Kenapa static?</h2>
+    <p>Website static tidak butuh database maupun server. Semua isinya file HTML, CSS, dan JavaScript, jadi cepat, gratis, dan hampir mustahil error.</p>
+
+    <blockquote>File yang sudah ter-upload ke GitHub Pages akan bisa diakses kapan saja, tanpa perlu HP menyala.</blockquote>
+  </article>
+
+  <footer class="site">
+    <p>&copy; 2026 Ardi Aliansyah</p>
+  </footer>
+</div>
+</body>
+</html>
