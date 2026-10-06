@@ -250,14 +250,14 @@ else:
 <p>Bot yang menjawab &ldquo;saya tidak tahu&rdquo; jelas masih hidup. Bot yang tidak menjawab sama sekali akan dianggap mati, dan itu asumsi yang paling mahal karena membuat pengguna menyangka programnya rusak.</p>
 
 <h2>Normalisasi sebelum mencocokkan</h2>
-<p>Pengguna tidak mengetik persis seperti dokumentasi. Ia bisa menulis <code>Status</code>, <code>/status</code>, atau <code>status@Chacha25bot</code>. Ketiganya perintah yang sama. Kalau pencocokan dilakukan mentah-mentah:</p>
+<p>Pengguna tidak mengetik persis seperti dokumentasi. Ia bisa menulis <code>Status</code>, <code>/status</code>, atau <code>status@bot_anda</code>. Ketiganya perintah yang sama. Kalau pencocokan dilakukan mentah-mentah:</p>
 <table>
 <thead><tr><th>Masukan pengguna</th><th>Harus dianggap sebagai</th></tr></thead>
 <tbody>
 <tr><td><code>status</code></td><td>perintah status</td></tr>
 <tr><td><code>Status</code></td><td>perintah status</td></tr>
 <tr><td><code>/STATUS</code></td><td>perintah status</td></tr>
-<tr><td><code>status@Chacha25bot</code></td><td>perintah status</td></tr>
+<tr><td><code>status@bot_anda</code></td><td>perintah status</td></tr>
 <tr><td><code>halo</code></td><td>tidak dikenal, tetap dibalas</td></tr>
 </tbody>
 </table>
