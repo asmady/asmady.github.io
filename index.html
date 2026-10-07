@@ -1423,6 +1423,8 @@ function updatePagination() {
   });
   
   document.getElementById('pageInfo').textContent = currentPage + ' / ' + totalPages;
+  document.getElementById('btnPrev').disabled = currentPage === 1;
+  document.getElementById('btnNext').disabled = currentPage === totalPages;
   document.getElementById('btnPrev').style.opacity = currentPage === 1 ? '0.5' : '1';
   document.getElementById('btnNext').style.opacity = currentPage === totalPages ? '0.5' : '1';
 }
