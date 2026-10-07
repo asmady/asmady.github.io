@@ -1383,15 +1383,21 @@ console.log("Selesai!");</code></pre>
 var currentPage = 1;
 var perPage = 5;
 var totalPages = 1;
+var activeCat = 'all';
 
-function updatePagination() {
+function getVisibleCards() {
   var cards = document.querySelectorAll('.post-card');
-  var visibleCards = [];
+  var visible = [];
   cards.forEach(function(card) {
-    if (card.style.display !== 'none') {
-      visibleCards.push(card);
+    if (activeCat === 'all' || card.getAttribute('data-cat') === activeCat) {
+      visible.push(card);
     }
   });
+  return visible;
+}
+
+function updatePagination() {
+  var visibleCards = getVisibleCards();
   totalPages = Math.ceil(visibleCards.length / perPage);
   if (totalPages === 0) totalPages = 1;
   if (currentPage > totalPages) currentPage = totalPages;
@@ -1439,23 +1445,7 @@ function togglePostList() {
 }
 
 function filterCat(cat, btn) {
-  var cards = document.querySelectorAll('.post-card');
-  
-  // Remove active from all filter buttons
-  document.querySelectorAll('.cat-filter button').forEach(function(b) {
-    b.classList.remove('active');
-  });
-  
-  // Filter cards
-  cards.forEach(function(card) {
-    if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-  
-  // Reset to page 1 and update pagination
+  activeCat = cat;
   currentPage = 1;
   updatePagination();
   
@@ -1489,9 +1479,7 @@ function buka(i) {
 }
 
 // Initialize pagination on load
-document.addEventListener('DOMContentLoaded', function() {
-  updatePagination();
-});
+updatePagination();
 </script>
 </body>
 </html>
