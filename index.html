@@ -345,6 +345,11 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
   <a href="#a8">Cara Install Termux di HP Android 2026</a>
   <a href="#a9">10 Perintah Linux Termux Pemula</a>
   <a href="#a10">Cara Install Python di Termux</a>
+  <hr style="border-color: #444; margin: 8px 0;">
+  <a href="#" onclick="filterCat('all'); return false;">Semua Kategori</a>
+  <a href="#" onclick="filterCat('ai'); return false;">AI</a>
+  <a href="#" onclick="filterCat('teknologi'); return false;">Teknologi</a>
+  <a href="#" onclick="filterCat('penghasilan'); return false;">Penghasilan Online</a>
 </nav>
 <div class="wrap">
 <div class="hero">
@@ -355,13 +360,6 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
   <h1><a href="/">Blog asmady</a></h1>
   <p class="tagline">Catatan harian tentang teknologi, automation, dan blogging.</p>
 </header>
-
-<div class="cat-filter">
-  <button onclick="filterCat('all')" class="active">Semua</button>
-  <button onclick="filterCat('ai')">AI</button>
-  <button onclick="filterCat('teknologi')">Teknologi</button>
-  <button onclick="filterCat('penghasilan')">Penghasilan Online</button>
-</div>
 
 <ul class="post-list">
   <li class="post-card" data-cat="teknologi">
@@ -1180,15 +1178,16 @@ pkg search kata_kunci</code></pre>
 </div>
 
 <script>
-function filterCat(cat) {
+function filterCat(cat, btn) {
   var cards = document.querySelectorAll('.post-card');
-  var buttons = document.querySelectorAll('.cat-filter button');
+  var buttons = document.querySelectorAll('.cat-filter button, .nav-menu a');
   
-  buttons.forEach(function(btn) {
-    btn.classList.remove('active');
+  // Remove active from all filter buttons
+  document.querySelectorAll('.cat-filter button').forEach(function(b) {
+    b.classList.remove('active');
   });
-  event.target.classList.add('active');
   
+  // If called from nav, just filter
   cards.forEach(function(card) {
     if (cat === 'all' || card.getAttribute('data-cat') === cat) {
       card.style.display = '';
@@ -1196,6 +1195,12 @@ function filterCat(cat) {
       card.style.display = 'none';
     }
   });
+  
+  // Close nav menu
+  document.getElementById('navMenu').classList.remove('open');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
 }
 
 function toggleMenu() {
