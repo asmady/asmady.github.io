@@ -4,30 +4,36 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog asmady</title>
-<meta name="description" content="Catatan harian tentang teknologi, automation, dan blogging.">
+<meta name="description" content="Catatan harian tentang teknologi, automation, dan blogging — langsung dari HP Android.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f8f9fa;
+  --bg: #ffffff;
   --card: #ffffff;
-  --text: #1a1a2e;
-  --muted: #6c757d;
-  --accent: #0d6efd;
-  --accent2: #6f42c1;
-  --border: #dee2e6;
-  --gradient: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+  --text: #0d0d0d;
+  --text-secondary: #333333;
+  --muted: #666666;
+  --accent: #18E299;
+  --accent-light: #d4fae8;
+  --accent-deep: #0fa76e;
+  --border: rgba(0,0,0,0.05);
+  --border-medium: rgba(0,0,0,0.08);
+  --shadow: rgba(0,0,0,0.03) 0px 2px 4px;
+  --shadow-btn: rgba(0,0,0,0.06) 0px 1px 2px;
+  --gradient: linear-gradient(135deg, #d4fae8 0%, #ffffff 100%);
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 .wrap {
@@ -38,7 +44,9 @@ body {
 
 /* Header */
 .site-header {
-  background: #2b2b2b;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 14px 20px;
   display: flex;
   align-items: center;
@@ -46,20 +54,19 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-bottom: 1px solid var(--border);
 }
 
 .site-header .logo {
   font-family: 'Great Vibes', cursive;
   font-size: 2rem;
-  color: #fff;
+  color: var(--text);
   text-decoration: none;
   line-height: 1;
 }
 
 .site-header .logo:hover {
-  color: #fff;
-  opacity: 0.9;
+  color: var(--accent-deep);
 }
 
 .menu-toggle {
@@ -76,21 +83,21 @@ body {
   display: block;
   width: 24px;
   height: 2px;
-  background: #fff;
+  background: var(--text);
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 .menu-toggle:hover span {
-  background: var(--accent);
+  background: var(--accent-deep);
 }
 
 /* Dropdown menu */
 .nav-menu {
   display: none;
-  background: #2b2b2b;
+  background: #ffffff;
   padding: 12px 20px;
-  border-top: 1px solid #444;
+  border-bottom: 1px solid var(--border);
 }
 
 .nav-menu.open {
@@ -99,11 +106,12 @@ body {
 
 .nav-menu a {
   display: block;
-  color: #fff;
+  color: var(--text);
   text-decoration: none;
   padding: 10px 0;
   font-size: 0.95rem;
-  border-bottom: 1px solid #444;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
   transition: color 0.2s ease;
 }
 
@@ -112,62 +120,32 @@ body {
 }
 
 .nav-menu a:hover {
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 
 /* Category badges */
 .cat-badge {
   display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 9999px;
   margin-right: 6px;
   margin-bottom: 8px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.65px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
 }
 
-.cat-ai { background: #e8f4fd; color: #0d6efd; }
-.cat-teknologi { background: #e8f5e9; color: #2e7d32; }
-.cat-penghasilan { background: #fff3e0; color: #e65100; }
-
-/* Category filter */
-.cat-filter {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-  padding: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.cat-filter button {
-  background: var(--bg);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 0.2s ease;
-}
-
-.cat-filter button:hover,
-.cat-filter button.active {
-  background: var(--accent);
-  color: #fff;
-  border-color: var(--accent);
-}
+.cat-ai { background: var(--accent-light); color: var(--accent-deep); }
+.cat-teknologi { background: var(--accent-light); color: var(--accent-deep); }
+.cat-penghasilan { background: var(--accent-light); color: var(--accent-deep); }
 
 /* Hero Section */
 .hero {
   background: var(--gradient);
-  border-radius: 16px;
-  padding: 48px 32px;
+  border-radius: 24px;
+  padding: 64px 32px;
   margin: 32px 0;
   text-align: center;
   position: relative;
@@ -181,7 +159,7 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(24,226,153,0.08) 0%, transparent 60%);
   animation: pulse 4s ease-in-out infinite;
 }
 
@@ -192,20 +170,44 @@ body {
 
 .hero h1 {
   margin: 0 0 12px;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #fff;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  font-weight: 400;
+  color: var(--text);
   position: relative;
   z-index: 1;
-  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
 .hero p {
   margin: 0;
-  color: rgba(255,255,255,0.95);
-  font-size: 1.05rem;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
   position: relative;
   z-index: 1;
+}
+
+.hero .btn-primary {
+  margin-top: 24px;
+  background: var(--text);
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 header.site {
@@ -216,14 +218,15 @@ header.site {
 
 header.site h1 {
   margin: 0 0 6px;
-  font-size: 1.9rem;
-  letter-spacing: -0.5px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
 }
 
 header.site h1 a { color: var(--text); text-decoration: none; }
-header.site h1 a:hover { color: var(--accent); }
+header.site h1 a:hover { color: var(--accent-deep); }
 
-.tagline { color: var(--muted); font-size: 0.95rem; margin: 0; }
+.tagline { color: var(--muted); font-size: 16px; margin: 0; }
 
 .post-list { list-style: none; padding: 0; margin: 0; }
 
@@ -236,70 +239,54 @@ header.site h1 a:hover { color: var(--accent); }
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.post-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--gradient);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  box-shadow: var(--shadow);
 }
 
 .post-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(13, 110, 253, 0.12);
+  border-color: var(--border-medium);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
-.post-card:hover::before {
-  opacity: 1;
-}
-
-.post-card h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.post-card h2 { margin: 0 0 8px; font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
 .post-card h2 a { color: var(--text); text-decoration: none; }
-.post-card h2 a:hover { color: var(--accent); }
+.post-card h2 a:hover { color: var(--accent-deep); }
 
-.post-card p { margin: 0 0 12px; color: var(--muted); font-size: 0.95rem; }
+.post-card p { margin: 0 0 12px; color: var(--muted); font-size: 16px; }
 
-.meta { color: var(--muted); font-size: 0.8rem; display: block; margin-bottom: 12px; }
+.meta { color: var(--muted); font-size: 14px; display: block; margin-bottom: 12px; }
 
-article.post h1 { font-size: 1.8rem; line-height: 1.3; margin: 0 0 8px; }
+article.post h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.8px; line-height: 1.2; margin: 0 0 8px; }
 article.post .meta { display: block; margin-bottom: 28px; }
-article.post h2 { margin-top: 32px; font-size: 1.3rem; }
-article.post img { max-width: 100%; border-radius: 10px; }
+article.post h2 { margin-top: 32px; font-size: 24px; font-weight: 600; letter-spacing: -0.24px; }
+article.post h3 { margin-top: 24px; font-size: 20px; font-weight: 600; }
+article.post img { max-width: 100%; border-radius: 16px; }
 article.post blockquote {
   border-left: 3px solid var(--accent);
   margin: 20px 0;
   padding: 4px 16px;
   color: var(--muted);
-  background: #f8f9fa;
+  background: #fafafa;
   border-radius: 0 8px 8px 0;
 }
 article.post pre {
-  background: #f8f9fa;
+  background: #fafafa;
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 14px;
   overflow-x: auto;
-  font-size: 0.85rem;
+  font-size: 14px;
 }
-article.post code { background: #e9ecef; padding: 2px 5px; border-radius: 4px; font-size: 0.88em; }
+article.post code { background: #f5f5f5; padding: 2px 5px; border-radius: 4px; font-size: 0.88em; font-family: 'Geist Mono', ui-monospace, monospace; }
 article.post pre code { background: none; padding: 0; }
 
-.back { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.back { color: var(--accent-deep); text-decoration: none; font-size: 14px; }
 
 footer.site {
   margin-top: 48px;
   padding-top: 20px;
   border-top: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -308,11 +295,49 @@ article.post.aktif { display: block; }
 nav.toc { margin: 0 0 24px; padding: 0; list-style: none; display: flex; gap: 10px; flex-wrap: wrap; }
 nav.toc button {
   background: var(--card); color: var(--text); border: 1px solid var(--border);
-  border-radius: 999px; padding: 8px 16px; font-size: 0.85rem; cursor: pointer;
+  border-radius: 9999px; padding: 8px 16px; font-size: 14px; cursor: pointer;
+  font-family: inherit; font-weight: 500;
+  transition: all 0.2s ease;
+}
+nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.pagination button {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border-medium);
+  border-radius: 9999px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
   font-family: inherit;
   transition: all 0.2s ease;
 }
-nav.toc button:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.pagination button:hover {
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  display: flex;
+  align-items: center;
+  color: var(--muted);
+  font-size: 14px;
+}
 
 /* Read more button */
 .post-card button {
@@ -348,7 +373,7 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
   <a href="#a11">Panduan Lengkap Vim di Termux</a>
   <a href="#a12">Cara Install dan Pakai Tmux di Termux</a>
   <a href="#a13">Cara Install Node.js di Termux</a>
-  <hr style="border-color: #444; margin: 8px 0;">
+  <hr style="border-color: var(--border); margin: 8px 0;">
   <a href="#" onclick="filterCat('all'); return false;">Semua Kategori</a>
   <a href="#" onclick="filterCat('ai'); return false;">AI</a>
   <a href="#" onclick="filterCat('teknologi'); return false;">Teknologi</a>
@@ -358,7 +383,7 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
 <div class="hero">
   <h1>Blog asmady</h1>
   <p>Teknologi, automation, dan blogging — langsung dari HP Android.</p>
-  <button onclick="togglePostList()" style="margin-top: 20px; background: rgba(255,255,255,0.2); color: #fff; border: 2px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 10px 24px; font-size: 0.95rem; cursor: pointer; font-family: inherit; transition: all 0.2s ease;">Lihat Artikel</button>
+  <button class="btn-primary" onclick="togglePostList()">Lihat Artikel</button>
 </div>
 <header class="site">
   <h1><a href="/">Blog asmady</a></h1>
@@ -371,105 +396,105 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
     <h2>Mulai Ngeblog dari HP Android</h2>
     <p>Cara menjalankan website statis langsung di Termux tanpa biaya hosting bulanan.</p>
     <span class="meta">4 Oktober 2026 &middot; 5 menit baca</span>
-    <p><button onclick="buka(0)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(0)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cron Job yang Jalannya Otomatis</h2>
     <p>Scheduled task + AI agent di Android, dan apa yang bisa serta tidak bisa dilakukan.</p>
     <span class="meta">3 Oktober 2026 &middot; 6 menit baca</span>
-    <p><button onclick="buka(1)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(1)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Membuat Blog Gratis di HP Android dengan GitHub Pages</h2>
     <p>Panduan lengkap membuat website blog gratis langsung dari HP Android tanpa biaya hosting.</p>
     <span class="meta">6 Oktober 2026 &middot; 8 menit baca</span>
-    <p><button onclick="buka(4)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(4)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Termux di HP Android (2026)</h2>
     <p>Panduan lengkap memasang Termux di HP Android, dari download sampai siap pakai.</p>
     <span class="meta">6 Oktober 2026 &middot; 7 menit baca</span>
-    <p><button onclick="buka(3)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(3)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Kendalikan Program dari Telegram</h2>
     <p>Arsitektur mesin + penjadwal + antarmuka Telegram, dan jebakan yang membuat bot diam.</p>
     <span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
-    <p><button onclick="buka(2)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(2)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Backup Termux ke GitHub</h2>
     <p>Backup otomatis folder Termux ke GitHub dengan git dan cron, aman dari kehilangan data.</p>
     <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
-    <p><button onclick="buka(5)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(5)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Membuat SSH Key di Termux</h2>
     <p>Connect ke GitHub tanpa password dengan SSH key, sekali setup langsung permanen.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
-    <p><button onclick="buka(6)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(6)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Panduan Lengkap pkg di Termux</h2>
     <p>Package manager bawaan Termux: install, remove, update, upgrade, dan bersihkan cache.</p>
     <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
-    <p><button onclick="buka(7)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(7)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Termux di HP Android 2026 (Lengkap, No Root)</h2>
     <p>Panduan lengkap install Termux di HP Android tanpa root, dari download sampai siap pakai.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
-    <p><button onclick="buka(8)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(8)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>10 Perintah Linux Termux yang Wajib Diketahui Pemula</h2>
     <p>Perintah-perintah dasar Linux yang harus kamu kuasai saat pakai Termux di Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
-    <p><button onclick="buka(9)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(9)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Python di Termux Android (Panduan Lengkap)</h2>
     <p>Install Python di Termux, setup pip, dan mulai coding langsung dari HP Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
-    <p><button onclick="buka(10)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(10)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Panduan Lengkap Vim di Termux</h2>
     <p>Belajar Vim dari nol: install, mode-mode, perintah dasar, dan konfigurasi .vimrc.</p>
     <span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
-    <p><button onclick="buka(11)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(11)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install dan Pakai Tmux di Termux</h2>
     <p>Terminal multiplexer untuk Android: session, split pane, detach/attach, dan automation.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
-    <p><button onclick="buka(12)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(12)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Node.js di Termux</h2>
     <p>Install Node.js dan npm di Termux, buat project, dan automation sederhana.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
-    <p><button onclick="buka(13)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+    <p><button onclick="buka(13)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
 </ul>
 
-<div class="pagination" id="pagination" style="display: flex; justify-content: center; gap: 12px; margin: 24px 0;">
-  <button onclick="prevPage()" id="btnPrev" style="background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 10px 20px; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: all 0.2s ease;">&larr; Sebelumnya</button>
-  <span id="pageInfo" style="display: flex; align-items: center; color: var(--muted); font-size: 0.9rem;">1 / 3</span>
-  <button onclick="nextPage()" id="btnNext" style="background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 999px; padding: 10px 20px; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: all 0.2s ease;">Berikutnya &rarr;</button>
+<div class="pagination" id="pagination">
+  <button onclick="prevPage()" id="btnPrev">&larr; Sebelumnya</button>
+  <span id="pageInfo">1 / 3</span>
+  <button onclick="nextPage()" id="btnNext">Berikutnya &rarr;</button>
 </div>
 
 <nav class="toc">
@@ -518,12 +543,11 @@ git push -u origin main</code></pre>
     <blockquote>Yang bisa dijalankan di HP: laporan, pengingat, pengecekan data. Yang tidak: mengelola aplikasi lain, membaca pesan, atau mengendalikan layar.</blockquote>
 </article>
 
-
 <article class="post" id="a2">
 <h1>Kendalikan Program dari Telegram</h1>
-<span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
+<span class="meta">5 Oktober 2026 · 6 menit baca</span>
 
-<p>Program yang jalan sendiri itu memangADA gunanya. Tapi program yang jalan sendiri <em>dan</em> bisa diperintah dari jauh adalah masalah yang berbeda. HP tidak perlu disentuh untuk menjalankan, dan tidak perlu dibuka untuk mengendalikan.</p>
+<p>Program yang jalan sendiri itu memang ada gunanya. Tapi program yang jalan sendiri <em>dan</em> bisa diperintah dari jauh adalah masalah yang berbeda. HP tidak perlu disentuh untuk menjalankan, dan tidak perlu dibuka untuk mengendalikan.</p>
 
 <h2>Arsitektur paling sederhana</h2>
 <p>Tiga bagian, semuanya berjalan di HP:</p>
@@ -544,7 +568,7 @@ git push -u origin main</code></pre>
 </ul>
 
 <h2>Aturan emas: satu bot, satu poller</h2>
-<p>Ini yang paling sering menimbulkan masalah. Setiap token bot Telegram hanya bisa dibaca oleh <strong>satu</strong> program pada satu waktu. Kalau dua program berjalan bersamaan memakai token yang sama, salah satunya merebut pesan, dan program yang Beautynamed ikut kehilangan kemampuan membalas.</p>
+<p>Ini yang paling sering menimbulkan masalah. Setiap token bot Telegram hanya bisa dibaca oleh <strong>satu</strong> program pada satu waktu. Kalau dua program berjalan bersamaan memakai token yang sama, salah satunya merebut pesan, dan program yang lain ikut kehilangan kemampuan membalas.</p>
 <p>Akibatnya bisa ringan, bisa fatal. Bot yang tadinya lancar bisa berubah diam. Gejalanya membingungkan karena log tetap mencatat pesan masuk, padahal tidak ada balasan yang keluar.</p>
 
 <h2>Log bukan bukti bot membalas</h2>
@@ -584,10 +608,10 @@ else:
 <tr><td><code>halo</code></td><td>tidak dikenal, tetap dibalas</td></tr>
 </tbody>
 </table>
-<p>Normalisasi harus menjadi baris pertama, sebelum logika apa pun. Detail kecil ini yang menentukan apakah bot terasa|round pintar atau terasa kaku.</p>
+<p>Normalisasi harus menjadi baris pertama, sebelum logika apa pun. Detail kecil ini yang menentukan apakah bot terasa pintar atau terasa kaku.</p>
 
 <h2>Menguji tanpa mengirim apa pun</h2>
-<p>Jangan langsung menguji program ke Against pengguna. Ganti fungsi pengirim dengan stub yang hanya mencatat:</p>
+<p>Jangan langsung menguji program ke pengguna. Ganti fungsi pengirim dengan stub yang hanya mencatat:</p>
 <pre><code>terkirim = []
 
 def kirim(teks):
@@ -614,9 +638,10 @@ for masukan in (biasanya, kapital, tak_dikenal, bersuffix):
 <p>Automasi yang jalan sendiri terasa mengagumkan. Tapi yang bisa diperintah dari Telegram itulah yang sebenarnya berguna. Kalau programnya masih hanya dikendalikan lewat keyboard, itu script yang dijadwalkan, bukan sistem.</p>
 <p>Dan bagian yang paling sering terlupakan: program yang diam adalah program yang tidak bisa dipercaya, bukan program yang sedang bekerja dengan baik.</p>
 </article>
+
 <article class="post" id="a3">
 <h1>Cara Install Termux di HP Android (2026)</h1>
-<span class="meta">6 Oktober 2026 &middot; 7 menit baca</span>
+<span class="meta">6 Oktober 2026 · 7 menit baca</span>
 
 <p>Termux adalah aplikasi terminal emulator untuk Android yang memungkinkan kamu menjalankan perintah Linux langsung dari HP. Dengan Termux, HP Android bisa berubah seperti komputer mini untuk coding, automation, dan berbagai tugas teknis lainnya.</p>
 
@@ -679,9 +704,10 @@ for masukan in (biasanya, kapital, tak_dikenal, bersuffix):
 
 <blockquote>Termux bukan sekadar aplikasi terminal. Ia adalah pintu masuk HP Android ke dunia Linux, dan semua kemungkinan yang datang dengannya.</blockquote>
 </article>
+
 <article class="post" id="a4">
 <h1>Membuat Blog Gratis di HP Android dengan GitHub Pages</h1>
-<span class="meta">6 Oktober 2026 &middot; 8 menit baca</span>
+<span class="meta">6 Oktober 2026 · 8 menit baca</span>
 
 <p>Membuat blog sendiri terdengar seperti hal yang butuh skill teknis tinggi dan biaya besar. Padahal dengan HP Android dan Termux, kamu bisa membuat website blog yang benar-benar online dalam waktu kurang dari satu jam, dengan biaya nol rupiah.</p>
 
@@ -792,6 +818,7 @@ git push origin main</code></pre>
 
 <blockquote>Blog gratis bukan blog yang kurang serius. Ia adalah pintu masuk yang sempurna untuk memulai tanpa risiko, dan fondasi yang kuat untuk berkembang.</blockquote>
 </article>
+
 <article class="post" id="a5">
 <h1>Cara Backup Termux ke GitHub</h1>
 <span class="meta">7 Oktober 2026 · 5 menit baca</span>
@@ -971,241 +998,242 @@ pkg search kata_kunci</code></pre>
 <blockquote>pkg adalah pintu masuk dunia Linux di HP Android. Kuasai dasar-dasarnya, dan Termux jadi jauh lebih powerful.</blockquote>
 </article>
 
-1|<article class="post" id="a8">
-2|<h1>Cara Install Termux di HP Android 2026 (Lengkap, No Root)</h1>
-3|<span class="meta">7 Oktober 2026 · 7 menit baca</span>
-4|
-5|<p>Punya HP Android dan pengen belajar coding atau otomasi langsung dari genggaman? Kamu nggak perlu root kok. Di artikel ini, saya akan bahas <strong>cara install Termux Android 2026</strong> dengan langkah paling lengkap dan mudah diikuti. Termux adalah terminal emulator powerful yang bikin HP Android kamu bisa jalanin perintah Linux, install package, bahkan coding Python atau Bash script. Semua tanpa perlu root, tanpa perlu laptop. Yuk simak panduan lengkapnya!</p>
-6|
-7|<h2>Kenapa Harus Pakai Termux di 2026?</h2>
-8|
-9|<p>Termux masih jadi pilihan utama buat pengguna Android yang pengen produktif di mana aja. Di tahun 2026 ini, Termux sudah makin stabil dan kompatibel dengan Android 12, 13, 14, sampai 15. Kamu bisa install tools seperti Git, Python, Node.js, sampai SSH client langsung dari HP. Buat pemula, ini cara paling gampang buat belajar command line tanpa harus beli laptop atau pasang dual boot.</p>
-10|
-11|<h2>Persiapan Sebelum Install Termux Android 2026</h2>
-12|
-13|<p>Sebelum mulai <strong>cara install Termux Android 2026</strong>, pastikan HP kamu memenuhi syarat berikut:</p>
-14|
-15|<ul>
-16|<li>Minimal Android 7.0 (Nougat) ke atas, tapi disarankan Android 10+ buat performa terbaik.</li>
-17|<li>Storage kosong minimal 500 MB buat install package-package dasar.</li>
-18|<li>Koneksi internet stabil, sebaiknya pakai Wi-Fi biar proses download package nggak putus.</li>
-19|<li>Baterai di atas 30% atau colok charger selama proses instalasi.</li>
-20|</ul>
-21|
-22|<h2>Langkah-Langkah Install Termux di HP Android</h2>
-23|
-24|<p>Berikut panduan <strong>cara install Termux Android 2026</strong> yang bisa kamu ikuti satu per satu:</p>
-25|
-26|<h3>1. Download Termux dari F-Droid</h3>
-27|
-28|<p>Versi Termux di Play Store sudah jarang update dan kadang error. Cara terbaik adalah download dari F-Droid, app store open-source yang selalu update. Buka browser, kunjungi f-droid.org, lalu download dan install aplikasi F-Droid-nya dulu. Setelah itu, buka F-Droid, cari "Termux", lalu tekan Install.</p>
-29|
-30|<h3>2. Update Package Repository</h3>
-31|
-32|<p>Setelah Termux terinstall, buka aplikasinya. Akan muncul terminal hitam dengan prompt perintah. Ketik perintah ini lalu tekan Enter:</p>
-33|
-34|<pre><code>pkg update && pkg upgrade</code></pre>
-35|
-36|<p>Proses ini butuh waktu beberapa menit tergantung kecepatan internet. Jangan tutup aplikasi sampai selesai.</p>
-37|
-38|<h3>3. Install Package Dasar</h3>
-39|
-40|<p>Biar Termux makin powerful, install package dasar ini satu per satu:</p>
-41|
-42|<pre><code>pkg install git python nano curl wget</code></pre>
-43|
-44|<p>Git buat clone repository, Python buat coding, Nano buat edit file teks, dan Curl/Wget buat download file dari terminal.</p>
-45|
-46|<h3>4. Setup Storage Permission</h3>
-47|
-48|<p>Biar Termux bisa akses folder storage HP kamu, jalankan perintah:</p>
-49|
-50|<pre><code>termux-setup-storage</code></pre>
-51|
-52|<p>Akan muncul popup permission, tekan "Allow" atau "Izinkan". Sekarang kamu bisa akses folder Download, Documents, dan lainnya dari dalam Termux.</p>
-53|
-54|<h2>FAQ Seputar Cara Install Termux Android 2026</h2>
-55|
-56|<h3>Apakah Termux butuh root?</h3>
-57|
-58|<p>Tidak sama sekali. Semua fitur dasar Termux jalan tanpa root. Kamu bisa install package, coding, dan otomasi tanpa perlu unlock bootloader atau flash apapun.</p>
-59|
-60|<h3>Kenapa Termux saya error saat install package?</h3>
-61|
-62|<p>Penyebab paling umum adalah repository yang belum update atau koneksi internet lemah. Coba jalankan <code>pkg update</code> dulu, lalu ulangi perintah install. Kalau masih error, coba ganti mirror dengan perintah <code>termux-change-repo</code>.</p>
-63|
-64|<h3>Apakah Termux aman dipakai?</h3>
-65|
-66|<p>Ya, Termux open-source dan kode sumbernya bisa dilihat siapa aja. Yang penting, jangan install package dari sumber tidak jelas dan jangan jalankan perintah yang kamu nggak paham, apalaya perintah yang minta akses root atau menghapus file sistem.</p>
-67|
-68|<h3>Termux bisa buat apa aja?</h3>
-69|
-70|<p>Banyak banget! Kamu bisa bikin bot Telegram, auto-reply WhatsApp, web server sederhana, sampai belajar scripting Bash dan Python. Di 2026 ini, banyak developer yang pakai Termux buat testing script sebelum deploy ke server.</p>
-71|
-72|<h2>Penutup</h2>
-73|
-74|<p>Itulah panduan lengkap <strong>cara install Termux Android 2026</strong> yang bisa kamu coba hari ini. Prosesnya nggak lebih dari 10 menit kalau internet lancar. Setelah Termux terinstall, dunia otomasi dan coding di HP Android kamu terbuka lebar. Mulai dari yang sederhana dulu, seperti install Python dan bikin script hello world. Pelan-pelan, kamu pasti bisa bikin project yang lebih kompleks. Selamat mencoba!</p>
-75|
-76|</article>
-77|
+<article class="post" id="a8">
+<h1>Cara Install Termux di HP Android 2026 (Lengkap, No Root)</h1>
+<span class="meta">7 Oktober 2026 · 7 menit baca</span>
 
-1|<article class="post" id="a9">
-2|<h1>10 Perintah Linux Termux yang Wajib Diketahui Pemula</h1>
-3|
-4|<p>Kalau kamu baru mulai belajar <strong>perintah linux termux pemula</strong>, rasanya memang agak membingungkan. Tapi tenang, dengan menguasai 10 perintah dasar ini, kamu sudah bisa melakukan banyak hal di Termux. Artikel ini akan memandu kamu step-by-step dengan contoh kode yang langsung bisa dicoba di HP Android kamu. Jadi, siapkan Termux dan mulai praktik dari sekarang!</p>
-5|
-6|<h2>1. pkg update &amp; pkg upgrade</h2>
-7|<p>Perintah pertama yang wajib kamu tahu adalah memperbarui paket. Ini memastikan semua paket di Termux versi terbaru dan menghindari error saat menginstall tools baru. Jalankan perintah ini secara rutin, minimal sekali seminggu. Kamu juga bisa menambahkan opsi -y agar tidak perlu konfirmasi manual.</p>
-8|<pre><code>pkg update && pkg upgrade -y</code></pre>
-9|
-10|<h2>2. pkg install</h2>
-11|<p>Untuk menginstall aplikasi atau tools baru, gunakan perintah ini. Ganti "nama_paket" dengan paket yang kamu butuhkan. Contoh paling umum adalah menginstall Python untuk scripting, atau Git untuk version control. Kamu bisa menginstall beberapa paket sekaligus dengan memisahkan nama paket menggunakan spasi.</p>
-12|<pre><code>pkg install python git</code></pre>
-13|
-14|<h2>3. ls</h2>
-15|<p>Perintah ini menampilkan daftar file dan folder di direktori aktif. Sangat berguna untuk navigasi dan memastikan file yang kamu buat sudah tersimpan dengan benar. Kamu juga bisa menambahkan opsi -l untuk melihat detail file seperti ukuran, permission, dan tanggal modifikasi.</p>
-16|<pre><code>ls -l</code></pre>
-17|
-18|<h2>4. cd</h2>
-19|<p>Untuk pindah dari satu folder ke folder lain, gunakan cd. Contoh di bawah masuk ke folder Documents. Jangan lupa tambahkan tanda / di awal jika ingin masuk ke folder root. Kamu juga bisa menggunakan cd .. untuk kembali ke folder sebelumnya, atau cd ~ untuk langsung ke home directory.</p>
-20|<pre><code>cd Documents</code></pre>
-21|
-22|<h2>5. pwd</h2>
-23|<p>Lupa sedang berada di folder mana? pwd akan menunjukkan path direktori kamu saat ini. Ini sangat membantu saat kamu sudah masuk ke banyak folder bertingkat dan ingin memastikan lokasi sebelum menjalankan perintah penting lainnya.</p>
-24|<pre><code>pwd</code></pre>
-25|
-26|<h2>6. mkdir</h2>
-27|<p>Buat folder baru dengan mudah. Contoh ini membuat folder bernama "project". Kamu juga bisa membuat beberapa folder sekaligus dengan menambahkan spasi. Jika ingin membuat folder bertingkat, gunakan opsi -p agar folder induk dibuat otomatis.</p>
-28|<pre><code>mkdir project</code></pre>
-29|
-30|<h2>7. touch</h2>
-31|<p>Perintah ini membuat file kosong baru. Cocok untuk membuat file teks atau script shell yang akan kamu isi nanti dengan editor favoritmu. Kamu juga bisa membuat beberapa file sekaligus dengan menambahkan spasi di antara nama file.</p>
-32|<pre><code>touch script.sh</code></pre>
-33|
-34|<h2>8. cat</h2>
-35|<p>Untuk melihat isi file tanpa membuka editor, gunakan cat. Praktik untuk file teks pendek seperti konfigurasi atau catatan kecil. Kamu juga bisa menggabungkan beberapa file sekaligus, atau membuat file baru dengan operator redirect seperti di bawah ini.</p>
-36|<pre><code>cat file.txt</code></pre>
-37|
-38|<h2>9. rm</h2>
-39|<p>Hapus file atau folder yang sudah tidak diperlukan. Hati-hati, file yang dihapus tidak bisa dikembalikan. Gunakan opsi -r untuk menghapus folder beserta isinya, dan -f untuk memaksa hapus tanpa konfirmasi. Selalu cek dulu dengan ls sebelum menghapus.</p>
-40|<pre><code>rm file.txt</code></pre>
-41|
-42|<h2>10. nano</h2>
-43|<p>Editor teks sederhana di Termux. Buka atau buat file baru dengan nano, lalu edit langsung. Simpan dengan menekan Ctrl+X, lalu Y, dan Enter. Sangat mudah digunakan untuk pemula yang belum terbiasa dengan editor seperti Vim atau Emacs.</p>
-44|<pre><code>nano file.txt</code></pre>
-45|
-46|<h2>Kesimpulan</h2>
-47|<p>Dengan menguasai 10 <strong>perintah linux termux pemula</strong> ini, kamu sudah punya fondasi kuat untuk menjelajahi Termux lebih jauh. Mulai dari menginstall paket, navigasi folder, hingga mengedit file, semua bisa kamu lakukan dengan mudah. Teruslah berlatih dan jangan takut mencoba perintah-perintah baru. Semoga artikel ini bermanfaat dan selamat mencoba!</p>
-48|</article>
+<p>Punya HP Android dan pengen belajar coding atau otomasi langsung dari genggaman? Kamu nggak perlu root kok. Di artikel ini, saya akan bahas <strong>cara install Termux Android 2026</strong> dengan langkah paling lengkap dan mudah diikuti. Termux adalah terminal emulator powerful yang bikin HP Android kamu bisa jalanin perintah Linux, install package, bahkan coding Python atau Bash script. Semua tanpa perlu root, tanpa perlu laptop. Yuk simak panduan lengkapnya!</p>
 
-1|<article class="post" id="a10">
-2|<h1>Cara Install Python Termux Android (Panduan Lengkap)</h1>
-3|
-4|<p>Mau belajar coding Python tapi cuma pegang HP Android? Tenang, kamu bisa <strong>install python termux android</strong> dengan mudah dan mulai menulis script langsung dari genggaman. Termux adalah emulator terminal powerful yang bikin HP Android kamu berubah seperti mini laptop. Dengan install python termux android, kamu bisa jalanin script Python, bikin automation, sampai belajar data science tanpa perlu komputer. Di panduan ini, saya akan bahas langkah demi langkah cara install python termux android untuk pemula, lengkap dengan contoh script dan solusi kalau ada error.</p>
-5|
-6|<h2>Kenapa Harus Install Python di Termux Android?</h2>
-7|
-8|<p>Banyak alasan kenapa kamu harus coba install python termux android. Pertama, praktis — koding di mana saja tanpa bawa laptop. Kedua, gratis — Termux tersedia di F-Droid atau Play Store tanpa biaya. Ketiga, powerful — Termux punya akses penuh ke filesystem Android, jadi kamu bisa bikin script yang berinteraksi dengan file, notifikasi, bahkan sensor HP. Buat pemula, install python termux android adalah pintu masuk dunia programming yang paling mudah diakses.</p>
-9|
-10|<h2>Langkah Install Python Termux Android</h2>
-11|
-12|<p>Siapkan HP Android kamu dan ikuti langkah install python termux android berikut ini dengan teliti.</p>
-13|
-14|<h3>1. Download dan Install Termux</h3>
-15|
-16|<p>Pertama, download Termux dari F-Droid (versi terbaru) atau Play Store. Setelah install, buka aplikasi Termux dan tunggu proses setup selesai. Kamu akan melihat layar terminal hitam dengan prompt perintah. Ketik perintah update dulu:</p>
-17|
-18|<pre><code>pkg update && pkg upgrade</code></pre>
-19|
-20|<p>Proses ini memastikan semua paket Termux sudah versi terbaru sebelum kamu install python termux android.</p>
-21|
-22|<h3>2. Install Python</h3>
-23|
-24|<p>Setelah update selesai, ketik perintah berikut untuk install python termux android:</p>
-25|
-26|<pre><code>pkg install python</code></pre>
-27|
-28|<p>Tunggu beberapa menit sampai proses download dan install selesai. Biasanya butuh waktu 2-5 menit tergantung koneksi internet kamu. Kalau sudah selesai, cek versi Python dengan perintah:</p>
-29|
-30|<pre><code>python --version</code></pre>
-31|
-32|<p>Jika muncul tulisan seperti <code>Python 3.11.x</code>, berarti install python termux android berhasil dan siap digunakan.</p>
-33|
-34|<h3>3. Install Pip dan Library Tambahan</h3>
-35|
-36|<p>Pip adalah package manager Python yang wajib ada. Biasanya sudah otomatis terinstall bersama Python, tapi untuk memastikan, ketik:</p>
-37|
-38|<pre><code>pip install --upgrade pip</code></pre>
-39|
-40|<p>Sekarang kamu sudah bisa install library Python apa saja, misalnya numpy, requests, atau pandas. Contoh:</p>
-41|
-42|<pre><code>pip install requests</code></pre>
-43|
-44|<h2>Contoh Script Sederhana</h2>
-45|
-46|<p>Setelah berhasil install python termux android, saatnya mencoba script sederhana. Buat file baru bernama <code>halo.py</code> dengan perintah:</p>
-47|
-48|<pre><code>nano halo.py</code></pre>
-49|
-50|<p>Kemudian ketik script berikut:</p>
-51|
-52|<pre><code>#!/usr/bin/env python3
-53|# Script sederhana setelah install python termux android
-54|
-55|def sapa(nama):
-56|    return f"Halo, {nama}! Selamat datang di dunia Python."
-57|
-58|if __name__ == "__main__":
-59|    nama = input("Siapa nama kamu? ")
-60|    print(sapa(nama))
-61|    print("Python berjalan dengan lancar di Termux Android!")</code></pre>
-62|
-63|<p>Simpan file dengan menekan <code>Ctrl + X</code>, lalu <code>Y</code>, dan <code>Enter</code>. Jalankan script dengan perintah:</p>
-64|
-65|<pre><code>python halo.py</code></pre>
-66|
-67|<p>Masukkan nama kamu, dan script akan menyapa kamu. Selamat, install python termux android kamu berhasil dan sudah bisa digunakan!</p>
-68|
-69|<h2>Troubleshooting: Masalah Umum dan Solusinya</h2>
-70|
-71|<p>Saat proses install python termux android, kadang muncul beberapa error. Berikut masalah umum dan cara mengatasinya.</p>
-72|
-73|<h3>Error: "Unable to locate package python"</h3>
-74|
-75|<p>Solusi: Pastikan kamu sudah menjalankan <code>pkg update</code> sebelum install. Kalau masih error, coba tambahkan repository:</p>
-76|
-77|<pre><code>pkg install tur-repo
-78|pkg install python</code></pre>
-79|
-80|<h3>Error: "pip: command not found"</h3>
-81|
-82|<p>Solusi: Install pip secara manual dengan perintah:</p>
-83|
-84|<pre><code>pkg install python-pip</code></pre>
-85|
-86|<h3>Script Tidak Bisa Dijalankan</h3>
-87|
-88|<p>Solusi: Pastikan kamu memberi permission execute pada file script:</p>
-89|
-90|<pre><code>chmod +x halo.py
-91|./halo.py</code></pre>
-92|
-93|<h3>Storage Permission Error</h3>
-94|
-95|<p>Solusi: Berikan akses storage ke Termux dengan perintah:</p>
-96|
-97|<pre><code>termux-setup-storage</code></pre>
-98|
-99|<p>Izin yang muncul di layar Android harus kamu terima agar Termux bisa membaca dan menulis file.</p>
-100|
-101|<h2>Kesimpulan</h2>
-102|
+<h2>Kenapa Harus Pakai Termux di 2026?</h2>
+
+<p>Termux masih jadi pilihan utama buat pengguna Android yang pengen produktif di mana aja. Di tahun 2026 ini, Termux sudah makin stabil dan kompatibel dengan Android 12, 13, 14, sampai 15. Kamu bisa install tools seperti Git, Python, Node.js, sampai SSH client langsung dari HP. Buat pemula, ini cara paling gampang buat belajar command line tanpa harus beli laptop atau pasang dual boot.</p>
+
+<h2>Persiapan Sebelum Install Termux Android 2026</h2>
+
+<p>Sebelum mulai <strong>cara install Termux Android 2026</strong>, pastikan HP kamu memenuhi syarat berikut:</p>
+
+<ul>
+<li>Minimal Android 7.0 (Nougat) ke atas, tapi disarankan Android 10+ buat performa terbaik.</li>
+<li>Storage kosong minimal 500 MB buat install package-package dasar.</li>
+<li>Koneksi internet stabil, sebaiknya pakai Wi-Fi biar proses download package nggak putus.</li>
+<li>Baterai di atas 30% atau colok charger selama proses instalasi.</li>
+</ul>
+
+<h2>Langkah-Langkah Install Termux di HP Android</h2>
+
+<p>Berikut panduan <strong>cara install Termux Android 2026</strong> yang bisa kamu ikuti satu per satu:</p>
+
+<h3>1. Download Termux dari F-Droid</h3>
+
+<p>Versi Termux di Play Store sudah jarang update dan kadang error. Cara terbaik adalah download dari F-Droid, app store open-source yang selalu update. Buka browser, kunjungi f-droid.org, lalu download dan install aplikasi F-Droid-nya dulu. Setelah itu, buka F-Droid, cari "Termux", lalu tekan Install.</p>
+
+<h3>2. Update Package Repository</h3>
+
+<p>Setelah Termux terinstall, buka aplikasinya. Akan muncul terminal hitam dengan prompt perintah. Ketik perintah ini lalu tekan Enter:</p>
+
+<pre><code>pkg update && pkg upgrade</code></pre>
+
+<p>Proses ini butuh waktu beberapa menit tergantung kecepatan internet. Jangan tutup aplikasi sampai selesai.</p>
+
+<h3>3. Install Package Dasar</h3>
+
+<p>Biar Termux makin powerful, install package dasar ini satu per satu:</p>
+
+<pre><code>pkg install git python nano curl wget</code></pre>
+
+<p>Git buat clone repository, Python buat coding, Nano buat edit file teks, dan Curl/Wget buat download file dari terminal.</p>
+
+<h3>4. Setup Storage Permission</h3>
+
+<p>Biar Termux bisa akses folder storage HP kamu, jalankan perintah:</p>
+
+<pre><code>termux-setup-storage</code></pre>
+
+<p>Akan muncul popup permission, tekan "Allow" atau "Izinkan". Sekarang kamu bisa akses folder Download, Documents, dan lainnya dari dalam Termux.</p>
+
+<h2>FAQ Seputar Cara Install Termux Android 2026</h2>
+
+<h3>Apakah Termux butuh root?</h3>
+
+<p>Tidak sama sekali. Semua fitur dasar Termux jalan tanpa root. Kamu bisa install package, coding, dan otomasi tanpa perlu unlock bootloader atau flash apapun.</p>
+
+<h3>Kenapa Termux saya error saat install package?</h3>
+
+<p>Penyebab paling umum adalah repository yang belum update atau koneksi internet lemah. Coba jalankan <code>pkg update</code> dulu, lalu ulangi perintah install. Kalau masih error, coba ganti mirror dengan perintah <code>termux-change-repo</code>.</p>
+
+<h3>Apakah Termux aman dipakai?</h3>
+
+<p>Ya, Termux open-source dan kode sumbernya bisa dilihat siapa aja. Yang penting, jangan install package dari sumber tidak jelas dan jangan jalankan perintah yang kamu nggak paham, apalaya perintah yang minta akses root atau menghapus file sistem.</p>
+
+<h3>Termux bisa buat apa aja?</h3>
+
+<p>Banyak banget! Kamu bisa bikin bot Telegram, auto-reply WhatsApp, web server sederhana, sampai belajar scripting Bash dan Python. Di 2026 ini, banyak developer yang pakai Termux buat testing script sebelum deploy ke server.</p>
+
+<h2>Penutup</h2>
+
+<p>Itulah panduan lengkap <strong>cara install Termux Android 2026</strong> yang bisa kamu coba hari ini. Prosesnya nggak lebih dari 10 menit kalau internet lancar. Setelah Termux terinstalled, dunia otomasi dan coding di HP Android kamu terbuka lebar. Mulai dari yang sederhana dulu, seperti install Python dan bikin script hello world. Pelan-pelan, kamu pasti bisa bikin project yang lebih kompleks. Selamat mencoba!</p>
+
+</article>
+
+<article class="post" id="a9">
+<h1>10 Perintah Linux Termux yang Wajib Diketahui Pemula</h1>
+<span class="meta">7 Oktober 2026 · 6 menit baca</span>
+
+<p>Kalau kamu baru mulai belajar <strong>perintah linux termux pemula</strong>, rasanya memang agak membingungkan. Tapi tenang, dengan menguasai 10 perintah dasar ini, kamu sudah bisa melakukan banyak hal di Termux. Artikel ini akan memandu kamu step-by-step dengan contoh kode yang langsung bisa dicoba di HP Android kamu. Jadi, siapkan Termux dan mulai praktik dari sekarang!</p>
+
+<h2>1. pkg update &amp; pkg upgrade</h2>
+<p>Perintah pertama yang wajib kamu tahu adalah memperbarui paket. Ini memastikan semua paket di Termux versi terbaru dan menghindari error saat menginstall tools baru. Jalankan perintah ini secara rutin, minimal sekali seminggu. Kamu juga bisa menambahkan opsi -y agar tidak perlu konfirmasi manual.</p>
+<pre><code>pkg update && pkg upgrade -y</code></pre>
+
+<h2>2. pkg install</h2>
+<p>Untuk menginstall aplikasi atau tools baru, gunakan perintah ini. Ganti "nama_paket" dengan paket yang kamu butuhkan. Contoh paling umum adalah menginstall Python untuk scripting, atau Git untuk version control. Kamu bisa menginstall beberapa paket sekaligus dengan memisahkan nama paket menggunakan spasi.</p>
+<pre><code>pkg install python git</code></pre>
+
+<h2>3. ls</h2>
+<p>Perintah ini menampilkan daftar file dan folder di direktori aktif. Sangat berguna untuk navigasi dan memastikan file yang kamu buat sudah tersimpan dengan benar. Kamu juga bisa menambahkan opsi -l untuk melihat detail file seperti ukuran, permission, dan tanggal modifikasi.</p>
+<pre><code>ls -l</code></pre>
+
+<h2>4. cd</h2>
+<p>Untuk pindah dari satu folder ke folder lain, gunakan cd. Contoh di bawah masuk ke folder Documents. Jangan lupa tambahkan tanda / di awal jika ingin masuk ke folder root. Kamu juga bisa menggunakan cd .. untuk kembali ke folder sebelumnya, atau cd ~ untuk langsung ke home directory.</p>
+<pre><code>cd Documents</code></pre>
+
+<h2>5. pwd</h2>
+<p>Lupa sedang berada di folder mana? pwd akan menunjukkan path direktori kamu saat ini. Ini sangat membantu saat kamu sudah masuk ke banyak folder bertingkat dan ingin memastikan lokasi sebelum menjalankan perintah penting lainnya.</p>
+<pre><code>pwd</code></pre>
+
+<h2>6. mkdir</h2>
+<p>Buat folder baru dengan mudah. Contoh ini membuat folder bernama "project". Kamu juga bisa membuat beberapa folder sekaligus dengan menambahkan spasi. Jika ingin membuat folder bertingkat, gunakan opsi -p agar folder induk dibuat otomatis.</p>
+<pre><code>mkdir project</code></pre>
+
+<h2>7. touch</h2>
+<p>Perintah ini membuat file kosong baru. Cocok untuk membuat file teks atau script shell yang akan kamu isi nanti dengan editor favoritmu. Kamu juga bisa membuat beberapa file sekaligus dengan menambahkan spasi di antara nama file.</p>
+<pre><code>touch script.sh</code></pre>
+
+<h2>8. cat</h2>
+<p>Untuk melihat isi file tanpa membuka editor, gunakan cat. Praktik untuk file teks pendek seperti konfigurasi atau catatan kecil. Kamu juga bisa menggabungkan beberapa file sekaligus, atau membuat file baru dengan operator redirect seperti di bawah ini.</p>
+<pre><code>cat file.txt</code></pre>
+
+<h2>9. rm</h2>
+<p>Hapus file atau folder yang sudah tidak diperlukan. Hati-hati, file yang dihapus tidak bisa dikembalikan. Gunakan opsi -r untuk menghapus folder beserta isinya, dan -f untuk memaksa hapus tanpa konfirmasi. Selalu cek dulu dengan ls sebelum menghapus.</p>
+<pre><code>rm file.txt</code></pre>
+
+<h2>10. nano</h2>
+<p>Editor teks sederhana di Termux. Buka atau buat file baru dengan nano, lalu edit langsung. Simpan dengan menekan Ctrl+X, lalu Y, dan Enter. Sangat mudah digunakan untuk pemula yang belum terbiasa dengan editor seperti Vim atau Emacs.</p>
+<pre><code>nano file.txt</code></pre>
+
+<h2>Kesimpulan</h2>
+<p>Dengan menguasai 10 <strong>perintah linux termux pemula</strong> ini, kamu sudah punya fondasi kuat untuk menjelajahi Termux lebih jauh. Mulai dari menginstall paket, navigasi folder, hingga mengedit file, semua bisa kamu lakukan dengan mudah. Teruslah berlatih dan jangan takut mencoba perintah-perintah baru. Semoga artikel ini bermanfaat dan selamat mencoba!</p>
+</article>
+
+<article class="post" id="a10">
+<h1>Cara Install Python Termux Android (Panduan Lengkap)</h1>
+<span class="meta">7 Oktober 2026 · 7 menit baca</span>
+
+<p>Mau belajar coding Python tapi cuma pegang HP Android? Tenang, kamu bisa <strong>install python termux android</strong> dengan mudah dan mulai menulis script langsung dari genggaman. Termux adalah emulator terminal powerful yang bikin HP Android kamu berubah seperti mini laptop. Dengan install python termux android, kamu bisa jalanin script Python, bikin automation, sampai belajar data science tanpa perlu komputer. Di panduan ini, saya akan bahas langkah demi langkah cara install python termux android untuk pemula, lengkap dengan contoh script dan solusi kalau ada error.</p>
+
+<h2>Kenapa Harus Install Python di Termux Android?</h2>
+
+<p>Banyak alasan kenapa kamu harus coba install python termux android. Pertama, praktis — koding di mana saja tanpa bawa laptop. Kedua, gratis — Termux tersedia di F-Droid atau Play Store tanpa biaya. Ketiga, powerful — Termux punya akses penuh ke filesystem Android, jadi kamu bisa bikin script yang berinteraksi dengan file, notifikasi, bahkan sensor HP. Buat pemula, install python termux android adalah pintu masuk dunia programming yang paling mudah diakses.</p>
+
+<h2>Langkah Install Python Termux Android</h2>
+
+<p>Siapkan HP Android kamu dan ikuti langkah install python termux android berikut ini dengan teliti.</p>
+
+<h3>1. Download dan Install Termux</h3>
+
+<p>Pertama, download Termux dari F-Droid (versi terbaru) atau Play Store. Setelah install, buka aplikasi Termux dan tunggu proses setup selesai. Kamu akan melihat layar terminal hitam dengan prompt perintah. Ketik perintah update dulu:</p>
+
+<pre><code>pkg update && pkg upgrade</code></pre>
+
+<p>Proses ini memastikan semua paket Termux sudah versi terbaru sebelum kamu install python termux android.</p>
+
+<h3>2. Install Python</h3>
+
+<p>Setelah update selesai, ketik perintah berikut untuk install python termux android:</p>
+
+<pre><code>pkg install python</code></pre>
+
+<p>Tunggu beberapa menit sampai proses download dan install selesai. Biasanya butuh waktu 2-5 menit tergantung koneksi internet kamu. Kalau sudah selesai, cek versi Python dengan perintah:</p>
+
+<pre><code>python --version</code></pre>
+
+<p>Jika muncul tulisan seperti <code>Python 3.11.x</code>, berarti install python termux android berhasil dan siap digunakan.</p>
+
+<h3>3. Install Pip dan Library Tambahan</h3>
+
+<p>Pip adalah package manager Python yang wajib ada. Biasanya sudah otomatis terinstall bersama Python, tapi untuk memastikan, ketik:</p>
+
+<pre><code>pip install --upgrade pip</code></pre>
+
+<p>Sekarang kamu sudah bisa install library Python apa saja, misalnya numpy, requests, atau pandas. Contoh:</p>
+
+<pre><code>pip install requests</code></pre>
+
+<h2>Contoh Script Sederhana</h2>
+
+<p>Setelah berhasil install python termux android, saatnya mencoba script sederhana. Buat file baru bernama <code>halo.py</code> dengan perintah:</p>
+
+<pre><code>nano halo.py</code></pre>
+
+<p>Kemudian ketik script berikut:</p>
+
+<pre><code>#!/usr/bin/env python3
+# Script sederhana setelah install python termux android
+
+def sapa(nama):
+    return f"Halo, {nama}! Selamat datang di dunia Python."
+
+if __name__ == "__main__":
+    nama = input("Siapa nama kamu? ")
+    print(sapa(nama))
+    print("Python berjalan dengan lancar di Termux Android!")</code></pre>
+
+<p>Simpan file dengan menekan <code>Ctrl + X</code>, lalu <code>Y</code>, dan <code>Enter</code>. Jalankan script dengan perintah:</p>
+
+<pre><code>python halo.py</code></pre>
+
+<p>Masukkan nama kamu, dan script akan menyapa kamu. Selamat, install python termux android kamu berhasil dan sudah bisa digunakan!</p>
+
+<h2>Troubleshooting: Masalah Umum dan Solusinya</h2>
+
+<p>Saat proses install python termux android, kadang muncul beberapa error. Berikut masalah umum dan cara mengatasinya.</p>
+
+<h3>Error: "Unable to locate package python"</h3>
+
+<p>Solusi: Pastikan kamu sudah menjalankan <code>pkg update</code> sebelum install. Kalau masih error, coba tambahkan repository:</p>
+
+<pre><code>pkg install tur-repo
+pkg install python</code></pre>
+
+<h3>Error: "pip: command not found"</h3>
+
+<p>Solusi: Install pip secara manual dengan perintah:</p>
+
+<pre><code>pkg install python-pip</code></pre>
+
+<h3>Script Tidak Bisa Dijalankan</h3>
+
+<p>Solusi: Pastikan kamu memberi permission execute pada file script:</p>
+
+<pre><code>chmod +x halo.py
+./halo.py</code></pre>
+
+<h3>Storage Permission Error</h3>
+
+<p>Solusi: Berikan akses storage ke Termux dengan perintah:</p>
+
+<pre><code>termux-setup-storage</code></pre>
+
+<p>Izin yang muncul di layar Android harus kamu terima agar Termux bisa membaca dan menulis file.</p>
+
+<h2>Kesimpulan</h2>
+
 <p>Install python termux android ternyata sangat mudah, bukan? Dengan mengikuti langkah di atas, kamu sudah bisa mulai belajar Python langsung dari HP Android. Termux membuka banyak peluang &mdash; dari scripting sederhana sampai automation canggih. Jangan ragu untuk bereksplorasi dengan library Python yang tersedia. Selamat coding dan semoga panduan install python termux android ini bermanfaat!</p>
 </article>
 
 <article class="post" id="a11">
 <h1>Panduan Lengkap Vim di Termux</h1>
-<span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
+<span class="meta">7 Oktober 2026 · 8 menit baca</span>
 
 <p>Buat kamu yang baru mulai belajar Vim di HP Android pakai Termux, tenang aja. Vim itu kayak motor gede: awalnya ngeri, tapi udah bisa ngerasa nikmat. Artikel ini bakal ngebantu kamu dari nol sampai bisa pakai Vim dengan lancar buat coding atau ngetik di HP.</p>
 
@@ -1253,7 +1281,7 @@ set incsearch</code></pre>
 
 <article class="post" id="a12">
 <h1>Cara Install dan Pakai Tmux di Termux</h1>
-<span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+<span class="meta">7 Oktober 2026 · 6 menit baca</span>
 
 <p>Pernah ngerasa kesel karena HP Android kamu mati atau aplikasi ke-close, terus semua proses yang lalan tiba-tiba berhenti semua? Nah, di sinilah <strong>tmux</strong> jadi penyelamat. Tmux itu semacam terminal multiplexer, jadi kamu bisa bikin banyak "jendela" dalam satu terminal, dan yang paling penting: prosesnya tetap jalan walau kamu keluar dari Termux. Gampangnya, tmux bikin terminal kamu jadi lebih kuat dan tidak gampang mati.</p>
 
@@ -1306,84 +1334,53 @@ set incsearch</code></pre>
 
 <article class="post" id="a13">
 <h1>Cara Install Node.js di Termux</h1>
-<span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
-
+<span class="meta">7 Oktober 2026 · 6 menit baca</span>
 <p>Buat kamu yang pengen belajar coding Node.js tapi cuma punya HP Android, tenang aja. Termux bisa jadi solusi buat kamu buat jalanin Node.js langsung dari genggaman. Gue bakal pandu kamu step-by-step dari awal sampai bisa bikin automation sederhana. Gas, kita mulai!</p>
 
 <h2>Install Node.js di Termux</h2>
-
 <p>Pertama, pastikan Termux kamu sudah update. Buka Termux, terus ketik perintah ini:</p>
-
 <pre><code>pkg update &amp;&amp; pkg upgrade</code></pre>
-
 <p>Setelah itu, install Node.js dengan perintah:</p>
-
 <pre><code>pkg install nodejs</code></pre>
-
 <p>Nunggu sampai selesai. Biasanya cuma beberapa menit tergantung koneksi kamu. Kalau sudah, cek versi Node.js yang keinstall:</p>
-
 <pre><code>node -v</code></pre>
-
 <p>Kalo muncul angka versi kayak v18.x.x atau yang lebih baru, berarti Node.js udah siap dipake.</p>
 
 <h2>Install npm</h2>
-
 <p>Bagusnya lagi, npm (Node Package Manager) udah otomatis keinstall bareng Node.js. Jadi kamu nggak perlu install npm secara terpisah. Cek aja versi npm kamu:</p>
-
 <pre><code>npm -v</code></pre>
-
 <p>Kalo muncul angka versi, berarti npm udah siap. npm ini penting banget buat install package-package tambahan yang kamu butuhin.</p>
 
 <h2>Buat Project Sederhana</h2>
-
 <p>Sekarang kita bikin project Node.js pertama. Buat folder project baru:</p>
-
 <pre><code>mkdir project-pertama &amp;&amp; cd project-pertama</code></pre>
-
 <p>Terus inisialisasi project dengan npm:</p>
-
 <pre><code>npm init -y</code></pre>
-
 <p>Perintah ini bakal bikin file <code>package.json</code> yang isinya info tentang project kamu. File ini penting buat ngatur dependency dan script project.</p>
-
 <p>Sekarang buat file JavaScript baru, misalnya <code>index.js</code>:</p>
-
 <pre><code>nano index.js</code></pre>
-
 <p>Masukin kode sederhana ini:</p>
-
 <pre><code>console.log("Halo dari HP Android!");
 console.log("Node.js berjalan dengan lancar.");</code></pre>
-
 <p>Simpan dengan tekan Ctrl+X, terus Y, lalu Enter.</p>
 
 <h2>Jalanin Script Node.js</h2>
-
 <p>Untuk jalanin script yang udah kamu buat, ketik perintah:</p>
-
 <pre><code>node index.js</code></pre>
-
 <p>Kalo muncul tulisan "Halo dari HP Android!" berarti script kamu berhasil dijalanin. Selamat, kamu udah resmi jadi programmer Node.js dari HP!</p>
 
 <h2>Contoh Automation Sederhana</h2>
-
 <p>Nah, ini bagian yang seru. Kita bakal bikin script automation sederhana yang bisa ngecek storage HP kamu. Buat file baru:</p>
-
 <pre><code>nano cek-storage.js</code></pre>
-
 <p>Masukin kode ini:</p>
-
 <pre><code>const { execSync } = require('child_process');
 
 console.log("=== Cek Storage HP ===");
 const hasil = execSync('df -h /data/data/com.termux/files/home').toString();
 console.log(hasil);
 console.log("Selesai!");</code></pre>
-
 <p>Jalankan dengan:</p>
-
 <pre><code>node cek-storage.js</code></pre>
-
 <p>Script ini bakal nampilin info storage HP kamu. Kamu bisa modifikasi script ini buat ngecek hal lain, kayak baterai, suhu, atau bahkan bikin script yang ngirim notifikasi kalau storage hampir penuh.</p>
 
 <blockquote>Tips: Kamu bisa bikin script automation yang jalan otomatis pakai Termux:Bot atau Tasker. Jadi HP kamu bisa kerja sendiri tanpa harus kamu sentuh.</blockquote>
