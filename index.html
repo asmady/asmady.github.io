@@ -115,6 +115,54 @@ body {
   color: var(--accent);
 }
 
+/* Category badges */
+.cat-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-right: 6px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cat-ai { background: #e8f4fd; color: #0d6efd; }
+.cat-teknologi { background: #e8f5e9; color: #2e7d32; }
+.cat-penghasilan { background: #fff3e0; color: #e65100; }
+
+/* Category filter */
+.cat-filter {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.cat-filter button {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.cat-filter button:hover,
+.cat-filter button.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
 /* Hero Section */
 .hero {
   background: var(--gradient);
@@ -308,68 +356,86 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
   <p class="tagline">Catatan harian tentang teknologi, automation, dan blogging.</p>
 </header>
 
+<div class="cat-filter">
+  <button onclick="filterCat('all')" class="active">Semua</button>
+  <button onclick="filterCat('ai')">AI</button>
+  <button onclick="filterCat('teknologi')">Teknologi</button>
+  <button onclick="filterCat('penghasilan')">Penghasilan Online</button>
+</div>
+
 <ul class="post-list">
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Mulai Ngeblog dari HP Android</h2>
     <p>Cara menjalankan website statis langsung di Termux tanpa biaya hosting bulanan.</p>
     <span class="meta">4 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(0)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cron Job yang Jalannya Otomatis</h2>
     <p>Scheduled task + AI agent di Android, dan apa yang bisa serta tidak bisa dilakukan.</p>
     <span class="meta">3 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(1)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Membuat Blog Gratis di HP Android dengan GitHub Pages</h2>
     <p>Panduan lengkap membuat website blog gratis langsung dari HP Android tanpa biaya hosting.</p>
     <span class="meta">6 Oktober 2026 &middot; 8 menit baca</span>
     <p><button onclick="buka(4)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Termux di HP Android (2026)</h2>
     <p>Panduan lengkap memasang Termux di HP Android, dari download sampai siap pakai.</p>
     <span class="meta">6 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(3)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Kendalikan Program dari Telegram</h2>
     <p>Arsitektur mesin + penjadwal + antarmuka Telegram, dan jebakan yang membuat bot diam.</p>
     <span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(2)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Backup Termux ke GitHub</h2>
     <p>Backup otomatis folder Termux ke GitHub dengan git dan cron, aman dari kehilangan data.</p>
     <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(5)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Membuat SSH Key di Termux</h2>
     <p>Connect ke GitHub tanpa password dengan SSH key, sekali setup langsung permanen.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(6)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Panduan Lengkap pkg di Termux</h2>
     <p>Package manager bawaan Termux: install, remove, update, upgrade, dan bersihkan cache.</p>
     <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(7)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Termux di HP Android 2026 (Lengkap, No Root)</h2>
     <p>Panduan lengkap install Termux di HP Android tanpa root, dari download sampai siap pakai.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(8)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>10 Perintah Linux Termux yang Wajib Diketahui Pemula</h2>
     <p>Perintah-perintah dasar Linux yang harus kamu kuasai saat pakai Termux di Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(9)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card">
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Python di Termux Android (Panduan Lengkap)</h2>
     <p>Install Python di Termux, setup pip, dan mulai coding langsung dari HP Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
@@ -1114,6 +1180,24 @@ pkg search kata_kunci</code></pre>
 </div>
 
 <script>
+function filterCat(cat) {
+  var cards = document.querySelectorAll('.post-card');
+  var buttons = document.querySelectorAll('.cat-filter button');
+  
+  buttons.forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  cards.forEach(function(card) {
+    if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
 function toggleMenu() {
   var menu = document.getElementById('navMenu');
   menu.classList.toggle('open');
