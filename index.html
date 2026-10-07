@@ -355,13 +355,14 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
 <div class="hero">
   <h1>Blog asmady</h1>
   <p>Teknologi, automation, dan blogging — langsung dari HP Android.</p>
+  <button onclick="togglePostList()" style="margin-top: 20px; background: rgba(255,255,255,0.2); color: #fff; border: 2px solid rgba(255,255,255,0.5); border-radius: 999px; padding: 10px 24px; font-size: 0.95rem; cursor: pointer; font-family: inherit; transition: all 0.2s ease;">Lihat Artikel</button>
 </div>
 <header class="site">
   <h1><a href="/">Blog asmady</a></h1>
   <p class="tagline">Catatan harian tentang teknologi, automation, dan blogging.</p>
 </header>
 
-<ul class="post-list">
+<ul class="post-list" id="postList" style="display: none;">
   <li class="post-card" data-cat="teknologi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Mulai Ngeblog dari HP Android</h2>
@@ -1178,6 +1179,15 @@ pkg search kata_kunci</code></pre>
 </div>
 
 <script>
+function togglePostList() {
+  var list = document.getElementById('postList');
+  if (list.style.display === 'none') {
+    list.style.display = '';
+  } else {
+    list.style.display = 'none';
+  }
+}
+
 function filterCat(cat, btn) {
   var cards = document.querySelectorAll('.post-card');
   var buttons = document.querySelectorAll('.cat-filter button, .nav-menu a');
@@ -1212,7 +1222,12 @@ function buka(i) {
   document.querySelectorAll('article.post').forEach(function(el) {
     el.classList.toggle('aktif', el.id === 'a' + i);
   });
-  document.querySelector('.post-list').style.display = i < 0 ? '' : 'none';
+  var postList = document.getElementById('postList');
+  if (i < 0) {
+    postList.style.display = '';
+  } else {
+    postList.style.display = 'none';
+  }
   window.scrollTo(0, 0);
   // Tutup menu setelah pilih artikel
   document.getElementById('navMenu').classList.remove('open');
