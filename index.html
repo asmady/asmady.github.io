@@ -372,8 +372,9 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
 <header class="site">
   <h1><a href="/">Blog asmady</a></h1>
   <p class="tagline">Catatan harian tentang teknologi, automation, dan blogging.</p>
-  <div style="margin-top: 16px;">
-    <input type="text" id="searchInput" placeholder="Cari artikel..." oninput="searchArticles(this.value)" style="width: 100%; padding: 10px 16px; border: 1px solid var(--border-medium); border-radius: 9999px; font-size: 15px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.2s ease;">
+  <div style="margin-top: 16px; display: flex; gap: 8px;">
+    <input type="text" id="searchInput" placeholder="Cari artikel..." oninput="searchArticles(this.value)" style="flex: 1; padding: 10px 16px; border: 1px solid var(--border-medium); border-radius: 9999px; font-size: 15px; font-family: inherit; background: var(--bg); color: var(--text); outline: none; transition: border-color 0.2s ease;">
+    <button onclick="searchArticles(document.getElementById('searchInput').value)" style="background: var(--accent-deep); color: #fff; border: none; border-radius: 9999px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit; transition: all 0.2s ease;">Cari</button>
   </div>
 </header>
 
