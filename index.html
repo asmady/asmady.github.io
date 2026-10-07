@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog asmady</title>
 <meta name="description" content="Catatan harian tentang teknologi, automation, dan blogging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f8f9fa;
@@ -31,6 +34,85 @@ body {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 20px 60px;
+}
+
+/* Header */
+.site-header {
+  background: #2b2b2b;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.site-header .logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.site-header .logo:hover {
+  color: #fff;
+  opacity: 0.9;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover span {
+  background: var(--accent);
+}
+
+/* Dropdown menu */
+.nav-menu {
+  display: none;
+  background: #2b2b2b;
+  padding: 12px 20px;
+  border-top: 1px solid #444;
+}
+
+.nav-menu.open {
+  display: block;
+}
+
+.nav-menu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #444;
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:last-child {
+  border-bottom: none;
+}
+
+.nav-menu a:hover {
+  color: var(--accent);
 }
 
 /* Hero Section */
@@ -194,6 +276,25 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
 </style>
 </head>
 <body>
+<header class="site-header">
+  <a href="/" class="logo">asmady</a>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+<nav class="nav-menu" id="navMenu">
+  <a href="/">Beranda</a>
+  <a href="#a0">Mulai Ngeblog dari HP Android</a>
+  <a href="#a1">Cron Job yang Jalannya Otomatis</a>
+  <a href="#a2">Kendalikan Program dari Telegram</a>
+  <a href="#a3">Cara Install Termux di HP Android</a>
+  <a href="#a4">Membuat Blog Gratis di HP Android</a>
+  <a href="#a5">Cara Backup Termux ke GitHub</a>
+  <a href="#a6">Membuat SSH Key di Termux</a>
+  <a href="#a7">Panduan Lengkap pkg di Termux</a>
+</nav>
 <div class="wrap">
 <div class="hero">
   <h1>Blog asmady</h1>
@@ -760,12 +861,19 @@ pkg search kata_kunci</code></pre>
 </div>
 
 <script>
+function toggleMenu() {
+  var menu = document.getElementById('navMenu');
+  menu.classList.toggle('open');
+}
+
 function buka(i) {
   document.querySelectorAll('article.post').forEach(function(el) {
     el.classList.toggle('aktif', el.id === 'a' + i);
   });
   document.querySelector('.post-list').style.display = i < 0 ? '' : 'none';
   window.scrollTo(0, 0);
+  // Tutup menu setelah pilih artikel
+  document.getElementById('navMenu').classList.remove('open');
 }
 </script>
 </body>
