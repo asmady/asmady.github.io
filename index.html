@@ -477,11 +477,32 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(13)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
+  <li class="post-card" data-cat="ai">
+    <span class="cat-badge cat-ai">AI</span>
+    <h2>AI Gratis untuk Kerja Sehari-hari</h2>
+    <p>Tools AI gratis yang bisa dipakai untuk menulis, presentasi, dan analisis data.</p>
+    <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(14)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
+    <h2>Cara Pakai Git di Termux</h2>
+    <p>Version control system wajib untuk coding dan nge-blog, dari dasar sampai push ke GitHub.</p>
+    <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
+    <p><button onclick="buka(15)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="penghasilan">
+    <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
+    <h2>Monetisasi Blog dengan Google AdSense</h2>
+    <p>Panduan lengkap daftar AdSense, pasang kode, dan tips meningkatkan pendapatan.</p>
+    <span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
+    <p><button onclick="buka(16)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+  </li>
 </ul>
 
 <div class="pagination" id="pagination">
   <button onclick="prevPage()" id="btnPrev">&larr; Sebelumnya</button>
-  <span id="pageInfo">1 / 3</span>
+  <span id="pageInfo">1 / 4</span>
   <button onclick="nextPage()" id="btnNext">Berikutnya &rarr;</button>
 </div>
 
@@ -1376,6 +1397,162 @@ console.log("Selesai!");</code></pre>
 <p>Itu dia panduan dasar install Node.js di Termux. Sekarang kamu udah bisa coding Node.js langsung dari HP Android. Selamat mencoba dan jangan ragu buat eksplorasi lebih lanjut!</p>
 
 <p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+
+<article class="post" id="a14">
+<h1>AI Gratis untuk Kerja Sehari-hari</h1>
+    <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+
+    <p>Banyak orang mengira pakai AI itu harus bayar mahal. Padahal sekarang ada banyak tools AI gratis yang bisa dipakai untuk kerja sehari-hari, mulai dari menulis email, bikin presentasi, sampai analisis data. Artikel ini bakal ngasih tau beberapa AI gratis yang worth dicoba.</p>
+
+    <h2>ChatGPT Gratis</h2>
+    <p>ChatGPT versi gratis masih bisa dipakai untuk banyak hal. Kamu bisa minta bantuan menulis email, brainstorming ide, atau bahkan belajar konsep baru. Batasannya cuma ada limit per hari, tapi untuk pemakaian normal biasanya cukup.</p>
+
+    <h2>Claude AI</h2>
+    <p>Claude AI dari Anthropic juga punya versi gratis yang powerful. Claude jago dalam analisis dokumen panjang dan menulis kode. Kalau kamu butuh AI yang bisa baca PDF atau dokumen panjang, Claude bisa jadi pilihan.</p>
+
+    <h2>Google Gemini</h2>
+    <p>Gemini dari Google terintegrasi dengan ekosistem Google. Kalau kamu pakai Gmail, Google Docs, atau Google Sheets, Gemini bisa langsung bantu di dalam aplikasi tersebut. Praktis karena tidak perlu buka tab baru.</p>
+
+    <h2>AI untuk Gambar</h2>
+    <p>Buat kamu yang butuh gambar untuk presentasi atau konten, ada beberapa AI image generator gratis seperti Bing Image Creator atau Leonardo AI. Kualitasnya sudah cukup bagus untuk kebutuhan sehari-hari.</p>
+
+    <h2>Tips Memakai AI dengan Efektif</h2>
+    <ul>
+        <li><strong>Spesifik</strong> &mdash; Jangan minta "tulis email", tapi "tulis email permohonan cuti ke atasan"</li>
+        <li><strong>Review</strong> &mdash; AI bisa salah, selalu cek hasilnya sebelum dipakai</li>
+        <li><strong>Iterasi</strong> &mdash; Kalau hasilnya kurang pas, minta AI untuk perbaiki</li>
+    </ul>
+
+    <blockquote>AI bukan pengganti manusia, tapi alat yang bisa mempercepat pekerjaan. Pakai dengan bijak.</blockquote>
+
+    <p>Dengan tools AI gratis ini, kamu bisa lebih produktif tanpa harus mengeluarkan uang. Coba satu per satu, mana yang paling cocok dengan workflow kamu.</p>
+
+    <p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+
+<article class="post" id="a15">
+<h1>Cara Pakai Git di Termux</h1>
+    <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
+
+    <p>Git adalah version control system yang wajib dipakai kalau kamu coding atau nge-blog. Dengan Git, semua perubahan file tercatat, dan kamu bisa kembali ke versi sebelumnya kalau ada masalah. Artikel ini bakal ngajarin cara pakai Git di Termux dari dasar.</p>
+
+    <h2>Install Git</h2>
+    <p>Pertama, install Git di Termux:</p>
+    <pre><code>pkg install git</code></pre>
+
+    <h2>Setup Konfigurasi</h2>
+    <p>Setelah install, setup nama dan email kamu:</p>
+    <pre><code>git config --global user.name "Nama Kamu"
+git config --global user.email "email@kamu.com"</code></pre>
+
+    <h2>Buat Repository</h2>
+    <p>Repository adalah folder proyek yang dikelola Git. Cara buat repository baru:</p>
+    <pre><code>mkdir project-ku
+cd project-ku
+git init</code></pre>
+
+    <h2>Dasar-Dasar Git</h2>
+    <p>Berikut perintah-perintah Git yang paling sering dipakai:</p>
+
+    <h3>git status</h3>
+    <p>Melihat status file &mdash; mana yang berubah, mana yang belum di-commit.</p>
+    <pre><code>git status</code></pre>
+
+    <h3>git add</h3>
+    <p>Menambahkan file ke staging area (area sementara sebelum commit).</p>
+    <pre><code>git add .  # semua file
+git add nama-file.txt  # file tertentu</code></pre>
+
+    <h3>git commit</h3>
+    <p>Menyimpan perubahan ke repository dengan pesan.</p>
+    <pre><code>git commit -m "Pesan commit"</code></pre>
+
+    <h3>git log</h3>
+    <p>Melihat riwayat commit yang sudah dilakukan.</p>
+    <pre><code>git log --oneline</code></pre>
+
+    <h2>Push ke GitHub</h2>
+    <p>Kalau kamu punya repository di GitHub, kamu bisa push perubahan dari Termux:</p>
+    <pre><code>git remote add origin https://github.com/username/repo.git
+git push -u origin main</code></pre>
+
+    <h2>Pull dari GitHub</h2>
+    <p>Kalau ada perubahan di GitHub (misal dari komputer lain), kamu bisa pull:</p>
+    <pre><code>git pull origin main</code></pre>
+
+    <h2>Tips Pemula</h2>
+    <ul>
+        <li>Commit sering, jangan tunggu banyak perubahan</li>
+        <li>Tulis pesan commit yang jelas</li>
+        <li>Selalu <code>git pull</code> sebelum mulai kerja</li>
+    </ul>
+
+    <blockquote>Git itu seperti save point di game. Semakin sering commit, semakin aman.</blockquote>
+
+    <p>Dengan menguasai dasar Git, kamu bisa lebih tenang ngoding karena semua perubahan tercatat. Selamat mencoba!</p>
+
+    <p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+
+<article class="post" id="a16">
+<h1>Monetisasi Blog dengan Google AdSense</h1>
+    <span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
+
+    <p>Punya blog tapi belum menghasilkan? Salah satu cara paling populer untuk monetisasi blog adalah dengan Google AdSense. AdSense menampilkan iklan di blog kamu, dan kamu dibayar setiap kali pengguna mengklik atau melihat iklan tersebut. Artikel ini bakal pandu kamu dari awal sampai approved.</p>
+
+    <h2>Syarat Daftar AdSense</h2>
+    <p>Sebelum daftar, pastikan blog kamu memenuhi syarat:</p>
+    <ul>
+        <li>Usia minimal 18 tahun (atau didaftarkan oleh orang tua/wali)</li>
+        <li>Blog sudah punya konten original minimal 10-15 artikel</li>
+        <li>Blog sudah live dan bisa diakses publik</li>
+        <li>Punya halaman About dan Contact</li>
+        <li>Konten tidak melanggar hak cipta</li>
+    </ul>
+
+    <h2>Langkah 1: Buat Akun Google</h2>
+    <p>Kalau belum punya akun Google, buat dulu di gmail.com. Akun ini akan dipakai untuk login ke AdSense.</p>
+
+    <h2>Langkah 2: Daftar AdSense</h2>
+    <p>Buka <code>adsense.google.com</code> dan klik "Sign in". Masuk dengan akun Google kamu. Isi data yang diminta:</p>
+    <ol>
+        <li>URL blog kamu</li>
+        <li>Negara tempat tinggal</li>
+        <li>Informasi pembayaran (nama, alamat, rekening bank)</li>
+    </ol>
+
+    <h2>Langkah 3: Pasang Kode AdSense</h2>
+    <p>Setelah daftar, AdSense akan memberikan kode JavaScript yang harus dipasang di blog kamu. Biasanya kode ini ditaruh di bagian <code>&lt;head&gt;</code> atau sebelum <code>&lt;/body&gt;</code>.</p>
+    <pre><code>&lt;script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX" crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+
+    <h2>Langkah 4: Tunggu Review</h2>
+    <p>Setelah kode dipasang, AdSense akan mereview blog kamu. Proses ini biasanya memakan waktu 1-2 minggu. Pastikan blog kamu tetap aktif dan konten bertambah selama masa review.</p>
+
+    <h2>Langkah 5: Approved!</h2>
+    <p>Kalau approved, kamu akan mendapat email dari Google. Sekarang iklan akan otomatis muncul di blog kamu. Kamu bisa login ke dashboard AdSense untuk melihat pendapatan, jumlah klik, dan performa iklan.</p>
+
+    <h2>Tips Meningkatkan Pendapatan AdSense</h2>
+    <ul>
+        <li><strong>Konten berkualitas</strong> &mdash; Semakin bagus konten, semakin banyak pengunjung</li>
+        <li><strong>SEO</strong> &mdash; Optimasi artikel biar muncul di halaman pertama Google</li>
+        <li><strong>Mobile friendly</strong> &mdash; Mayoritas pengunjung dari HP</li>
+        <li><strong>Konsisten posting</strong> &mdash; Minimal 2-3 artikel per minggu</li>
+    </ul>
+
+    <h2>Alternatif Monetisasi</h2>
+    <p>Selain AdSense, ada cara lain untuk monetisasi blog:</p>
+    <ul>
+        <li><strong>Affiliate marketing</strong> &mdash; Promosi produk orang lain, dapat komisi</li>
+        <li><strong>Sponsored post</strong> &mdash; Artikel yang dibayar brand</li>
+        <li><strong>Produk digital</strong> &mdash; Jual e-book, template, atau course</li>
+    </ul>
+
+    <blockquote>Monetisasi blog itu maraton, bukan sprint. Fokus ke konten dulu, pendapatan akan mengikuti.</blockquote>
+
+    <p>Dengan konsistensi dan kesabaran, blog kamu bisa menghasilkan pendapatan pasif. Selamat mencoba!</p>
+
+    <p><em>Dihasilkan oleh Chacha</em></p>
 </article>
 
 <footer class="site">
