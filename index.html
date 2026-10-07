@@ -232,6 +232,24 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
     <span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(2)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
+  <li class="post-card">
+    <h2>Cara Backup Termux ke GitHub</h2>
+    <p>Backup otomatis folder Termux ke GitHub dengan git dan cron, aman dari kehilangan data.</p>
+    <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
+    <p><button onclick="buka(5)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card">
+    <h2>Membuat SSH Key di Termux</h2>
+    <p>Connect ke GitHub tanpa password dengan SSH key, sekali setup langsung permanen.</p>
+    <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(6)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card">
+    <h2>Panduan Lengkap pkg di Termux</h2>
+    <p>Package manager bawaan Termux: install, remove, update, upgrade, dan bersihkan cache.</p>
+    <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
+    <p><button onclick="buka(7)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
 </ul>
 
 <nav class="toc">
@@ -554,6 +572,185 @@ git push origin main</code></pre>
 
 <blockquote>Blog gratis bukan blog yang kurang serius. Ia adalah pintu masuk yang sempurna untuk memulai tanpa risiko, dan fondasi yang kuat untuk berkembang.</blockquote>
 </article>
+<article class="post" id="a5">
+<h1>Cara Backup Termux ke GitHub</h1>
+<span class="meta">7 Oktober 2026 · 5 menit baca</span>
+
+<p>Buat kamu yang suka ngutak-atik Termux, pasti pernah ngerasa was-was kan? Takut HP hilang, takut data penting ilang, atau takut semua konfigurasi yang udah susah-susun harus ulang dari nol. Makanya, backup itu penting. Dengan backup, semua file konfigurasi, script, dan data penting kamu bisa tersimpan aman di cloud. Salah satu cara termudah adalah memanfaatkan GitHub sebagai tempat penyimpanan.</p>
+
+<blockquote>
+<p>"Backup yang tidak pernah diuji itu bukan backup, itu hanya harapan." — Pepatah sysadmin</p>
+</blockquote>
+
+<h2>Kenapa Backup Penting?</h2>
+
+<p>HP Android itu rawan. Bisa jatuh, bisa hilang, bisa kena virus, atau bisa juga kamu salah hapus file. Kalau kamu sudah menghabiskan waktu berjam-jam mengatur Termux — install package, bikin script, atau setup environment — tentu tidak mau kan harus mengulang semua itu? Dengan backup otomatis ke GitHub, kamu bisa tenang. Semua perubahan tercatat, dan kapan pun butuh, tinggal clone lagi.</p>
+
+<h2>Setup Git di Termux</h2>
+
+<p>Pertama, pastikan kamu sudah install git di Termux. Kalau belum, jalankan perintah berikut:</p>
+
+<pre><code>pkg update && pkg install git -y</code></pre>
+
+<p>Setelah itu, konfigurasi identitas git supaya commit kamu tercatat dengan benar:</p>
+
+<pre><code>git config --global user.name "Nama Kamu"
+git config --global user.email "email@kamu.com"</code></pre>
+
+<p>Selanjutnya, kamu butuh token GitHub untuk autentikasi. Buat token di halaman GitHub Settings → Developer settings → Personal access tokens. Simpan token itu baik-baik karena tidak akan ditampilkan lagi.</p>
+
+<h2>Buat Repo GitHub</h2>
+
+<p>Langkah selanjutnya adalah membuat repository di GitHub. Kamu bisa lewat website atau pakai GitHub CLI. Kalau pakai website, cukup klik tombol "New repository", beri nama misalnya <code>termux-backup</code>, dan pilih Private supaya hanya kamu yang bisa lihat.</p>
+
+<p>Setelah repo dibuat, inisialisasi git di folder home Termux:</p>
+
+<pre><code>cd ~
+git init
+git add .
+git commit -m "Initial backup"</code></pre>
+
+<p>Lalu, hubungkan repo lokal kamu ke GitHub:</p>
+
+<pre><code>git remote add origin https://github.com/username/termux-backup.git
+git branch -M main
+git push -u origin main</code></pre>
+
+<p>Saat diminta password, masukkan token GitHub yang tadi kamu buat. Jangan pakai password biasa karena GitHub sudah tidak mendukung itu lagi.</p>
+
+<h2>Push Otomatis dengan Cron</h2>
+
+<p>Biar tidak repot manual push setiap ada perubahan, kita bisa pakai cron. Pertama, install cronie:</p>
+
+<pre><code>pkg install cronie -y</code></pre>
+
+<p>Lalu, buat script backup sederhana:</p>
+
+<pre><code>#!/bin/bash
+cd ~
+git add .
+git commit -m "Auto backup $(date)"
+git push origin main</code></pre>
+
+<p>Simpan script itu sebagai <code>backup.sh</code>, lalu beri izin eksekusi:</p>
+
+<pre><code>chmod +x backup.sh</code></pre>
+
+<p>Terakhir, tambahkan cron job untuk menjalankannya tiap hari jam 2 pagi:</p>
+
+<pre><code>crontab -e
+# Tambahkan baris ini:
+0 2 * * * ~/backup.sh</code></pre>
+
+<p>Dengan setup ini, setiap perubahan di home directory Termux akan otomatis ter-backup ke GitHub. Praktis, kan?</p>
+
+<p>Selamat mencoba, dan selamat HP kamu aman dari kehilangan data!</p>
+</article>
+
+<article class="post" id="a6">
+<h1>Membuat SSH Key di Termux</h1>
+<span class="meta">7 Oktober 2026 · 6 menit baca</span>
+
+<p>Pernah nggak sih, lagi asik coding di HP terus mau push ke GitHub tapi diminta password terus? Atau malah nggak bisa push sama sekali? Nah, solusinya adalah pakai SSH key. Dengan SSH key, kamu bisa connect ke GitHub tanpa perlu ngetik password lagi. Praktis banget, apalagi kalau kamu sering banget push-pull dari Termux.</p>
+
+<h2>Apa itu SSH key?</h2>
+<p>SSH key adalah sepasang kunci kriptografi yang digunakan untuk autentikasi aman antara HP kamu dan server GitHub. Ada dua kunci: <strong>private key</strong> (disimpan di HP, jangan pernah bagikan) dan <strong>public key</strong> (di-upload ke GitHub). Kalau cocok, koneksi langsung terbuka tanpa password.</p>
+
+<h2>Kenapa perlu SSH key?</h2>
+<ul>
+<li><strong>Tanpa password</strong> — push/pull langsung jadi, nggak perlu ngetik password terus</li>
+<li><strong>Lebih aman</strong> — kunci kriptografi lebih sulit dibobol daripada password</li>
+<li><strong>Automatis</strong> — sekali setup, selamanya langsung connect</li>
+</ul>
+
+<h2>Langkah 1: Generate SSH key</h2>
+<p>Buka Termux dan jalankan perintah berikut:</p>
+<pre><code>ssh-keygen -t ed25519 -C "email-kamu@gmail.com"</code></pre>
+<p>Kalau diminta lokasi file, tekan <strong>Enter</strong> buat pakai default. Kalau diminta passphrase, bisa dikosongkan (tekan Enter dua kali) atau diisi buat keamanan ekstra.</p>
+
+<h2>Langkah 2: Copy public key</h2>
+<p>Setelah generate selesai, copy public key ke clipboard:</p>
+<pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+<p>Blok semua teks yang muncul, lalu copy. Atau kalau kamu pakai Termux API:</p>
+<pre><code>termux-clipboard-set &lt; ~/.ssh/id_ed25519.pub</code></pre>
+
+<h2>Langkah 3: Tambah ke GitHub</h2>
+<ol>
+<li>Buka <code>github.com</code> di browser</li>
+<li>Ke <strong>Settings</strong> → <strong>SSH and GPG keys</strong></li>
+<li>Klik <strong>New SSH key</strong></li>
+<li>Isi title (misal: "HP Android") dan paste public key</li>
+<li>Klik <strong>Add SSH key</strong></li>
+</ol>
+
+<h2>Langkah 4: Test koneksi</h2>
+<p>Setelah SSH key ditambahkan, test koneksi dengan:</p>
+<pre><code>ssh -T git@github.com</code></pre>
+<p>Kalau berhasil, muncul pesan: <em>Hi username! You've successfully authenticated...</em></p>
+
+<h2>Langkah 5: Ganti remote URL ke SSH</h2>
+<p>Kalau repo-mu masih pakai HTTP, ganti ke SSH:</p>
+<pre><code>git remote set-url origin git@github.com:username/repo.git</code></pre>
+<p>Sekarang push/pull langsung jalan tanpa password!</p>
+
+<blockquote>SSH key adalah investasi sekali setup, selamanya nggak perlu pusing password lagi.</blockquote>
+</article>
+
+<article class="post" id="a7">
+<h1>Panduan Lengkap pkg di Termux</h1>
+<span class="meta">7 Oktober 2026 · 5 menit baca</span>
+
+<p>Kalau kamu baru mulai pakai Termux, pasti sering nemu perintah <code>pkg</code> di berbagai tutorial. Tapi apa sih pkg itu sebenarnya? Singkatnya, <code>pkg</code> adalah package manager bawaan Termux yang memudahkan kamu untuk menginstal, menghapus, dan memperbarui paket software langsung dari terminal Android. Bayangkan pkg seperti Play Store, tapi versi terminal.</p>
+
+<h2>Perintah dasar pkg</h2>
+<p>Berikut perintah-perintah yang paling sering dipakai:</p>
+<pre><code># Update daftar paket
+pkg update
+
+# Upgrade semua paket
+pkg upgrade
+
+# Install paket baru
+pkg install nama_paket
+
+# Hapus paket
+pkg remove nama_paket
+
+# Cari paket
+pkg search kata_kunci</code></pre>
+
+<h2>Install multiple paket sekaligus</h2>
+<p>Bisa install beberapa paket dalam satu perintah:</p>
+<pre><code>pkg install git curl wget nano</code></pre>
+
+<h2>Bersihkan cache</h2>
+<p>Setelah install/upgrade, cache paket menumpuk dan makan storage. Bersihkan dengan:</p>
+<pre><code>pkg clean</code></pre>
+<p>Atau buat bersihin sekaligus update + upgrade + clean:</p>
+<pre><code>pkg update && pkg upgrade && pkg clean</code></pre>
+
+<h2>Paket yang wajib diinstall</h2>
+<p>Berikut paket-paket dasar yang hampir selalu dipakai:</p>
+<ul>
+<li><code>git</code> — version control, upload ke GitHub</li>
+<li><code>curl</code> — HTTP client, testing API</li>
+<li><code>wget</code> — download file</li>
+<li><code>nano</code> — editor teks di terminal</li>
+<li><code>python</code> — bahasa pemrograman serbaguna</li>
+<li><code>nodejs</code> — JavaScript runtime</li>
+</ul>
+
+<h2>Tips menghemat storage</h2>
+<p>Termux menyimpan semua datanya di folder internal HP. Supaya storage tidak cepat penuh:</p>
+<ol>
+<li>Teraturin <code>pkg clean</code> setelah install/upgrade</li>
+<li>Hapus paket yang tidak dipakai dengan <code>pkg remove</code></li>
+<li>Cek ukuran folder dengan <code>du -sh ~/</code></li>
+</ol>
+
+<blockquote>pkg adalah pintu masuk dunia Linux di HP Android. Kuasai dasar-dasarnya, dan Termux jadi jauh lebih powerful.</blockquote>
+</article>
+
 <footer class="site">
   <p>&copy; 2026 Blog asmady</p>
 </footer>
