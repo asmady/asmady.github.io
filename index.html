@@ -345,6 +345,9 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
   <a href="#a8">Cara Install Termux di HP Android 2026</a>
   <a href="#a9">10 Perintah Linux Termux Pemula</a>
   <a href="#a10">Cara Install Python di Termux</a>
+  <a href="#a11">Panduan Lengkap Vim di Termux</a>
+  <a href="#a12">Cara Install dan Pakai Tmux di Termux</a>
+  <a href="#a13">Cara Install Node.js di Termux</a>
   <hr style="border-color: #444; margin: 8px 0;">
   <a href="#" onclick="filterCat('all'); return false;">Semua Kategori</a>
   <a href="#" onclick="filterCat('ai'); return false;">AI</a>
@@ -439,6 +442,27 @@ nav.toc button:hover { border-color: var(--accent); color: var(--accent); transf
     <p>Install Python di Termux, setup pip, dan mulai coding langsung dari HP Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(10)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
+    <h2>Panduan Lengkap Vim di Termux</h2>
+    <p>Belajar Vim dari nol: install, mode-mode, perintah dasar, dan konfigurasi .vimrc.</p>
+    <span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
+    <p><button onclick="buka(11)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
+    <h2>Cara Install dan Pakai Tmux di Termux</h2>
+    <p>Terminal multiplexer untuk Android: session, split pane, detach/attach, dan automation.</p>
+    <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(12)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="teknologi">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
+    <h2>Cara Install Node.js di Termux</h2>
+    <p>Install Node.js dan npm di Termux, buat project, dan automation sederhana.</p>
+    <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(13)" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.9rem;padding:0;font-family:inherit">Baca artikel &rarr;</button></p>
   </li>
 </ul>
 
@@ -1176,8 +1200,198 @@ pkg search kata_kunci</code></pre>
 100|
 101|<h2>Kesimpulan</h2>
 102|
-103|<p>Install python termux android ternyata sangat mudah, bukan? Dengan mengikuti langkah di atas, kamu sudah bisa mulai belajar Python langsung dari HP Android. Termux membuka banyak peluang — dari scripting sederhana sampai automation canggih. Jangan ragu untuk bereksplorasi dengan library Python yang tersedia. Selamat coding dan semoga panduan install python termux android ini bermanfaat!</p>
-104|</article>
+<p>Install python termux android ternyata sangat mudah, bukan? Dengan mengikuti langkah di atas, kamu sudah bisa mulai belajar Python langsung dari HP Android. Termux membuka banyak peluang &mdash; dari scripting sederhana sampai automation canggih. Jangan ragu untuk bereksplorasi dengan library Python yang tersedia. Selamat coding dan semoga panduan install python termux android ini bermanfaat!</p>
+</article>
+
+<article class="post" id="a11">
+<h1>Panduan Lengkap Vim di Termux</h1>
+<span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
+
+<p>Buat kamu yang baru mulai belajar Vim di HP Android pakai Termux, tenang aja. Vim itu kayak motor gede: awalnya ngeri, tapi udah bisa ngerasa nikmat. Artikel ini bakal ngebantu kamu dari nol sampai bisa pakai Vim dengan lancar buat coding atau ngetik di HP.</p>
+
+<h2>Install Vim di Termux</h2>
+<p>Pertama, pastikan Termux kamu udah update. Buka Termux, terus ketik:</p>
+<pre><code>pkg update &amp;&amp; pkg upgrade</code></pre>
+<p>Setelah itu, install Vim dengan perintah:</p>
+<pre><code>pkg install vim</code></pre>
+<p>Tunggu sampai selesai. Kalau udah, coba ketik <code>vim</code> buat mastiin Vim keinstall dengan benar. Kalau muncul tampilan Vim, berarti sukses.</p>
+
+<h2>Mode-Mode Vim yang Wajib Tahu</h2>
+<p>Vim punya tiga mode utama yang sering dipakai:</p>
+<p><strong>Normal mode</strong> &mdash; Ini mode default pas kamu buka Vim. Di sini kamu bisa navigasi, hapus teks, copy, paste, dan lain-lain. Tekan <code>Esc</code> buat balik ke mode ini kapan aja.</p>
+<p><strong>Insert mode</strong> &mdash; Mode buat ngetik teks. Tekan <code>i</code> sebelum kursor, <code>a</code> sesudah kursor, atau <code>o</code> buat baris baru. Kalau udah selesai ngetik, tekan <code>Esc</code> buat kembali ke normal mode.</p>
+<p><strong>Visual mode</strong> &mdash; Mode buat milih teks. Tekan <code>v</code> buat milih per karakter, <code>V</code> buat milih per baris, atau <code>Ctrl+v</code> buat milik per blok. Ini berguna kalau mau copy atau hapus sebagian teks.</p>
+
+<h2>Perintah Dasar yang Sering Dipakai</h2>
+<p>Nah ini bagian paling penting. Hafalin perintah-perintah ini biar nggak bingung:</p>
+<p><strong>Simpan file:</strong> Ketik <code>:w</code> lalu Enter. Kalau mau simpan sebagai file baru, pakai <code>:w namafile</code>.</p>
+<p><strong>Keluar dari Vim:</strong> Ketik <code>:q</code> lalu Enter. Kalau ada perubahan yang belum disimpan, Vim bakal nolak. Pakai <code>:q!</code> buat keluar tanpa menyimpan.</p>
+<p><strong>Simpan dan keluar sekaligus:</strong> Ketik <code>:wq</code> atau <code>:x</code> lalu Enter. Ini perintah paling sering dipakai.</p>
+<p><strong>Cari kata:</strong> Di normal mode, ketik <code>/</code> terus kata yang mau dicari, lalu Enter. Tekan <code>n</code> buat lanjut ke hasil berikutnya, <code>N</code> buat mundur.</p>
+<p><strong>Ganti kata:</strong> Ketik <code>:s/lama/baru/</code> buat ganti di baris aktif. Tambahkan <code>g</code> di akhir (<code>:s/lama/baru/g</code>) buat ganti semua di baris itu. Buat ganti di seluruh file, pakai <code>:s/lama/baru/g</code> atau <code>:1,$s/lama/baru/g</code>.</p>
+
+<h2>Konfigurasi .vimrc Sederhana</h2>
+<p>Biar Vim lebih nyaman dipakai, kamu bisa bikin file konfigurasi <code>.vimrc</code> di home directory. Caranya:</p>
+<pre><code>vim ~/.vimrc</code></pre>
+<p>Lalu tambahkan konfigurasi dasar ini:</p>
+<pre><code>set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
+syntax on
+set autoindent
+set hlsearch
+set incsearch</code></pre>
+<p>Penjelasan singkat: <code>set number</code> nampilin nomor baris, <code>tabstop</code> dan <code>shiftwidth</code> ngatur ukuran tab, <code>expandtab</code> ngubah tab jadi spasi, <code>syntax on</code> ngaktifin pewarnaan kode, <code>autoindent</code> bikin otomatis indentasi, dan <code>hlsearch</code> plus <code>incsearch</code> bikin pencarian lebih keren.</p>
+<p>Setelah disimpan, konfigurasi ini bakal otomatis aktif tiap kali kamu buka Vim.</p>
+
+<h2>Tips Tambahan</h2>
+<p>Kalau kamu masih pemula, jangan langsung belajar semua perintah sekaligus. Mulai dari yang paling dasar: buka file, ngetik, simpan, keluar. Lama-lama kamu bakal terbiasa dan makin jago. Jangan lupa buat latihan rutin, minimal 15 menit sehari. Vim itu soal kebiasaan, bukan soal hafalan.</p>
+<p>Selamat mencoba, dan selamat belajar Vim di Termux!</p>
+<footer>Dihasilkan oleh Chacha</footer>
+</article>
+
+<article class="post" id="a12">
+<h1>Cara Install dan Pakai Tmux di Termux</h1>
+<span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+
+<p>Pernah ngerasa kesel karena HP Android kamu mati atau aplikasi ke-close, terus semua proses yang lalan tiba-tiba berhenti semua? Nah, di sinilah <strong>tmux</strong> jadi penyelamat. Tmux itu semacam terminal multiplexer, jadi kamu bisa bikin banyak "jendela" dalam satu terminal, dan yang paling penting: prosesnya tetap jalan walau kamu keluar dari Termux. Gampangnya, tmux bikin terminal kamu jadi lebih kuat dan tidak gampang mati.</p>
+
+<h2>Apa Itu Tmux?</h2>
+<p>Singkatnya, tmux (terminal multiplexer) itu alat yang memungkinkan kamu membuat, mengelola, dan berpindah antara beberapa sesi terminal dalam satu layar. Bayangkan kamu lagi ngerun script panjang, terus kamu mau buka aplikasi lain atau lock HP. Tanpa tmux, script-nya bakal berhenti. Dengan tmux, script tetap jalan di background. Ini sangat berguna buat kamu yang suka otomasi di Android, misalnya ngerun bot, cron job, atau server sederhana.</p>
+
+<h2>Cara Install Tmux di Termux</h2>
+<p>Install-nya gampang banget. Buka Termux, terus ketik perintah ini:</p>
+<pre><code>pkg update &amp;&amp; pkg install tmux -y</code></pre>
+<p>Tunggu sampai selesai. Kalau sudah, coba cek versinya dengan:</p>
+<pre><code>tmux -V</code></pre>
+<p>Kalo muncul versi (misalnya <code>tmux 3.x</code>), berarti tmux sudah siap dipakai.</p>
+
+<h2>Membuat Session Baru</h2>
+<p>Session itu seperti "ruang kerja" di tmux. Kamu bisa bikin banyak session untuk beda-beda tujuan. Cara bikin session baru:</p>
+<pre><code>tmux new -s belajar</code></pre>
+<p>Di sini "belajar" adalah nama session-nya. Kamu bisa ganti terserah, misalnya <code>bot</code>, <code>server</code>, atau <code>backup</code>. Setelah perintah ini dijalankan, kamu bakal masuk ke session tmux. Perhatikan ada bar hijau di bawah layar &mdash; itu tanda kamu sedang di dalam tmux.</p>
+
+<h2>Split Pane: Banyak Jendela dalam Satu Layar</h2>
+<p>Salah satu fitur andalan tmux adalah split pane, jadi kamu bisa bagi layar jadi beberapa bagian. Misal, kamu mau lihat log di atas dan ngetik perintah di bawah. Caranya:</p>
+<p><strong>Split horizontal (atas-bawah):</strong></p>
+<pre><code>Ctrl+b lalu "</code></pre>
+<p><strong>Split vertical (kiri-kanan):</strong></p>
+<pre><code>Ctrl+b lalu %</code></pre>
+<p>Untuk pindah antara pane, tekan <code>Ctrl+b</code> lalu tombol panah arah yang kamu mau. Praktis kan?</p>
+
+<h2>Detach dan Attach Session</h2>
+<p>Ini bagian paling penting. <strong>Detach</strong> artinya kamu keluar dari session tapi prosesnya tetap jalan di background. Caranya:</p>
+<pre><code>Ctrl+b lalu d</code></pre>
+<p>Setelah detach, kamu bakal kembali ke terminal biasa. Semua yang tadi jalan di tmux tetap aman. Nah, kalau mau masuk lagi ke session tersebut, gunakan perintah attach:</p>
+<pre><code>tmux attach -t belajar</code></pre>
+<p>Ganti "belajar" dengan nama session kamu. Atau kalau kamu lupa nama session-nya, ketik:</p>
+<pre><code>tmux ls</code></pre>
+<p>Itu akan menampilkan semua session yang sedang aktif.</p>
+
+<h2>Kenapa Tmux Berguna untuk Automation di Android?</h2>
+<p>Android itu sistem yang suka "membersihkan" aplikasi di background buat hemat bateri. Kalau kamu ngerun task penting, bisa aja Termux di-kill sistem. Dengan tmux, kamu bisa detach session dan membiarkan proses tetap jalan. Ini sangat berguna untuk:</p>
+<ul>
+<li>Menjalankan bot Telegram atau Discord</li>
+<li>Backup otomatis ke cloud</li>
+<li>Monitoring server atau website</li>
+<li>Mengetik perintah panjang tanpa takut terganggu notifikasi</li>
+</ul>
+<p>Dengan tmux, HP Android kamu bisa mini server yang selalu siap. Cukup attach session kapan pun kamu butuh.</p>
+
+<h2>Penutup</h2>
+<p>Tmux mungkin terlihat sedikit membingungkan di awal, tapi setelah biasa, kamu bakal ngerasa sangat terbantu. Mulai dari bikin session, split pane, sampai detach/attach &mdash; semua bisa dikuasai dalam hitungan menit. Jadi, coba langsung praktikkan di Termux kamu. Selamat mencoba!</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+
+<article class="post" id="a13">
+<h1>Cara Install Node.js di Termux</h1>
+<span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
+
+<p>Buat kamu yang pengen belajar coding Node.js tapi cuma punya HP Android, tenang aja. Termux bisa jadi solusi buat kamu buat jalanin Node.js langsung dari genggaman. Gue bakal pandu kamu step-by-step dari awal sampai bisa bikin automation sederhana. Gas, kita mulai!</p>
+
+<h2>Install Node.js di Termux</h2>
+
+<p>Pertama, pastikan Termux kamu sudah update. Buka Termux, terus ketik perintah ini:</p>
+
+<pre><code>pkg update &amp;&amp; pkg upgrade</code></pre>
+
+<p>Setelah itu, install Node.js dengan perintah:</p>
+
+<pre><code>pkg install nodejs</code></pre>
+
+<p>Nunggu sampai selesai. Biasanya cuma beberapa menit tergantung koneksi kamu. Kalau sudah, cek versi Node.js yang keinstall:</p>
+
+<pre><code>node -v</code></pre>
+
+<p>Kalo muncul angka versi kayak v18.x.x atau yang lebih baru, berarti Node.js udah siap dipake.</p>
+
+<h2>Install npm</h2>
+
+<p>Bagusnya lagi, npm (Node Package Manager) udah otomatis keinstall bareng Node.js. Jadi kamu nggak perlu install npm secara terpisah. Cek aja versi npm kamu:</p>
+
+<pre><code>npm -v</code></pre>
+
+<p>Kalo muncul angka versi, berarti npm udah siap. npm ini penting banget buat install package-package tambahan yang kamu butuhin.</p>
+
+<h2>Buat Project Sederhana</h2>
+
+<p>Sekarang kita bikin project Node.js pertama. Buat folder project baru:</p>
+
+<pre><code>mkdir project-pertama &amp;&amp; cd project-pertama</code></pre>
+
+<p>Terus inisialisasi project dengan npm:</p>
+
+<pre><code>npm init -y</code></pre>
+
+<p>Perintah ini bakal bikin file <code>package.json</code> yang isinya info tentang project kamu. File ini penting buat ngatur dependency dan script project.</p>
+
+<p>Sekarang buat file JavaScript baru, misalnya <code>index.js</code>:</p>
+
+<pre><code>nano index.js</code></pre>
+
+<p>Masukin kode sederhana ini:</p>
+
+<pre><code>console.log("Halo dari HP Android!");
+console.log("Node.js berjalan dengan lancar.");</code></pre>
+
+<p>Simpan dengan tekan Ctrl+X, terus Y, lalu Enter.</p>
+
+<h2>Jalanin Script Node.js</h2>
+
+<p>Untuk jalanin script yang udah kamu buat, ketik perintah:</p>
+
+<pre><code>node index.js</code></pre>
+
+<p>Kalo muncul tulisan "Halo dari HP Android!" berarti script kamu berhasil dijalanin. Selamat, kamu udah resmi jadi programmer Node.js dari HP!</p>
+
+<h2>Contoh Automation Sederhana</h2>
+
+<p>Nah, ini bagian yang seru. Kita bakal bikin script automation sederhana yang bisa ngecek storage HP kamu. Buat file baru:</p>
+
+<pre><code>nano cek-storage.js</code></pre>
+
+<p>Masukin kode ini:</p>
+
+<pre><code>const { execSync } = require('child_process');
+
+console.log("=== Cek Storage HP ===");
+const hasil = execSync('df -h /data/data/com.termux/files/home').toString();
+console.log(hasil);
+console.log("Selesai!");</code></pre>
+
+<p>Jalankan dengan:</p>
+
+<pre><code>node cek-storage.js</code></pre>
+
+<p>Script ini bakal nampilin info storage HP kamu. Kamu bisa modifikasi script ini buat ngecek hal lain, kayak baterai, suhu, atau bahkan bikin script yang ngirim notifikasi kalau storage hampir penuh.</p>
+
+<blockquote>Tips: Kamu bisa bikin script automation yang jalan otomatis pakai Termux:Bot atau Tasker. Jadi HP kamu bisa kerja sendiri tanpa harus kamu sentuh.</blockquote>
+
+<p>Itu dia panduan dasar install Node.js di Termux. Sekarang kamu udah bisa coding Node.js langsung dari HP Android. Selamat mencoba dan jangan ragu buat eksplorasi lebih lanjut!</p>
+
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
 
 <footer class="site">
   <p>&copy; 2026 Blog asmady</p>
