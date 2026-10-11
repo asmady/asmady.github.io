@@ -368,6 +368,84 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
   font-size: 14px;
 }
 
+/* ---------- Main Tags ---------- */
+.tags-wrap {
+  margin: 8px 0 32px;
+  padding: 24px 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+.tags-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.65px;
+  color: var(--muted);
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  margin: 0 0 16px;
+}
+.tags-title::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tag-item {
+  background: none;
+  border: 1px solid var(--border-medium);
+  border-radius: 9999px;
+  padding: 7px 15px;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tag-item:hover {
+  border-color: var(--accent-deep);
+  color: var(--accent-deep);
+  background: var(--accent-light);
+}
+.tag-item.aktif {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent-deep);
+}
+.tag-item .tag-count {
+  font-size: 11px;
+  font-family: 'Geist Mono', ui-monospace, monospace;
+  color: var(--muted);
+  opacity: 0.8;
+}
+.tag-item:hover .tag-count,
+.tag-item.aktif .tag-count { color: var(--accent-deep); }
+.tag-item[data-size="1"] { font-size: 13px; }
+.tag-item[data-size="2"] { font-size: 14px; }
+.tag-item[data-size="3"] { font-size: 15.5px; }
+.tag-item[data-size="4"] { font-size: 17px; }
+@media (max-width: 600px) {
+  .tags-wrap { padding: 20px 16px; }
+  .tag-item { padding: 6px 13px; }
+}
+
 /* Read more button */
 .post-card button {
   transition: all 0.2s ease;
@@ -408,350 +486,350 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
 </header>
 
 <ul class="post-list" id="postList">
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Blog|Niche">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Niche Blog — Cara Memilih Topik yang Menghasilkan</h2>
     <p>Cara riset niche blog yang menguntungkan, kriteria topik potensial, dan kesalahan pemula saat memilih niche.</p>
     <span class="meta">11 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(49)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Blog|GitHub|Hosting">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>GitHub Pages — Hosting Blog Gratis dengan Custom Domain</h2>
     <p>Setup repo, pilih theme Jekyll atau upload static HTML, aktifkan Pages, custom domain, dan HTTPS otomatis.</p>
     <span class="meta">11 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(48)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|ChatGPT|Prompt">
     <span class="cat-badge cat-ai">AI</span>
     <h2>ChatGPT Gratis — Panduan Lengkap Pakai ChatGPT Tanpa Bayar</h2>
     <p>Cara daftar ChatGPT gratis, tips prompt efektif, fitur gratis vs berbayar, dan alternatif AI gratis lainnya.</p>
     <span class="meta">11 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(47)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="SEO">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>SEO untuk Pemula: Rangking di Google Tanpa Iklan</h2>
     <p>Dasar SEO yang bisa langsung dipakai: keyword research, on-page, off-page, dan technical SEO untuk traffic gratis.</p>
     <span class="meta">11 Oktober 2026 &middot; 8 menit baca</span>
     <p><button onclick="buka(46)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android|ADB">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai ADB di Termux: Debug Android dari Terminal</h2>
     <p>ADB (Android Debug Bridge) bisa jalan di Termux, buat debug HP lain, install app, dan pull file tanpa kabel.</p>
     <span class="meta">11 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(45)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Konten|Social Media">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI untuk Social Media: Konten Otomatis yang Engage</h2>
     <p>AI bisa bantu generate ide konten, tulis caption, dan buat kalender konten otomatis untuk media sosial.</p>
     <span class="meta">11 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(44)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Digital Product|Template">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Membuat Digital Product: Ebook dan Template yang Laris</h2>
     <p>Produk digital dibuat sekali, dijual berulang tanpa stok. Dari riset pasar sampai launch, panduan lengkap bikin ebook dan template yang dibeli orang.</p>
     <span class="meta">11 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(43)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Backup|SSH">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai rsync di Termux: Backup File ke Server</h2>
     <p>rsync adalah tools backup paling efisien: cuma transfer yang berubah, support SSH, dan bisa di-jadwalkan. Cocok buat backup project, foto, atau config ke VPS.</p>
     <span class="meta">11 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(42)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI Writing Assistant: Tulis Lebih Cepat dengan Tools Gratis</h2>
     <p>Butuh ngecek artikel, email, atau caption tapi ide kempes? AI writing assistant gratis bisa bantu draft, edit, dan polish tulisan kamu dalam hitungan menit.</p>
     <span class="meta">11 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(41)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Freelance">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Bisnis Jasa Freelance: Strategi Dapat Klien dari Nol</h2>
     <p>Mulai freelance dari nol: tentukan skill, buat portofolio, pricing strategy, dan tips closing klien.</p>
     <span class="meta">10 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(40)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai Screen di Termux: Alternatif Tmux</h2>
     <p>Terminal multiplexer ringan untuk Android: session, split screen, detach/attach, dan tips troubleshooting.</p>
     <span class="meta">10 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(39)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Video">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI untuk Video Editing: Auto Subtitle dan Edit Otomatis</h2>
     <p>Edit video jadi lebih cepat dengan AI: auto subtitle, hapus jeda, dan perbaiki warna secara otomatis.</p>
     <span class="meta">10 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(38)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Bisnis Print on Demand: Jual Desain Tanpa Stok dan Tanpa Risiko</h2>
     <p>Model bisnis jual produk dengan desain sendiri, produksi dan pengiriman ditangani supplier.</p>
     <span class="meta">10 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(37)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Video|FFmpeg">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai FFmpeg di Termux: Edit Video dan Audio dari Terminal</h2>
     <p>Convert, compress, dan edit video/audio langsung dari terminal Termux dengan FFmpeg.</p>
     <span class="meta">10 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(36)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Presentasi">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI untuk Presentasi: Buat Slide Menarik dalam Hitungan Menit</h2>
     <p>Tools AI yang bisa bikin presentasi profesional dalam hitungan menit, tanpa skill desain grafis.</p>
     <span class="meta">10 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(35)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Konten|Email Marketing">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Email Marketing untuk Pemula: Bangun List dan Ubah Pembaca Jadi Pembeli</h2>
     <p>Bangun email list dari nol, buat konten yang menarik, dan ubah pembaca jadi pelanggan setia.</p>
     <span class="meta">10 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(34)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai Termux API: Akses Sensor dan Fitur Android dari Terminal</h2>
     <p>Akses notifikasi, SMS, lokasi, baterai, dan clipboard Android langsung dari terminal Termux.</p>
     <span class="meta">10 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(33)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-<li class="post-card" data-cat="ai">
+<li class="post-card" data-cat="ai" data-tag="AI|Coding">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI untuk Coding: Bantu Debug dan Tulis Kode Program</h2>
     <p>AI bisa jadi asisten coding yang powerful: debug error, jelaskan konsep, bikin boilerplate code, dan review kode kamu.</p>
     <span class="meta">10 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(32)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Konten|Video|Monetisasi|SEO|YouTube">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Monetisasi YouTube untuk Pemula: 5 Langkah Menuju Kreatif</h2>
     <p>Dari nol sampai monetisasi YouTube: persiapan channel, konten konsisten, SEO video, dan syarat monetisasi YouTube Partner Program.</p>
     <span class="meta">10 Oktober 2026 &middot; 8 menit baca</span>
     <p><button onclick="buka(31)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Blog|GitHub|Otomasi">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai GitHub Actions untuk Otomasi Blog</h2>
     <p>Setup CI/CD otomatis: commit artikel baru, GitHub Actions yang build dan deploy ke GitHub Pages tanpa perlu deploy manual.</p>
     <span class="meta">10 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(30)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-<li class="post-card" data-cat="ai">
+<li class="post-card" data-cat="ai" data-tag="AI|Konten|Otomasi|UMKM">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI untuk Bisnis Kecil dan UMKM</h2>
     <p>Manfaatkan AI untuk otomasi customer service, analisis penjualan, dan bikin konten promosi tanpa tim besar.</p>
     <span class="meta">10 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(29)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Dropshipping">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Dropshipping untuk Pemula di Indonesia</h2>
     <p>Model bisnis jual produk tanpa stok. Pembeli beli dari kamu, kamu pesan ke supplier, supplier kirim langsung ke pembeli. Panduan lengkap untuk pemula.</p>
     <span class="meta">9 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(28)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Runit">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai Runit di Termux: Auto-restart Service</h2>
     <p>Service manager lightweight yang bisa auto-restart aplikasi saat HP dinyalakan ulang. Script, bot, atau server tetap jalan otomatis tanpa perlu root.</p>
     <span class="meta">9 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(27)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Video">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI Voice Generator: Buat Suara Natural dari Teks</h2>
     <p>Butuh suara untuk podcast atau video? AI voice generator bisa ubah teks jadi suara natural dalam hitungan detik. Banyak tools gratis yang kualitasnya hampir seperti suara manusia.</p>
     <span class="meta">9 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(26)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-<li class="post-card" data-cat="ai">
+<li class="post-card" data-cat="ai" data-tag="AI|Coding|ChatGPT">
     <span class="cat-badge cat-ai">AI</span>
     <h2>ChatGPT Alternatif Gratis untuk Kerja Sehari-hari</h2>
     <p>Tools AI gratis yang sama powerfulnya dengan ChatGPT, dari coding sampai menulis.</p>
     <span class="meta">9 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(25)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android|Backup|Tasker">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Automasi Android dengan Termux dan Tasker</h2>
     <p>Membuat HP Android melakukan banyak hal tanpa sentuhan: backup foto, SMS otomatis, dan kontrol WiFi.</p>
     <span class="meta">9 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(24)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Digital Product|Template">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Jualan Digital Product: Mulai Tanpa Modal dan Stok</h2>
     <p>Jual ebook, template, atau preset tanpa stok dan pengiriman. Bisa dijual berulang kali tanpa produksi ulang.</p>
     <span class="meta">9 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(23)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Freelance">
     <span class="cat-badge cat-penghasilan">Penghasilan</span>
     <h2>Freelance di Platform Indonesia: Mulai dari Nol</h2>
     <p>Mau dapat pendapatan tambahan dari internet? Freelance di platform lokal bisa jadi solusi. Tanpa perlu produk sendiri, kita jual skill atau jasa kita lewat platform.</p>
     <span class="meta">8 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(22)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Cron|Otomasi|Python">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Automasi dengan Python di Termux: Dari Script ke Scheduler</h2>
     <p>Sudah install Python di Termux tapi belum tahapakenya untuk otomasi? Artikel ini bantu bikin script sederhana dan Jadwalkan pakai cron.</p>
     <span class="meta">8 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(21)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Blog|Prompt">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI Image Generator: Buat Visual Keren dengan Tools Gratis</h2>
     <p>Buat visual menarik untuk blog tidak harus mahal. Banyak tools AI gambar gratis yang bisa menghasilkan gambar kualitas bagus hanya dari teks prompt.</p>
     <span class="meta">8 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(20)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Niche|Affiliate">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Affiliate Marketing untuk Pemula</h2>
     <p>Penghasilan pasif dengan promosi produk orang lain, dari pilih niche sampai tracking konversi.</p>
     <span class="meta">8 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(19)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android|SSH">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai SSH di Termux</h2>
     <p>Connect ke server mana saja langsung dari HP Android, transfer file, dan tunnel aman.</p>
     <span class="meta">8 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(18)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Blog|Konten">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI untuk Konten Blog</h2>
     <p>Workflow lengkap pakai AI untuk menulis artikel, dari brainstorming sampai publish.</p>
     <span class="meta">8 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(17)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="penghasilan">
+  <li class="post-card" data-cat="penghasilan" data-tag="Blog|Monetisasi|AdSense">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Monetisasi Blog dengan Google AdSense</h2>
     <p>Panduan lengkap daftar AdSense, pasang kode, dan tips meningkatkan pendapatan.</p>
     <span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
     <p><button onclick="buka(16)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Blog|GitHub|Coding|Git">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Pakai Git di Termux</h2>
     <p>Version control system wajib untuk coding dan nge-blog, dari dasar sampai push ke GitHub.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(15)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="ai">
+  <li class="post-card" data-cat="ai" data-tag="AI|Presentasi">
     <span class="cat-badge cat-ai">AI</span>
     <h2>AI Gratis untuk Kerja Sehari-hari</h2>
     <p>Tools AI gratis yang bisa dipakai untuk menulis, presentasi, dan analisis data.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(14)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Node.js">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Node.js di Termux</h2>
     <p>Install Node.js dan npm di Termux, buat project, dan automation sederhana.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(13)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install dan Pakai Tmux di Termux</h2>
     <p>Terminal multiplexer untuk Android: session, split pane, detach/attach, dan automation.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(12)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Panduan Lengkap Vim di Termux</h2>
     <p>Belajar Vim dari nol: install, mode-mode, perintah dasar, dan konfigurasi .vimrc.</p>
     <span class="meta">7 Oktober 2026 &middot; 8 menit baca</span>
     <p><button onclick="buka(11)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android|Coding|Python">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Python di Termux Android (Panduan Lengkap)</h2>
     <p>Install Python di Termux, setup pip, dan mulai coding langsung dari HP Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(10)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android|Linux">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>10 Perintah Linux Termux yang Wajib Diketahui Pemula</h2>
     <p>Perintah-perintah dasar Linux yang harus kamu kuasai saat pakai Termux di Android.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(9)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Termux di HP Android 2026 (Lengkap, No Root)</h2>
     <p>Panduan lengkap install Termux di HP Android tanpa root, dari download sampai siap pakai.</p>
     <span class="meta">7 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(8)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Panduan Lengkap pkg di Termux</h2>
     <p>Package manager bawaan Termux: install, remove, update, upgrade, dan bersihkan cache.</p>
     <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(7)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|GitHub|SSH">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Membuat SSH Key di Termux</h2>
     <p>Connect ke GitHub tanpa password dengan SSH key, sekali setup langsung permanen.</p>
     <span class="meta">7 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(6)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|GitHub|Backup|Cron|Git">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Backup Termux ke GitHub</h2>
     <p>Backup otomatis folder Termux ke GitHub dengan git dan cron, aman dari kehilangan data.</p>
     <span class="meta">7 Oktober 2026 &middot; 5 menit baca</span>
     <p><button onclick="buka(5)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Android|Blog|GitHub|Hosting">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Membuat Blog Gratis di HP Android dengan GitHub Pages</h2>
     <p>Panduan lengkap membuat website blog gratis langsung dari HP Android tanpa biaya hosting.</p>
     <span class="meta">6 Oktober 2026 &middot; 8 menit baca</span>
     <p><button onclick="buka(4)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cara Install Termux di HP Android (2026)</h2>
     <p>Panduan lengkap memasang Termux di HP Android, dari download sampai siap pakai.</p>
     <span class="meta">6 Oktober 2026 &middot; 7 menit baca</span>
     <p><button onclick="buka(3)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Kendalikan Program dari Telegram</h2>
     <p>Arsitektur mesin + penjadwal + antarmuka Telegram, dan jebakan yang membuat bot diam.</p>
     <span class="meta">5 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(2)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="AI|Android|Cron">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Cron Job yang Jalannya Otomatis</h2>
     <p>Scheduled task + AI agent di Android, dan apa yang bisa serta tidak bisa dilakukan.</p>
     <span class="meta">3 Oktober 2026 &middot; 6 menit baca</span>
     <p><button onclick="buka(1)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
   </li>
-  <li class="post-card" data-cat="teknologi">
+  <li class="post-card" data-cat="teknologi" data-tag="Termux|Android|Hosting">
     <span class="cat-badge cat-teknologi">Teknologi</span>
     <h2>Mulai Ngeblog dari HP Android</h2>
     <p>Cara menjalankan website statis langsung di Termux tanpa biaya hosting bulanan.</p>
@@ -765,6 +843,49 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
   <button onclick="prevPage()" id="btnPrev">&larr; Sebelumnya</button>
   <span id="pageInfo">1 / 4</span>
   <button onclick="nextPage()" id="btnNext">Berikutnya &rarr;</button>
+</div>
+
+<div class="tags-wrap">
+  <h3 class="tags-title">Main Tags</h3>
+  <ul class="tags-cloud">
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Termux')">Termux<span class="tag-count">21</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'AI')">AI<span class="tag-count">13</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Android')">Android<span class="tag-count">13</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Blog')">Blog<span class="tag-count">8</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'GitHub')">GitHub<span class="tag-count">6</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Konten')">Konten<span class="tag-count">5</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Coding')">Coding<span class="tag-count">4</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Video')">Video<span class="tag-count">4</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Backup')">Backup<span class="tag-count">3</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Cron')">Cron<span class="tag-count">3</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Hosting')">Hosting<span class="tag-count">3</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Otomasi')">Otomasi<span class="tag-count">3</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'SSH')">SSH<span class="tag-count">3</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'ChatGPT')">ChatGPT<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Digital Product')">Digital Product<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Freelance')">Freelance<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Git')">Git<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Monetisasi')">Monetisasi<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Niche')">Niche<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Presentasi')">Presentasi<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Prompt')">Prompt<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Python')">Python<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'SEO')">SEO<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Template')">Template<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'ADB')">ADB<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'AdSense')">AdSense<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Affiliate')">Affiliate<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Dropshipping')">Dropshipping<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Email Marketing')">Email Marketing<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'FFmpeg')">FFmpeg<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Linux')">Linux<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Node.js')">Node.js<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Runit')">Runit<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Social Media')">Social Media<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Tasker')">Tasker<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'UMKM')">UMKM<span class="tag-count">1</span></button></li>
+    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'YouTube')">YouTube<span class="tag-count">1</span></button></li>
+  </ul>
 </div>
 
 <article class="post" id="a49">
@@ -2863,9 +2984,9 @@ git push -u origin main</code></pre>
 
     <h2>Tips Memakai AI dengan Efektif</h2>
     <ul>
-        <li><strong>Spesifik</strong></li> &mdash; Jangan minta "tulis email", tapi "tulis email permohonan cuti ke atasan"</li>
+        <li><strong>Spesifik</strong> &mdash; Jangan minta "tulis email", tapi "tulis email permohonan cuti ke atasan"</li>
         <li><strong>Review</strong> &mdash; AI bisa salah, selalu cek hasilnya sebelum dipakai</li>
-        <li><strong>Iterasi</strong></li> &mdash; Kalau hasilnya kurang pas, minta AI untuk perbaiki</li>
+        <li><strong>Iterasi</strong> &mdash; Kalau hasilnya kurang pas, minta AI untuk perbaiki</li>
     </ul>
 
     <blockquote>AI bukan pengganti manusia, tapi alat yang bisa mempercepat pekerjaan. Pakai dengan bijak.</blockquote>
@@ -3760,14 +3881,19 @@ var currentPage = 1;
 var perPage = 5;
 var totalPages = 1;
 var activeCat = 'all';
+var activeTag = '';
 
 function getVisibleCards() {
   var cards = document.querySelectorAll('.post-card');
   var visible = [];
   cards.forEach(function(card) {
-    if (activeCat === 'all' || card.getAttribute('data-cat') === activeCat) {
-      visible.push(card);
+    var okCat = (activeCat === 'all' || card.getAttribute('data-cat') === activeCat);
+    var okTag = true;
+    if (activeTag !== '') {
+      var daftar = (card.getAttribute('data-tag') || '').split('|');
+      okTag = daftar.indexOf(activeTag) !== -1;
     }
+    if (okCat && okTag) visible.push(card);
   });
   return visible;
 }
@@ -3778,13 +3904,17 @@ function updatePagination() {
   if (totalPages === 0) totalPages = 1;
   if (currentPage > totalPages) currentPage = totalPages;
   if (currentPage < 1) currentPage = 1;
-  
+
+  // Sembunyikan SEMUA kartu dulu, baru tampilkan yang lolos filter.
+  // Tanpa ini, kartu lama yang sudah tampil tetap kelihatan saat filter diganti.
+  document.querySelectorAll('.post-card').forEach(function(card) {
+    card.style.display = 'none';
+  });
+
   visibleCards.forEach(function(card, idx) {
     var page = Math.floor(idx / perPage) + 1;
     if (page === currentPage) {
       card.style.display = '';
-    } else {
-      card.style.display = 'none';
     }
   });
   
@@ -3801,6 +3931,30 @@ function nextPage() {
     updatePagination();
     window.scrollTo(0, 0);
   }
+}
+
+function klikTag(btn, tag) {
+  var sudahAktif = btn.classList.contains('aktif');
+
+  document.querySelectorAll('.tag-item').forEach(function(el) {
+    el.classList.remove('aktif');
+  });
+
+  var input = document.getElementById('searchInput');
+
+  if (sudahAktif) {
+    activeTag = '';
+    if (input) input.value = '';
+  } else {
+    btn.classList.add('aktif');
+    activeTag = tag;
+    if (input) input.value = tag;
+  }
+  activeCat = 'all';
+  currentPage = 1;
+  buka(-1);
+  updatePagination();
+  window.scrollTo(0, 0);
 }
 
 function prevPage() {
@@ -3822,6 +3976,10 @@ function togglePostList() {
 
 function filterCat(cat, btn) {
   activeCat = cat;
+  activeTag = '';
+  document.querySelectorAll('.tag-item').forEach(function(el) {
+    el.classList.remove('aktif');
+  });
   currentPage = 1;
   updatePagination();
   
@@ -3861,6 +4019,10 @@ function searchArticles(query) {
   if (q === '') {
     // Reset ke tampilan normal
     activeCat = 'all';
+    activeTag = '';
+    document.querySelectorAll('.tag-item').forEach(function(el) {
+      el.classList.remove('aktif');
+    });
     currentPage = 1;
     updatePagination();
     return;
