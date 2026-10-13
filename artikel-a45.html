@@ -1,0 +1,55 @@
+<article class="post" id="a45">
+<h1>Cara Pakai ADB di Termux: Debug Android dari Terminal</h1>
+    <span class="meta">11 Oktober 2026 &middot; 7 menit baca</span>
+    <p>ADB (Android Debug Bridge) biasanya dipakai lewat komputer, tapi ternyata bisa juga dijalankan langsung dari Termux. Artikel ini jelaskan cara setup dan basic commands-nya.</p>
+
+<h2>Apa itu ADB?</h2>
+<p>ADB adalah tool command-line untuk komunikasi dengan Android device. Biasanya dipakai developer untuk debug, install app, dan akses terminal Android dari komputer. Ternyata, ADB client bisa jalan di Termux.</p>
+
+<h2>Install ADB di Termux</h2>
+<pre><code>pkg update
+pkg install android-tools</code></pre>
+<p>Setelah install, cek dengan:</p>
+<pre><code>adb version</code></pre>
+
+<h2>Connect ADB ke Device Android Lain</h2>
+<p>Untuk connect ke HP lain, aktifkan Developer Options dan USB Debugging di HP target. Lalu:</p>
+<pre><code>adb connect IP_ADDRESS:5555</code></pre>
+<p>Contoh:</p>
+<pre><code>adb connect 192.168.1.100:5555</code></pre>
+
+<h2>Basic ADB Commands yang Berguna</h2>
+<ul>
+<li><strong>adb devices</strong> &mdash; Liat device yang terhubung</li>
+<li><strong>adb shell</strong> &mdash; Masuk terminal remote device</li>
+<li><strong>adb install app.apk</strong> &mdash; Install aplikasi remote</li>
+<li><strong>adb pull /path/file</strong> &mdash; Download file dari device</li>
+<li><strong>adb push file /path</strong> &mdash; Upload file ke device</li>
+<li><strong>adb logcat</strong> &mdash; Liat log real-time</li>
+<li><strong>adb reboot</strong> &mdash; Restart device remote</li>
+</ul>
+
+<h2>ADB Over WiFi (Tanpa Kabel)</h2>
+<ol>
+<li>Connect HP target ke WiFi yang sama dengan Termux</li>
+<li>Di HP target: Settings - About Phone - tap Build Number 7x</li>
+<li>Developer Options - USB Debugging - Enable</li>
+<li>Wireless Debugging - Enable</li>
+<li>Di Termux: <code>adb pair IP:PORT</code> dengan pairing code</li>
+<li>Lalu <code>adb connect IP:PORT</code></li>
+</ol>
+
+<h2>Use Cases ADB dari Termux</h2>
+<ul>
+<li><strong>Debug app</strong> &mdash; Liat logcat dari HP lain</li>
+<li><strong>Backup</strong> &mdash; Pull file dari device remote</li>
+<li><strong>Install mod</strong> &mdash; Install APK tanpa transfer manual</li>
+<li><strong>Script automation</strong> &mdash; Buat script Termux yang kontrol HP lain</li>
+</ul>
+
+<blockquote>ADB di Termux membuka kemungkinan automation yang powerful. Satu HP bisa jadi remote control HP lainnya.</blockquote>
+
+<p>Mulai dari basic commands di atas, kamu bisa explore lebih jauh sesuai kebutuhan. Selamat mencoba!</p>
+
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>

@@ -1,0 +1,57 @@
+<article class="post" id="a60">
+<h1>Cara Pakai Curl di Termux: HTTP Request dari Terminal</h1>
+<span class="meta">14 Oktober 2026 · 6 menit baca</span>
+<p>curl adalah tools command-line buat ngirim HTTP request. Buat developer, sysadmin, atau siapa aja yang suka otomasi, curl itu wajib dikuasai. Dan kabar baiknya, curl bisa jalan di Termux — langsung dari HP Android kamu.</p>
+
+<h2>Apa Itu Curl?</h2>
+<p>curl adalah utilitas yang bisa ngirim dan terima data lewat berbagai protokol: HTTP, HTTPS, FTP, dan lainnya. Buat apa? Testing API, download file, submit form, scrape data — semua bisa dari terminal tanpa browser.</p>
+
+<h2>Install Curl di Termux</h2>
+<p>Kebanyakan versi Termux udah include curl. Tapi kalau belum, install gampang:</p>
+<pre><code>pkg update && pkg install curl</code></pre>
+<p>Selesai. Cek versi dengan <code>curl --version</code>.</p>
+
+<h2>Perintah Dasar Curl</h2>
+
+<h3>1. GET Request — Ambil Data</h3>
+<p>Buat ambil data dari API atau website:</p>
+<pre><code>curl https://api.example.com/data</code></pre>
+<p>Output akan muncul di terminal. Tambahkan <code>-i</code> buat lihat header response juga.</p>
+
+<h3>2. POST Request — Kirim Data</h3>
+<p>Buat submit form atau kirim data ke API:</p>
+<pre><code>curl -X POST https://api.example.com/login \
+  -H "Content-Type: application/json" \
+  -d '{"username":"asmady","password":"rahasia"}'</code></pre>
+<p><code>-X POST</code> set method, <code>-H</code> tambah header, <code>-d</code> kirim data body.</p>
+
+<h3>3. Download File</h3>
+<p>Download file langsung dari terminal:</p>
+<pre><code>curl -O https://example.com/file.zip</code></pre>
+<p><code>-O</code> simpan dengan nama asli file. Atau pakai <code>-o namafile.zip</code> buat nama custom.</p>
+
+<h3>4. Follow Redirect</h3>
+<p>Kalau URL redirect ke tempat lain, tambahkan <code>-L</code>:</p>
+<pre><code>curl -L https://short.url/abc</code></pre>
+<p>curl akan ikuti redirect sampai dapat tujuan akhir.</p>
+
+<h3>5. Save Output ke File</h3>
+<p>Alih-alih tampil di terminal, simpan langsung ke file:</p>
+<pre><code>curl https://api.example.com/data.json -o data.json</code></pre>
+<p>Berguna buat nyimpen response API buat diproses lagi.</p>
+
+<h2>Tips dan Trik</h2>
+<ul>
+<li><code>-s</code> mode silent — nggak tampil progress bar</li>
+<li><code>-v</code> verbose — lihat detail request/response, berguna buat debug</li>
+<li><code>-k</code> skip SSL verification — hati-hati, cuma buat testing</li>
+<li><code>--max-time 30</code> set timeout 30 detik</li>
+</ul>
+
+<h2>Kesalahan Umum</h2>
+<p>Paling sering: lupa escape karakter khusus di JSON. Kalau dapat error "unexpected character", cek lagi JSON body-nya. Kedua: lupa tambah header <code>Content-Type</code> saat POST data. Banyak API yang reject kalau header ini nggak ada.</p>
+
+<h2>Kesimpulan</h2>
+<p>curl adalah tools yang wajib dikuasai siapa aja yang berhubungan dengan API atau otomasi. Di Termux, kamu bisa testing API, download file, dan bikin script otomasi langsung dari HP. Mulai dari perintah dasar, terus explore — curl itu dalam dan powerful.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
