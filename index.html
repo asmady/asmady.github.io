@@ -495,6 +495,27 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
 </header>
 
 <ul class="post-list" id="postList">
+<li class="post-card" data-cat="teknologi" data-tag="Termux|Terminal|Install">
+    <span class="cat-badge cat-teknologi">Teknologi</span>
+    <h2>Zsh dan Oh My Zsh di Termux: Terminal Makin Cepat dan Keren</h2>
+    <p>Ganti shell bawaan Termux dengan Zsh plus Oh My Zsh: auto-suggestion perintah, koreksi otomatis, plugin, dan theme keren. Install 5 menit, langsung kerasa bedanya.</p>
+    <span class="meta">16 Oktober 2026 &middot; 6 menit baca</span>
+    <p><button onclick="buka(94)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="penghasilan" data-tag="Digital Product|Online">
+    <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
+    <h2>Jualan Course Online: dari Rekaman Sampai Cair</h2>
+    <p>Course online itu digital product dengan nilai jual tinggi dan margin hampir seratus persen. Pilih topik yang kamu kuasai, rekam pakai HP, lalu promosikan. Panduan lengkap dari nol.</p>
+    <span class="meta">16 Oktober 2026 &middot; 7 menit baca</span>
+    <p><button onclick="buka(93)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+  </li>
+  <li class="post-card" data-cat="ai" data-tag="AI|Otomasi|Tools">
+    <span class="cat-badge cat-ai">AI</span>
+    <h2>AI Agents: Biar AI yang Kerjain Tugasmu Sendiri</h2>
+    <p>AI agents itu otomasi tingkat lanjut: program yang bisa ambil keputusan dan eksekusi banyak langkah sendiri, dari riset sampai kirim email. Panduan lengkap bikin agent pertamamu pakai tools gratis.</p>
+    <span class="meta">16 Oktober 2026 &middot; 7 menit baca</span>
+    <p><button onclick="buka(92)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+  </li>
   <li class="post-card" data-cat="penghasilan" data-tag="Niche|Dropshipping">
     <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
     <h2>Dropshipping untuk Pemula: Jual Tanpa Stok, Tanpa Modal Besar</h2>
@@ -1141,6 +1162,135 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
   <span id="pageInfo">1 / 4</span>
   <button onclick="nextPage()" id="btnNext">Berikutnya &rarr;</button>
 </div>
+<article class="post" id="a94">
+<h1>Zsh dan Oh My Zsh di Termux: Terminal Makin Cepat dan Keren</h1>
+<span class="meta">16 Oktober 2026 &middot; 6 menit baca</span>
+<p>Kamu yang sudah biasa pasti Terminal Termux merasa cukup. Tapi kalau sudah coba Zsh, sulit balik lagi. Shell ini bikin perintah lebih cepat diketik, salah ketik dikoreksi otomatis, dan tampilannya bisa diganti sesuka hati. Ini panduan lengkap install dari nol.</p>
+<h2>Apa Itu Zsh?</h2>
+<p>Zsh adalah shell, program yang memproses perintah yang kamu ketik di Terminal. Termux pakai Bash secara default. Zsh tidak menggantikan Bash sepenuhnya — dia tetap bisa menjalankan semua perintah Bash, tapi dengan banyak fitur ekstra yang bikin kerja jadi lebih cepat.</p>
+<h2>Kenapa Pindah ke Zsh?</h2>
+<ul>
+<li><strong>Auto-suggestion</strong>: Ketik sebagian perintah, tekan panah kanan, sisanya otomatis terisi. Ini fitur andalan.</li>
+<li><strong>Koreksi otomatis</strong>: Salah ketik "gitt status" nggak masalah — Zsh bertanya maksudnya "git status".</li>
+<li><strong>Plugin dan theme</strong>: Ribuan plugin open-source, dari git integration sampai autocomplete Docker.</li>
+<li><strong>History sharing</strong>: Riwayat perintah tersimpan antar sesi dan bisa dicari dengan panah atas.</li>
+</ul>
+<h2>Cara Install Zsh di Termux</h2>
+<h3>1. Update dan Install Zsh</h3>
+<p>Buka Termux, lalu ketik satu per satu:</p>
+<p><code>pkg update &amp;&amp; pkg upgrade</code></p>
+<p><code>pkg install zsh git curl</code></p>
+<p>Proses ini butuh waktu beberapa menit tergantung koneksi. Kalau ada pertanyaan, jawab Y.</p>
+<h3>2. Jadikan Zsh Shell Utama</h3>
+<p>Command ini mengganti shell bawaan:</p>
+<p><code>chsh -s zsh</code></p>
+<p>Keluar dari Termux (swipe close), lalu buka lagi. Sekarang prompt sudah Zsh. Kalau mau cek, ketik <code>echo $SHELL</code>.</p>
+<h3>3. Install Oh My Zsh</h3>
+<p>Oh My Zsh adalah framework yang memasang plugin dan theme dengan mudah. Install dengan satu command:</p>
+<p><code>sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</code></p>
+<p>Prompt akan tampil dengan tema default. Warna-warni dan ada info git branch.</p>
+<h2>Plugin yang Wajib Dipasang</h2>
+<h3>1. zsh-autosuggestions</h3>
+<p>Plugin auto-suggestion resmi. Caranya:</p>
+<p><code>git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh_custom/plugins/zsh-autosuggestions</code></p>
+<h3>2. zsh-syntax-highlighting</h3>
+<p>Perintah yang benar tampil hijau, yang salah merah. Langsung ketahuan sebelum dieksekusi:</p>
+<p><code>git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh_custom/plugins/zsh-syntax-highlighting</code></p>
+<h3>3. Aktifkan di Konfigurasi</h3>
+<p>Edit file konfigurasi dengan <code>nano ~/.zshrc</code>. Cari baris <code>plugins=(git)</code>, ubah jadi:</p>
+<p><code>plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</code></p>
+<p>Simpan dengan Ctrl+O lalu Enter, keluar dengan Ctrl+X. Terakhir ketik <code>source ~/.zshrc</code> supaya perubahan aktif.</p>
+<h2>Tips Memaksimalkan Zsh</h2>
+<ul>
+<li><strong>Ganti theme</strong>: Edit <code>ZSH_THEME</code> di ~/.zshrc. Coba "agnoster" atau "robbyrussell" yang ringan.</li>
+<li><strong>Bikin alias</strong>: Tambahkan <code>alias ll="ls -la"</code> di ~/.zshrc supaya perintah panjang jadi pendek.</li>
+<li><strong>Pakai tab completion</strong>: Ketik sebagian nama file lalu tekan Tab — Zsh melengkapi otomatis.</li>
+<li><strong>History pencarian</strong>: Ctrl+R lalu ketik kata kunci, perintah lama langsung ketemu.</li>
+</ul>
+<h2>Kesimpulan</h2>
+<p>Zsh plus Oh My Zsh mengubah Terminal Termux dari sekadar alat jadi teman kerja. Install totalnya cuma sekitar lima menit, tapi efeknya terasa tiap hari — perintah lebih cepat, salah ketik ketahuan, dan tampilan lebih jelas. Kalau sudah mahir, lanjut bikin theme sendiri atau cek plugin lain di repositori Oh My Zsh.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+<article class="post" id="a93">
+<h1>Jualan Course Online: dari Rekaman Sampai Cair</h1>
+<span class="meta">16 Oktober 2026 &middot; 7 menit baca</span>
+<p>Course online itu salah satu digital product paling laris di internet. Kamu sekali bikin, bisa dijual berkali-kali, margin hampir seratus persen, dan pengiriman otomatis. Nggak perlu jago ngajar — yang penting kamu punya satu keahlian yang orang lain butuhkan. Ini panduan lengkap dari nol.</p>
+<h2>Kenapa Course Online?</h2>
+<ul>
+<li><strong>Nilai jual tinggi</strong>: Orang bayar untuk hasil, bukan proses. Tutorial yang dikerjakan sehari-hari bisa dijual 500 ribu sampai jutaan per paket.</li>
+<li><strong>Margin tipis biaya</strong>: Produk digital nggak ada stok, nggak ada ongkir, nggak ada rugi barang rusak.</li>
+<li><strong>Skala tanpa batas</strong>: Satu ratus atau sepuluh ribu pembeli, effort produksi tetap sama.</li>
+<li><strong>Otomatis 24 jam</strong>: Pembeli akses kapan aja, kamu tetap tidur.</li>
+</ul>
+<h2>Langkah 1: Pilih Topik yang Laris</h2>
+<p>Pilih irisan antara tiga hal: kamu kuasai, orang butuh, dan orang mau bayar. Contoh yang laku: tutorial desain grafis, cara jualan online, spreadsheet untuk kantor, editing video HP, atau coding pemula. Jangan pilih topik yang kamu sendiri belum bisa — review negatif akan menghancurkan reputasi.</p>
+<h2>Langkah 2: Buat Outline yang Jelas</h2>
+<p>Course bukan video beruntun tanpa arah. Bikin 5 sampai 10 video pendek, masing-masing 5 sampai 10 menit. Struktur: pengenalan, materi inti per bagian, studi kasus, dan tugas. Rencana yang tertulis bikin rekam jadi fokus dan nggak melantur.</p>
+<h2>Langkah 3: Rekam Pakai HP</h2>
+<p>Nggak perlu kamera mahal. Langsung dari HP Android sudah cukup:</p>
+<ul>
+<li><strong>Tripod atau tumpukan buku</strong> supaya gambar stabil</li>
+<li><strong>Mic clip-on</strong> bila perlu, atau rekam di ruangan sepi</li>
+<li><strong>Aplikasi recorder</strong>: AZ Screen Recorder buat screen recording, atau kamera HP buat talking head</li>
+<li><strong>Pencahayaan</strong>: Hadap sumber cahaya, jangan belakang cahaya</li>
+</ul>
+<p>Script tidak perlu dihafal. Buat poin-poin per video, ngobrol santai, nanti hasilnya justru lebih natural.</p>
+<h2>Langkah 4: Edit Sederhana</h2>
+<p>Pakai CapCut di HP: potong jeda, tambah teks judul, masukkan gambar pendukung, dan eksport 720p atau 1080p. Jangan overthink — yang penting suara jelas dan materi runtut.</p>
+<h2>Langkah 5: Tentukan Platform Jualan</h2>
+<ul>
+<li><strong>Udemy atau Skillshare</strong>: Gratis upload, tapi mereka potong komisi danatur harga. Cocok buat mulai dapat review.</li>
+<li><strong>Grup Telegram atau WhatsApp berbayar</strong>: Bayar sekali, dapat akses grup + file. Paling gampang mulai dari nol.</li>
+<li><strong>Landing page + payment</strong>: Bikin halaman sendiri (bisa pakai GitHub Pages), pembayaran via QRIS atau transfer, kirim akses manual atau pakai Lister.</li>
+</ul>
+<h2>Langkah 6: Harga dan Promosi</h2>
+<p>Mulai murah dulu — 50 sampai 150 ribu — untuk menarik pembeli pertama dan kumpulkan testimoni. Promosikan lewat blog, media sosial, dan komunitas yang relevan. Modul pertama bisa dibuka gratis sebagai magnet; kalau materinya bagus, naikkan harga untuk batch berikutnya.</p>
+<h2>Kesimpulan</h2>
+<p>Course online bukan monopoli guru besar. Siapa pun yang punya satu keahlian praktis bisa mengemasnya jadi produk digital. Mulai dari HP, topik yang kamu kuasai, video pendek, harga murah, kumpulkan review, lalu naikkan harga. Yang penting mulai — course pertamamu nggak harus sempurna, tapi harus selesai.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+<article class="post" id="a92">
+<h1>AI Agents: Biar AI yang Kerjain Tugasmu Sendiri</h1>
+<span class="meta">16 Oktober 2026 &middot; 7 menit baca</span>
+<p>Kalau biasa pakai AI kayak chat — tanya, jawab, selesai — AI agents itu beda level. Dia bisa ambil keputusan sendiri, mengeksekusi banyak langkah berurutan, dan menyelesaikan pekerjaan utuh tanpa kamu temani tiap detiknya. Ini panduan lengkap memahami dan bikin agent pertamamu.</p>
+<h2>Apa Bedanya AI Biasa dan AI Agent?</h2>
+<p>AI biasa responsif: kamu tanya, dia jawab, selesai. AI agent proaktif: dikasih tujuan, dia pecah jadi langkah-langkah, pilih tools yang perlu, eksekusi, cek hasil, dan lanjut sendiri sampai tuntas. Contoh sederhana: "Riset 10 artikel tentang topik X, rangkum poinnya, tulis jadi laporan, kirim ke email saya sore ini." Chat biasa butuh kamu ulangi tiap langkah. Agent kerjain semuanya.</p>
+<h2>Contoh Nyata Agent di Dunia Kerja</h2>
+<ul>
+<li><strong>Riset otomatis</strong>: Agent baca puluhan sumber, rangkum jadi brief, kirim tiap pagi.</li>
+<li><strong>Screening CV</strong>: Agent baca lamaran, cocokkan dengan kriteria, susun shortlist.</li>
+<li><strong>Laporan mingguan</strong>: Agent ambil data, hitung angka, tulis laporan, kirim ke grup.</li>
+<li><strong>Bot pelanggan</strong>: Agent jawab pertanyaan, cek stok, dan buka tiket kalau perlu.</li>
+<li><strong>Content assistant</strong>: Agent cari topik tren, draf artikel, jadwalkan posting.</li>
+</ul>
+<h2>Tools Bikin Agent Tanpa Coding Berat</h2>
+<h3>1. GPTs atau Assistant Berinstruction</h2>
+<p>Buat assistant dengan system prompt yang jelas: tugas, batasan, format output, tools yang dipakai. Cocok untuk agent sederhana yang berbasis teks.</p>
+<h3>2. Zapier Agents atau Make</h2>
+<p>Platform automation yang punya fitur agent: sambungkan ke email, spreadsheet, dan API, lalu atur alurnya lewat antarmuka visual. Kalau kamu sudah pakai Zapir atau Make buat workflow, tinggal tambah langkah AI.</p>
+<h3>3. Flowise atau Langflow</h2>
+<p>Open-source, bisa self-hosting di server. Kamu susun node: LLM, tools, memory, lalu deploy sebagai API. Lebih bebas, cocok yang mau kontrol penuh.</p>
+<h2>Langkah Bikin Agent Pertama</h2>
+<p>Mulai dari tugas kecil yang jelas. Contoh: agent kirim ringkasan berita harian ke Telegram.</p>
+<h3>1. Tentukan Tujuan dan Batasan</h3>
+<p>Ringkas: kategori berita, jumlah sumber, format ringkasan, dan jam kirim. Batasin supaya agent nggak nyebar ke topik lain.</p>
+<h3>2. Pilih Tools</h3>
+<p>Agent ini butuh tiga tools: web search atau RSS untuk ambil berita, LLM untuk merangkum, dan Telegram API untuk kirim.</p>
+<h3>3. Susun Prompt Kerja</h3>
+<p>Tulis instruksi tetap: "Ambil 5 berita terbaru kategori X dari sumber terpercaya. Rangkum maksimal 5 poin per berita. Jangan opini. Kirim ke chat Y."</p>
+<h3>4. Jadwalkan dan Uji</h3>
+<p>Pakai cron atau scheduler agent. Jalankan seminggu, periksa hasilnya. Kalau ada yang melenceng — sumber salah, format berubah — perbaiki instruksinya.</p>
+<h2>Batas dan Etika yang Wajib Diingat</h2>
+<ul>
+<li><strong>Selalu verifikasi output</strong>: Agent bisa salah atau halusi, jadi cek hasil penting sebelum dipakai.</li>
+<li><strong>Jangan serahkan data sensitif</strong>: Agent butuh akses, tapi batasi apa yang boleh dia baca dan kirim.</li>
+<li><strong>Awasi biaya</strong>: Agent yang jalan terus-menerus memakai token API — batasi frekuensi dan volume.</li>
+<li><strong>Batasi kewenangan</strong>: Agent boleh draft, tapi keputusan akhir tetap di tangan manusia.</li>
+</ul>
+<h2>Kesimpulan</h2>
+<p>AI agents bukan lagi konsep masa depan — sekarang sudah dipakai di banyak pekerjaan. Dengan tools yang ada, siapa pun bisa bikin agent sederhana dalam sehari. Kunci satu: mulai dari tugas kecil yang terukur, batasi cakupannya, evaluasi hasilnya. Begitu jalan, tambah tugas satu per satu. Dalam setahun, agent bisa jadi asisten paling rajin di timmu.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
 <article class="post" id="a91">
 <h1>Dropshipping untuk Pemula: Jual Tanpa Stok, Tanpa Modal Besar</h1>
 <span class="meta">16 Oktober 2026 &middot; 7 menit baca</span>
@@ -2820,23 +2970,24 @@ git clone https://github.com/junegunn/vim-easy-align.git " Ga align teks (gaip)
 <div class="tags-wrap">
   <h3 class="tags-title">Main Tags</h3>
   <ul class="tags-cloud">
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Termux')">Termux<span class="tag-count">32</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'AI')">AI<span class="tag-count">25</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Termux')">Termux<span class="tag-count">33</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'AI')">AI<span class="tag-count">26</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Android')">Android<span class="tag-count">24</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Blog')">Blog<span class="tag-count">16</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Tools')">Tools<span class="tag-count">15</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Install')">Install<span class="tag-count">13</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Terminal')">Terminal<span class="tag-count">12</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Tools')">Tools<span class="tag-count">16</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Install')">Install<span class="tag-count">14</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Terminal')">Terminal<span class="tag-count">13</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Konten')">Konten<span class="tag-count">10</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Bisnis')">Bisnis<span class="tag-count">7</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Otomasi')">Otomasi<span class="tag-count">7</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'GitHub')">GitHub<span class="tag-count">6</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Monetisasi')">Monetisasi<span class="tag-count">6</span></button></li>
-    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Otomasi')">Otomasi<span class="tag-count">6</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Video')">Video<span class="tag-count">6</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Backup')">Backup<span class="tag-count">5</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Affiliate')">Affiliate<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Coding')">Coding<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Cron')">Cron<span class="tag-count">4</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Digital Product')">Digital Product<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Freelance')">Freelance<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Hosting')">Hosting<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Niche')">Niche<span class="tag-count">4</span></button></li>
@@ -2846,12 +2997,12 @@ git clone https://github.com/junegunn/vim-easy-align.git " Ga align teks (gaip)
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'SSH')">SSH<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'AdSense')">AdSense<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'ChatGPT')">ChatGPT<span class="tag-count">3</span></button></li>
-    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Digital Product')">Digital Product<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Prompt')">Prompt<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Skill')">Skill<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Dropshipping')">Dropshipping<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Git')">Git<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Linux')">Linux<span class="tag-count">2</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Online')">Online<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Social Media')">Social Media<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Template')">Template<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'YouTube')">YouTube<span class="tag-count">2</span></button></li>
@@ -2861,7 +3012,6 @@ git clone https://github.com/junegunn/vim-easy-align.git " Ga align teks (gaip)
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'JSON')">JSON<span class="tag-count">1</span></button></li>
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Modal Nol')">Modal Nol<span class="tag-count">1</span></button></li>
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Node.js')">Node.js<span class="tag-count">1</span></button></li>
-    <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Online')">Online<span class="tag-count">1</span></button></li>
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Runit')">Runit<span class="tag-count">1</span></button></li>
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'Tasker')">Tasker<span class="tag-count">1</span></button></li>
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'UMKM')">UMKM<span class="tag-count">1</span></button></li>
