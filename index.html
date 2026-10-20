@@ -495,6 +495,27 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
 </header>
 
 <ul class="post-list" id="postList">
+<li class="post-card" data-cat="penghasilan" data-tag="Android|Monetisasi|Platform|Skill|Online">
+<span class="cat-badge cat-penghasilan">Penghasilan Online</span>
+<h2>Kursus Online: Jual Ilmu dan Skill dengan Platform Kursus</h2>
+<p>Bikin sekali, jual berkali-kali. Kursus online adalah cara terbaik monetisasi expertise yang scalable — mulai dari HP Android.</p>
+<span class="meta">20 Oktober 2026 &middot; 6 menit baca</span>
+<p><button onclick="buka(127)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+</li>
+<li class="post-card" data-cat="teknologi" data-tag="Termux|Android|Database">
+<span class="cat-badge cat-teknologi">Teknologi</span>
+<h2>Redis di Termux: Database In-Memory untuk Cache dan Queue</h2>
+<p>Redis adalah database in-memory super cepat untuk cache, session, queue — bisa jalan di HP Android lewat Termux.</p>
+<span class="meta">20 Oktober 2026 &middot; 7 menit baca</span>
+<p><button onclick="buka(126)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+</li>
+<li class="post-card" data-cat="ai" data-tag="AI|Android|Video|Video">
+<span class="cat-badge cat-ai">AI</span>
+<h2>AI untuk Video Editing: Edit Video Otomatis dalam Hitungan Menit</h2>
+<p>Upload footage mentah, minta AI potong bagian terbaik, tambahkan subtitle, transisi, dan voiceover — semua otomatis dari HP Android.</p>
+<span class="meta">20 Oktober 2026 &middot; 6 menit baca</span>
+<p><button onclick="buka(125)" style="background:none;border:none;color:var(--accent-deep);cursor:pointer;font-size:14px;padding:0;font-family:inherit;font-weight:500">Baca artikel &rarr;</button></p>
+</li>
 <li class="post-card" data-cat="penghasilan" data-tag="Online">
 <span class="cat-badge cat-penghasilan">Penghasilan Online</span>
 <h2>Coaching Online: Jual Expertise Kamu sebagai Layanan 1-on-1</h2>
@@ -1336,6 +1357,57 @@ nav.toc button:hover { border-color: var(--accent-deep); color: var(--accent-dee
   <span id="pageInfo">1 / 25</span>
   <button onclick="nextPage()" id="btnNext">Berikutnya &rarr;</button>
 </div>
+<article class="post" id="a127">
+<h1>Kursus Online: Jual Ilmu dan Skill dengan Platform Kursus</h1>
+<span class="meta">20 Oktober 2026 &middot; 6 menit baca</span>
+<p>Pengetahuan yang kamu punya bisa jadi sumber penghasilan yang scalable. Daripada coaching 1-on-1 yang bounded by time, kursus online bisa dijual ke banyak orang sekaligus tanpa tambahan waktu. Kamu bikin sekali, jual berkali-kali. Dari HP Android pun bisa mulai.</p>
+<h2>Kenapa Kursus Online Lebih Menarik dari Coaching?</h2>
+<p>Coaching 1-on-1: kamu dibayar per jam, tapi waktu terbatas. Kursus online: kamu bikin konten sekali, jual ke 1000 orang sekaligus. Margin lebih besar, lebih scalable, dan tidak terikat jam kerja. Siswa bisa belajar sesuai jadwal masing-masing.</p>
+<h2>Platform Kursus Online</h2>
+<p>Untuk pemula: Udemy (gratis mulai, potong 3-50%), Skillshare (subscription-based), atau Gumroad (jual langsung, potong 10%). Untuk Indonesia: Sekolah Koding, BuildWithAngga, atau platform sendiri dengan WordPress + LMS plugin. Gumroad paling mudah untuk mulai — cukup upload video dan PDF.</p>
+<h2>Membuat Kursus dari HP Android</h2>
+<p>Langkah pertama: tentukan topik yang kamu kuasai dan banyak dicari. Contoh: "Python untuk pemula", "SEO untuk blogger", "Desain logo dengan Canva". Kedua: record video dengan HP — gunakan screen recording untuk tutorial software, atau depan kamera untuk presentasi. Ketiga: edit dengan CapCut. Keempat: upload ke platform.</p>
+<h2>Harga dan Strategi Jual</h2>
+<p>Mulai dari harga murah (Rp 25.000-50.000) untuk dapat review dan testimoni. Setelah 50 review, naikkan harga. Buat versi gratis (1-2 video) sebagai funnel. Promosi via blog, YouTube, dan sosial media. Email list untuk repeat customer.</p>
+<h2>Kesimpulan</h2>
+<p>Kursus online adalah cara terbaik untuk monetisasi expertise yang scalable. Tentukan topik, record dari HP, upload ke platform, promosi konsisten. Dari nol sampai penghasilan pertama bisa dalam 30 hari.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+<article class="post" id="a126">
+<h1>Redis di Termux: Database In-Memory untuk Cache dan Queue</h1>
+<span class="meta">20 Oktober 2026 &middot; 7 menit baca</span>
+<p>Redis adalah database in-memory yang super cepat — dipakai untuk cache, session storage, message queue, dan real-time analytics. Biasanya dipakai di server, tapi ternyata bisa jalan di HP Android lewat Termux. Ini memungkinkan kamu belajar dan bereksperimen dengan Redis langsung dari genggaman.</p>
+<h2>Kenapa Redis dan Bukan SQLite?</h2>
+<p>SQLite adalah database disk-based — data disimpan ke file. Redis adalah in-memory — data disimpan di RAM, jadi baca-tulis 10x lebih cepat. Redis cocok untuk cache, session, queue, dan data yang tidak perlu persisten. SQLite cocok untuk data yang perlu disimpan permanen dalam satu file.</p>
+<h2>Instalasi Redis di Termux</h2>
+<p>Redis tidak tersedia langsung di repo Termux. Cara termudah: install melalui proot-distro. Jalankan: pkg install proot-distro, lalu proot-distro install ubuntu. Setelah itu masuk ke Ubuntu: proot-distro login ubuntu. Di dalam Ubuntu, install Redis: apt update && apt install redis-server.</p>
+<h2>Menjalankan Redis Server</h2>
+<p>Di dalam proot Ubuntu, jalankan: redis-server --daemonize yes. Redis akan berjalan di port 6379. Untuk koneksi, jalankan: redis-cli. Sekarang kamu bisa mulai masukin perintah Redis.</p>
+<h2>Perintah Dasar Redis</h2>
+<p>SET nama "Ardi" — simpan key-value. GET nama — ambil value. LPUSH antrian tugas — tambah ke list. LRANGE antrian 0 -1 — lihat semua item. EXPIRE session 3600 — set TTL. DEL hapus — hapus key. Semua perintah ini jalan instan karena data di RAM.</p>
+<h2>Praktik dari HP Android</h2>
+<p>Gunakan Redis untuk belajar konsep cache, queue, dan session storage. Buat project sederhana: sistem antrian tugas atau session login. Redis di Termux memberi kamu environment belajar yang sama persis dengan production server.</p>
+<h2>Kesimpulan</h2>
+<p>Redis adalah skill wajib untuk backend developer. Belajar Redis dari HP Android membuat kamu siap untuk pekerjaan server-side. Mulai dengan perintah dasar, lalu eksplorasi use-case yang lebih kompleks.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+<article class="post" id="a125">
+<h1>AI untuk Video Editing: Edit Video Otomatis dalam Hitungan Menit</h1>
+<span class="meta">20 Oktober 2026 &middot; 6 menit baca</span>
+<p>Edit video itu identik dengan jam-jam duduk di depan komputer, trim frame, cari transisi, tambah teks, export lama. Tapi sekarang AI mengubah semua itu. Kamu bisa upload footage mentah, minta AI potong bagian terbaik, tambahkan subtitle otomatis, beri transisi, bahkan generate voiceover — semuanya dalam hitungan menit, langsung dari HP Android.</p>
+<h2>Masalah Edit Video Manual</h2>
+<p>Editing video manual butuh skill, waktu, dan software mahal. Bagi pemula, belajar DaVinci Resolve atau Premiere butuh bulan. Hasilnya pun belum tentu sesuai ekspektasi. Banyak yang menyerah di tengah jalan karena terlalu kompleks.</p>
+<h2>Tools AI untuk Video Editing</h2>
+<p>Beberapa tools AI yang bisa diakses gratis dari browser: CapCut (AI auto-caption, smart cut), Pika Labs (generate video dari text), InVideo AI (text-to-video), dan Descript (edit video seperti edit dokumen — hapus kata, hapus bagian video). Semua punya versi gratis yang cukup untuk pemula.</p>
+<h2>Cara Kerja AI Video Editor</h2>
+<p>Prinsipnya sederhana: kamu upload video mentah, AI analisis isinya — deteksi wajah, transisi scene, audio, dan objek. Lalu kamu kasih instruksi: "Potong bagian jeda", "Tambahkan subtitle Indonesia", "Buat versi pendek 30 detik untuk TikTok". AI eksekusi semuanya otomatis.</p>
+<h2>Workflow dari HP Android</h2>
+<p>Buka browser, akses CapCut atau InVideo. Upload footage. Minta AI generate subtitle. Pilih template yang sesuai. Export. Upload ke YouTube, TikTok, atau Instagram. Total waktu: 15-30 menit untuk video 5 menit.</p>
+<h2>Kesimpulan</h2>
+<p>AI tidak menggantikan kreativitas — AI menghapus pekerjaan teknis yang memakan waktu. Gunakan AI untuk editing dasar, lalu tambahkan sentuhan pribadi. Skill editing tetap penting, tapi AI membuat kurva belajar jadi lebih landai.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>
+
 <article class="post" id="a122">
 <h1>AI untuk Resume dan Cover Letter: Buat CV yang Lolos ATS dalam Hitungan Menit</h1>
 <span class="meta">20 Oktober 2026 &middot; 6 menit baca</span>
@@ -3836,25 +3908,26 @@ git clone https://github.com/junegunn/vim-easy-align.git " Ga align teks (gaip)
 <div class="tags-wrap">
   <h3 class="tags-title">Main Tags</h3>
   <ul class="tags-cloud">
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Termux')">Termux<span class="tag-count">43</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'AI')">AI<span class="tag-count">36</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Android')">Android<span class="tag-count">31</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Termux')">Termux<span class="tag-count">44</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'AI')">AI<span class="tag-count">37</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Android')">Android<span class="tag-count">34</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Tools')">Tools<span class="tag-count">21</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Video')">Video<span class="tag-count">18</span></button></li>
+    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Video')">Video<span class="tag-count">18</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Blog')">Blog<span class="tag-count">16</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Terminal')">Terminal<span class="tag-count">16</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Video')">Video<span class="tag-count">16</span></button></li>
-    <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Video')">Video<span class="tag-count">16</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Install')">Install<span class="tag-count">15</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Konten')">Konten<span class="tag-count">13</span></button></li>
     <li><button class="tag-item" data-size="4" onclick="klikTag(this, 'Otomasi')">Otomasi<span class="tag-count">10</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Bisnis')">Bisnis<span class="tag-count">8</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'GitHub')">GitHub<span class="tag-count">8</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Monetisasi')">Monetisasi<span class="tag-count">8</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Server')">Server<span class="tag-count">8</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Linux')">Linux<span class="tag-count">7</span></button></li>
-    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Monetisasi')">Monetisasi<span class="tag-count">7</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Platform')">Platform<span class="tag-count">7</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Backup')">Backup<span class="tag-count">6</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Niche')">Niche<span class="tag-count">6</span></button></li>
-    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Platform')">Platform<span class="tag-count">6</span></button></li>
+    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Skill')">Skill<span class="tag-count">6</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Coding')">Coding<span class="tag-count">5</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Cron')">Cron<span class="tag-count">5</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Desain')">Desain<span class="tag-count">5</span></button></li>
@@ -3864,22 +3937,21 @@ git clone https://github.com/junegunn/vim-easy-align.git " Ga align teks (gaip)
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Python')">Python<span class="tag-count">5</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'SEO')">SEO<span class="tag-count">5</span></button></li>
     <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'SSH')">SSH<span class="tag-count">5</span></button></li>
-    <li><button class="tag-item" data-size="3" onclick="klikTag(this, 'Skill')">Skill<span class="tag-count">5</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Affiliate')">Affiliate<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Hosting')">Hosting<span class="tag-count">4</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Online')">Online<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Presentasi')">Presentasi<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Template')">Template<span class="tag-count">4</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'AdSense')">AdSense<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Automation')">Automation<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'ChatGPT')">ChatGPT<span class="tag-count">3</span></button></li>
+    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Database')">Database<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Git')">Git<span class="tag-count">3</span></button></li>
-    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Online')">Online<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Pendapatan')">Pendapatan<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Social Media')">Social Media<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Writing')">Writing<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'YouTube')">YouTube<span class="tag-count">3</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Creator')">Creator<span class="tag-count">2</span></button></li>
-    <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Database')">Database<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Dropshipping')">Dropshipping<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="2" onclick="klikTag(this, 'Email Marketing')">Email Marketing<span class="tag-count">2</span></button></li>
     <li><button class="tag-item" data-size="1" onclick="klikTag(this, 'ADB')">ADB<span class="tag-count">1</span></button></li>
