@@ -1,0 +1,18 @@
+<article class="post" id="a126">
+<h1>Redis di Termux: Database In-Memory untuk Cache dan Queue</h1>
+<span class="meta">20 Oktober 2026 &middot; 7 menit baca</span>
+<p>Redis adalah database in-memory yang super cepat — dipakai untuk cache, session storage, message queue, dan real-time analytics. Biasanya dipakai di server, tapi ternyata bisa jalan di HP Android lewat Termux. Ini memungkinkan kamu belajar dan bereksperimen dengan Redis langsung dari genggaman.</p>
+<h2>Kenapa Redis dan Bukan SQLite?</h2>
+<p>SQLite adalah database disk-based — data disimpan ke file. Redis adalah in-memory — data disimpan di RAM, jadi baca-tulis 10x lebih cepat. Redis cocok untuk cache, session, queue, dan data yang tidak perlu persisten. SQLite cocok untuk data yang perlu disimpan permanen dalam satu file.</p>
+<h2>Instalasi Redis di Termux</h2>
+<p>Redis tidak tersedia langsung di repo Termux. Cara termudah: install melalui proot-distro. Jalankan: pkg install proot-distro, lalu proot-distro install ubuntu. Setelah itu masuk ke Ubuntu: proot-distro login ubuntu. Di dalam Ubuntu, install Redis: apt update && apt install redis-server.</p>
+<h2>Menjalankan Redis Server</h2>
+<p>Di dalam proot Ubuntu, jalankan: redis-server --daemonize yes. Redis akan berjalan di port 6379. Untuk koneksi, jalankan: redis-cli. Sekarang kamu bisa mulai masukin perintah Redis.</p>
+<h2>Perintah Dasar Redis</h2>
+<p>SET nama "Ardi" — simpan key-value. GET nama — ambil value. LPUSH antrian tugas — tambah ke list. LRANGE antrian 0 -1 — lihat semua item. EXPIRE session 3600 — set TTL. DEL hapus — hapus key. Semua perintah ini jalan instan karena data di RAM.</p>
+<h2>Praktik dari HP Android</h2>
+<p>Gunakan Redis untuk belajar konsep cache, queue, dan session storage. Buat project sederhana: sistem antrian tugas atau session login. Redis di Termux memberi kamu environment belajar yang sama persis dengan production server.</p>
+<h2>Kesimpulan</h2>
+<p>Redis adalah skill wajib untuk backend developer. Belajar Redis dari HP Android membuat kamu siap untuk pekerjaan server-side. Mulai dengan perintah dasar, lalu eksplorasi use-case yang lebih kompleks.</p>
+<p><em>Dihasilkan oleh Chacha</em></p>
+</article>

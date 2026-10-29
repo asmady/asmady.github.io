@@ -1,0 +1,23 @@
+<article class="post" id="a141">
+<h1>Cara Pakai Ngrok di Termux: Bikin Server HP Android Bisa Diakses dari Internet</h1>
+<span class="meta">24 Oktober 2026 &middot; 6 menit baca</span>
+<p>Pernah bikin web server di HP Android lalu bingung cara membukanya dari laptop atau HP teman? Masalahnya sederhana: HP yang tersambung ke jaringan seluler tidak punya alamat publik, jadi server yang jalan di dalamnya tidak bisa dijangkau dari luar. Ngrok menyelesaikan itu dengan membuat terowongan dari server lokalmu ke internet.</p>
+<h2>Apa yang Dilakukan Ngrok</h2>
+<p>Ngrok berjalan sebagai jembatan. Di satu sisi dia mendengarkan di alamat lokal seperti 127.0.0.1:3000, dan di sisi lain dia punya alamat publik yang bisa dibuka siapa pun di internet. Ketika ada permintaan masuk ke alamat publik, ngrok meneruskannya ke server yang sedang jalan di HP kamu, lalu mengembalikan jawabannya.</p>
+<p>Karena kerjaannya hanya meneruskan, kamu tidak perlu mengubah pengaturan router atau membayar hosting. Server tetap berjalan di Termux seperti biasa.</p>
+<h2>Langkah Pemasangan</h2>
+<p>Pemasangannya cepat. Pertama daftarkan akun gratis di situs ngrok untuk mendapatkan token. Lalu pasang paketnya di Termux dengan pkg install ngrok. Setelah terpasang, jalankan perintah ngrok config add-authtoken diikuti token dari akunmu. Token ini wajib, tanpa dia ngrok tidak mau jalan.</p>
+<p>Langkah terakhir adalah membukanya. Jalankan server lokalmu lebih dulu, misalnya di port 3000, lalu di tab Termux lain jalankan ngrok http 3000. Dalam beberapa detik akan muncul satu baris alamat yang dimulai dengan https dan diikuti rangkaian huruf acak. Alamat itu adalah alamat publik servermu.</p>
+<h2>Membaca Hasilnya</h2>
+<p>Layar ngrok menampilkan dua hal penting. Yang pertama adalah alamat publik, yang bisa kamu salin dan kirim ke siapa pun. Yang kedua adalah tabel log yang mencatat setiap permintaan masuk, lengkap dengan statusnya. Lihat tabel itu untuk memastikan server lokalmu benar-benar merespons, bukan hanya ngrok yang jalan.</p>
+<p>Kalau kamu ingin tahu lebih detail, buka alamat 127.0.0.1:4040 di browser HP. Halaman itu adalah dasbor ngrok yang menampilkan semua permintaan, isi jawaban, dan header yang lewat. Sangat berguna saat sesuatu tidak berjalan seperti yang diharapkan.</p>
+<h2>Pakai untuk Webhook</h2>
+<p>Kegunaan paling umum dari ngrok adalah menerima webhook. Banyak layanan, misalnya pembayaran atau bot, perlu mengirim data ke alamat yang bisa diakses internet. Saat kamu masih mengembangkan, server yang belum online itu menyulitkan. Dengan ngrok, server lokal di HP langsung bisa menerima kiriman itu, lalu kamu lihat hasilnya di dasbor.</p>
+<p>Alamat gratisan berubah setiap kali ngrok dijalankan ulang. Untuk pekerjaan yang butuh alamat tetap, gunakan opsi reservasi di akun, atau cukup catat setiap kali kamu memulai ulang.</p>
+<h2>Batasan yang Perlu Diketahui</h2>
+<p>Versi gratis punya beberapa batasan yang wajar untuk dipahami. Jumlah koneksi bersamaan terbatas, alamat berubah setiap kali dijalankan ulang, dan ada batas jumlah permintaan dalam satu bulan. Untuk pengembangan dan uji coba, itu lebih dari cukup. Untuk layanan yang dipakai orang banyak setiap hari, pindah ke server hosting biasa jauh lebih masuk akal.</p>
+<p>Satu hal yang penting: siapa pun yang punya alamat publik itu bisa mengakses servermu. Kalau servernya menampilkan data pribadi, tambahkan kata sandi atau token pemeriksaan sebelum dibuka ke internet.</p>
+<h2>Kesimpulan</h2>
+<p>Ngrok adalah cara tercepat membuka server lokal di HP Android ke internet. Tinggal pasang paketnya, masukkan token, jalankan server lokal, lalu ngrok http diikuti nomor port. Selesai. Untuk pengembangan, pengujian webhook, dan menunjukkan hasil kerja ke orang lain, cara ini menghemat waktu dan biaya.</p>
+
+<p><em>Dihasilkan oleh Chacha</em></p></article>
