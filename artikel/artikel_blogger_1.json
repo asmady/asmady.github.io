@@ -1,1 +1,38 @@
-{"judul":"Gemini AI Kini Bisa Dipakai Guru Indonesia, Apa Dampaknya untuk Kelas Digital?","kategori":"teknologi","ringkasan":"Google meluncurkan pelatihan Gemini AI untuk pendidik Indonesia, mengubah cara pembelajaran digitasikan di sekolah.","gambar":"https://picsum.photos/seed/gemini/800/450","paragraf":["Google meluncurkan program pelatihan Gemini AI khusus untuk guru Indonesia guna meningkatkan kualitas pembelajaran digital. Program ini bertujuan membantu pendidik memanfaatkan kecerdasan buatan dalam menyusun materi dan evaluasi siswa.","Dengan dukungan AI, guru bisa menyusun rencana pembelajaran yang lebih personal sesuai kemampuan tiap siswa. Ini bisa mengurangi beban administrasi dan meningkatkan interaksi di kelas."],"subjudul":["Pelatihan Gemini untuk Guru","Dampak di Kelas","Tantangan Implementasi"],"faq":[{"t":"Apa itu Gemini AI?","j":"Gemini adalah model AI generatif dari Google yang bisa memproses teks, gambar, dan kode."},{"t":"Apakah gratis?","j":"Program pelatihan mendukung akses dasar; fitur lanjutan mungkin memerlukan langganan."}],"kata_kunci":["Gemini","AI","Pendidikan","Digital"],"sumber":[{"judul":"Tingkatkan Kualitas Pembelajaran Digital, MAN 3 Kerinci Gelar Pelatihan Gemini AI","nama":"MAN 3 Kerinci","link":"https://news.google.com/rss/articles/CBMiwwFBVV95cUxPSEp0SGNUUFd0dm4wZFNDSUp1MGRqNmQ4WDRwSWNXT0RhRUI4cm5jQ01nVGVOWUNuTmN1NGpscGlZRDVKajduck1HZVpTNC1SVFZZSzFoWUUxM0ZtWWUxbUEtUmJRUVMwUXBuODNqX1loVFMxZTFiTktYRFdZSVJXRTIyZEVFT2RQREhWejBsMTlpWWtZSk1fZTJfdjlILWE4bXhHZnd1NTBYMnpnUVA3dmU5MHlBRmw2WE9BV1RKcXJYZ1U"}]}
+{
+  "judul": "Gemini AI Kini Bisa Dipakai Guru Indonesia, Apa Dampaknya untuk Kelas Digital?",
+  "kategori": "teknologi",
+  "ringkasan": "Google meluncurkan pelatihan Gemini AI untuk pendidik Indonesia, mengubah cara pembelajaran digitasikan di sekolah.",
+  "gambar": "https://picsum.photos/seed/gemini/800/450",
+  "paragraf": [
+    "Google meluncurkan program pelatihan Gemini AI khusus untuk guru Indonesia guna meningkatkan kualitas pembelajaran digital. Program ini bertujuan membantu pendidik memanfaatkan kecerdasan buatan dalam menyusun materi dan evaluasi siswa.",
+    "Dengan dukungan AI, guru bisa menyusun rencana pembelajaran yang lebih personal sesuai kemampuan tiap siswa. Ini bisa mengurangi beban administrasi dan meningkatkan interaksi di kelas."
+  ],
+  "subjudul": [
+    "Pelatihan Gemini untuk Guru",
+    "Dampak di Kelas",
+    "Tantangan Implementasi"
+  ],
+  "faq": [
+    {
+      "t": "Apa itu Gemini AI?",
+      "j": "Gemini adalah model AI generatif dari Google yang bisa memproses teks, gambar, dan kode."
+    },
+    {
+      "t": "Apakah gratis?",
+      "j": "Program pelatihan mendukung akses dasar; fitur lanjutan mungkin memerlukan langganan."
+    }
+  ],
+  "kata_kunci": [
+    "Gemini",
+    "AI",
+    "Pendidikan",
+    "Digital"
+  ],
+  "sumber": [
+    {
+      "judul": "Tingkatkan Kualitas Pembelajaran Digital, MAN 3 Kerinci Gelar Pelatihan Gemini AI",
+      "nama": "MAN 3 Kerinci",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPSEp0SGNUUFd0dm4wZFNDSUp1MGRqNmQ4WDRwSWNXT0RhRUI4cm5jQ01nVGVOWUNuTmN1NGpscGlZRDVKajduck1HZVpTNC1SVFZZSzFoWUUxM0ZtWWUxbUEtUmJRUVMwUXBuODNqX1loVFMxZTFiTktYRFdZSVJXRTIyZEVFT2RQREhWejBsMTlpWWtZSk1fZTJfdjlILWE4bXhHZnd1NTBYMnpnUVA3dmU5MHlBRmw2WE9BV1RKcXJYZ1U"
+    }
+  ]
+}
