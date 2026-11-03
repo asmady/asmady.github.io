@@ -1,0 +1,2 @@
+/data/data/com.termux/files/home/blog-repo/artikel/artikel_blogger_1.json
+/data/data/com.termux/files/home/blog-repo/artikel/artikel_blogger_2.json
